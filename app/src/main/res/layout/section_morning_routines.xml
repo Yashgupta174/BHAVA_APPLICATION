@@ -31,6 +31,7 @@
             <!-- Routine Card 1 -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="240dp"
+                android:id="@+id/card_daily_pooja"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="6dp"
@@ -97,6 +98,7 @@
             <!-- Routine Card 2 -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="240dp"
+                android:id="@+id/card_meditation"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="6dp"
@@ -163,6 +165,7 @@
             <!-- Routine Card 3 -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="240dp"
+                android:id="@+id/card_pranayama"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="6dp"
