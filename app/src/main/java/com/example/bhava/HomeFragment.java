@@ -49,12 +49,47 @@ public class HomeFragment extends Fragment {
             openDetailMorningRoutineFragment( "Pranayama");
         });
 
+        // 🔹 Daily Practise Daily Pooja Card Click
+        view.findViewById(R.id.card_daily_practise_daily_pooja).setOnClickListener(v -> {
+            openDetailMorningRoutineFragment( "Daily Practise Daily Pooja");
+        });
+
+        // 🔹 Daily Practise Mantra Chanting Card Click
+        view.findViewById(R.id.card_daily_practise_mantra_chanting).setOnClickListener(v -> {
+            openDetailMorningRoutineFragment( "Daily Practise Mantra Chanting");
+        });
+
+        // 🔹 Daily Practise Yoga Practise Card Click
+        view.findViewById(R.id.card_daily_practise_yoga_practice).setOnClickListener(v -> {
+            openDetailDailyPractiseFragment( "Daily Practise Yoga Practice");
+        });
+
+
+
 
 
 
 
 
         return view;
+    }
+
+    private void openDetailDailyPractiseFragment(String title) {
+        Detailed_Daily_Practices_Fragment fragment =
+                new Detailed_Daily_Practices_Fragment();
+
+        Bundle bundle = new Bundle();
+        // which card clicked
+        bundle.putString("title", title);   // optional (for UI)
+
+        fragment.setArguments(bundle);
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
+
     }
 
     private void openDetailMorningRoutineFragment(String title) {

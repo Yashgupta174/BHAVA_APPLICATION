@@ -58,7 +58,7 @@
 
             <!-- Card 1: Daily Pooja -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_daily_pooja"
+                android:id="@+id/card_daily_practise_daily_pooja"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
@@ -161,7 +161,7 @@
 
             <!-- Card 2: Mantra Chanting -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_mantra_chanting"
+                android:id="@+id/card_daily_practise_mantra_chanting"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
@@ -273,7 +273,7 @@
 
             <!-- Card 3: Yoga Practice -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_yoga_practice"
+                android:id="@+id/card_daily_practise_yoga_practice"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
