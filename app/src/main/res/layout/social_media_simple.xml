@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simple Social Media Links - Horizontal -->
+<!-- Place in: res/layout/social_media_simple.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:padding="20dp"
+    android:background="@color/bhava_background">
+
+    <!-- Instagram -->
+    <ImageView
+        android:id="@+id/instagramIcon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_instagram"
+        android:padding="12dp"
+        android:background="@drawable/instagram_gradient"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Follow us on Instagram"/>
+
+    <!-- Facebook -->
+    <ImageView
+        android:id="@+id/facebookIcon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_facebook"
+        android:padding="12dp"
+        android:background="@drawable/facebook_background"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Follow us on Facebook"/>
+
+    <!-- YouTube -->
+    <ImageView
+        android:id="@+id/youtubeIcon"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_youtube"
+        android:padding="12dp"
+        android:background="@drawable/youtube_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Subscribe on YouTube"/>
+
+</LinearLayout>

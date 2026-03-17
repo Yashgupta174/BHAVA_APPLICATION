@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Instagram Gradient Background -->
+<!-- Place in: res/drawable/instagram_gradient.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#833AB4"
+        android:centerColor="#E1306C"
+        android:endColor="#FD1D1D"
+        android:type="linear"/>
+</shape>

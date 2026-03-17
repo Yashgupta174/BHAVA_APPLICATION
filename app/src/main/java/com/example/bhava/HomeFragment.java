@@ -109,6 +109,20 @@ public class HomeFragment extends Fragment {
             openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
         });
 
+        view.findViewById(R.id.instagram).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
+        });
+
+        view.findViewById(R.id.facebook).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
+        });
+
+        view.findViewById(R.id.youtube).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
+        });
+
+
+
 
 
 

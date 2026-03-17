@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Social Media Links Section -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/bhava_background">
+
+    <!-- Section Title (Optional) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Follow Us"
+        android:textColor="@color/text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Social Media Icons Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="3">
+
+        <!-- Instagram -->
+        <FrameLayout
+            android:id="@+id/instagramContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="64dp"
+                    android:id="@+id/instagram"
+                    android:layout_height="64dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/instagramIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_instagram"
+                        android:padding="14dp"
+                        android:background="@drawable/instagram_gradient"
+                        android:contentDescription="Instagram"/>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Instagram"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Facebook -->
+        <FrameLayout
+            android:id="@+id/facebookContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="64dp"
+                    android:id="@+id/facebook"
+                    android:layout_height="64dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/facebookIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_facebook"
+                        android:padding="14dp"
+                        android:background="#1877F2"
+                        android:contentDescription="Facebook"/>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Facebook"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- YouTube -->
+        <FrameLayout
+            android:id="@+id/youtubeContainer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackgroundBorderless">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="64dp"
+                    android:id="@+id/youtube"
+                    android:layout_height="64dp"
+                    app:cardCornerRadius="16dp"
+                    app:cardElevation="4dp"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/youtubeIcon"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_youtube"
+                        android:padding="14dp"
+                        android:background="#FF0000"
+                        android:contentDescription="YouTube"/>
+                </com.google.android.material.card.MaterialCardView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="YouTube"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+</LinearLayout>
