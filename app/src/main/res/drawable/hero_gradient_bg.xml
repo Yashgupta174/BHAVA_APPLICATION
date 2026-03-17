@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!--
+        Mimics the dark warm brown cinematic hero background.
+        For a real image, replace this View with an ImageView
+        and load with Glide/Picasso using the item's image URL.
+    -->
+    <gradient
+        android:type="radial"
+        android:gradientRadius="200%"
+        android:startColor="#7A4A1A"
+        android:centerColor="#3D2008"
+        android:endColor="#1A0D03" />
+
+</shape>

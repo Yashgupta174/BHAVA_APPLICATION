@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
+    <!--  ── Accents ──  -->
+    <color name="accent_gold">#B87A2A</color>
+    <color name="accent_gold_light">#D4A855</color>
+    <!--  ── Suggestion Chips ──  -->
+    <color name="chip_bg">#F0D8BC</color>
+    <color name="chip_stroke">#D4A855</color>
+    <!--  ── Divider ──  -->
+    <color name="divider_warm">#D4B896</color>
+    <!--  ── Send Button ──  -->
+    <color name="send_bg">#3B2507</color>
+    <!--  ── Ripple ──  -->
+
+
+    <color name="bg_parchment">#E7C39F</color>
+    <!--  ── Card Surfaces ──  -->
+    <color name="card_cream">#FDEBD0</color>
+    <color name="card_cream_dark">#F5D8B8</color>
+    <!--  ── Text ──  -->
+    <color name="text_espresso">#3B2507</color>
+    <color name="text_brown">#7A5230</color>
+    <color name="text_caramel">#C8A882</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_ivory">#EDD9C0</color>
+    <!--  ── Gospel Card Gradient Colors ──  -->
+    <color name="gospel_top">#2E7D6B</color>
+    <color name="gospel_bottom">#1A4A3A</color>
+    <!--  ── Morning Offering Card Gradient Colors ──  -->
+    <color name="morning_top">#D4607A</color>
+    <color name="morning_mid">#E8884A</color>
+    <color name="morning_bottom">#5A2040</color>
+    <!--  ── Nav Bar ──  -->
+    <color name="nav_active">#3B2507</color>
+    <color name="nav_inactive">#C8A882</color>
+    <!--  ── Time Badge ──  -->
+    <color name="badge_bg">#55000000</color>
+    <!--  ── Ripple ──  -->
+    <color name="ripple_brown">#333B2507</color>
+
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="bottom_nav_selected">#1e2d1e</color>
@@ -51,4 +91,13 @@
     <!-- Transparent Overlays -->
     <color name="overlay_dark">#80000000</color>
     <color name="overlay_light">#40FFFFFF</color>
+    <color name="hintTextColor">#40FFFFFF</color>
+
+    <color name="options_card_bg">#F0FDEBD0</color>
+    <!--  Mini player bar: deep teal matching the rosary hero  -->
+    <color name="mini_player_bg">#1A4A40</color>
+    <!--  Pray button: rich espresso-teal  -->
+    <color name="pray_btn_color">#2E4A40</color>
+    <!--  Live dot green  -->
+    <color name="live_dot_green">#4CAF50</color>
 </resources>

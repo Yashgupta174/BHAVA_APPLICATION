@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_parchment">
+
+    <!-- ─── Main Scrollable Content ─── -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbarThumbVertical="@android:color/transparent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="90dp">
+
+            <!-- ════════════════════════════════════ -->
+            <!--            HEADER ROW                -->
+            <!-- ════════════════════════════════════ -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/tvUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Yash"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/text_espresso"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageButton
+                        android:id="@+id/btnFriends"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/ic_group"
+                        android:background="@drawable/circle_btn_bg"
+                        android:padding="10dp"
+                        android:tint="@color/text_espresso"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="Friends" />
+
+                    <ImageButton
+                        android:id="@+id/btnSettings"
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:src="@drawable/ic_settings"
+                        android:background="@drawable/circle_btn_bg"
+                        android:padding="10dp"
+                        android:tint="@color/text_espresso"
+                        android:contentDescription="Settings" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- ════════════════════════════════════ -->
+            <!--            STREAK SECTION            -->
+            <!-- ════════════════════════════════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Streak ›"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:textColor="@color/text_espresso"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="8dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="22dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="5dp"
+                app:cardBackgroundColor="@color/card_cream">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="18dp"
+                    android:paddingVertical="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡"
+                        android:textSize="22sp"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="28sp"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:textColor="@color/text_espresso"
+                        android:layout_marginEnd="12dp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pray today and start building a habit!"
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/text_brown" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════════════════════════════════════ -->
+            <!--          ROUTINE SECTION             -->
+            <!-- ════════════════════════════════════ -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Routine ›"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/text_espresso"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    android:id="@+id/btnEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Edit"
+                    android:textSize="13sp"
+                    android:textColor="@color/card_cream"
+                    android:background="@drawable/edit_btn_bg"
+                    android:paddingHorizontal="18dp"
+                    android:paddingVertical="7dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <!-- Gospel Routine Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardGospel"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="22dp"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="9dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <!-- Decorative background -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/gospel_card_bg" />
+
+                    <!-- Time badge -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6:00 PM"
+                        android:textSize="12sp"
+                        android:textColor="@color/card_cream"
+                        android:fontFamily="sans-serif-medium"
+                        android:background="@drawable/time_badge_bg"
+                        android:paddingHorizontal="12dp"
+                        android:paddingVertical="5dp"
+                        android:layout_margin="14dp"
+                        android:layout_gravity="top|start" />
+
+                    <!-- Bottom gradient fade -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/card_bottom_fade" />
+
+                    <!-- Text content -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_gravity="bottom"
+                        android:paddingHorizontal="16dp"
+                        android:paddingBottom="16dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tue Mar 17: Daily Gospel"
+                            android:textSize="17sp"
+                            android:textStyle="bold"
+                            android:fontFamily="serif"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tuesday of the Fourth Week of Lent"
+                            android:textSize="13sp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="#EDD9C0" />
+                    </LinearLayout>
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════════════════════════════════════ -->
+            <!--       RECENTLY PRAYED SECTION        -->
+            <!-- ════════════════════════════════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recently Prayed ›"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:textColor="@color/text_espresso"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginBottom="22dp"
+                android:paddingHorizontal="20dp"
+                android:clipToPadding="false">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Morning Offering Card -->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardMorningOffering"
+                        android:layout_width="155dp"
+                        android:layout_height="195dp"
+                        android:layout_marginEnd="14dp"
+                        app:cardCornerRadius="18dp"
+                        app:cardElevation="6dp">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/morning_card_bg" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="90dp"
+                                android:layout_gravity="bottom"
+                                android:background="@drawable/card_bottom_fade" />
+
+                            <!-- Checkmark -->
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:src="@drawable/ic_check_circle"
+                                android:tint="@color/card_cream"
+                                android:layout_gravity="top|end"
+                                android:layout_margin="10dp"
+                                android:contentDescription="Completed" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:layout_gravity="bottom"
+                                android:paddingHorizontal="12dp"
+                                android:paddingBottom="12dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Morning Offering"
+                                    android:textSize="13sp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="serif"
+                                    android:textColor="#FFFFFF" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Begin your day"
+                                    android:textSize="11sp"
+                                    android:fontFamily="sans-serif"
+                                    android:textColor="#EDD9C0" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="1 session"
+                                    android:textSize="11sp"
+                                    android:fontFamily="sans-serif"
+                                    android:textColor="@color/text_caramel" />
+                            </LinearLayout>
+                        </FrameLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- ════════════════════════════════════ -->
+            <!--          FAVORITES SECTION           -->
+            <!-- ════════════════════════════════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorites ›"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:textColor="@color/text_espresso"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="155dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="22dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_cream">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/ic_star_border"
+                        android:tint="@color/text_caramel"
+                        android:layout_gravity="center"
+                        android:contentDescription="No favorites yet" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════════════════════════════════════ -->
+            <!--         DOWNLOADS SECTION            -->
+            <!-- ════════════════════════════════════ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Downloads ›"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:textColor="@color/text_espresso"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="10dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="155dp"
+                android:layout_height="130dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="22dp"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_cream">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="34dp"
+                        android:layout_height="34dp"
+                        android:src="@drawable/ic_download"
+                        android:tint="@color/text_caramel"
+                        android:layout_gravity="center"
+                        android:contentDescription="No downloads yet" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════════════════════════════════════ -->
+            <!--        INTENTIONS SECTION            -->
+            <!-- ════════════════════════════════════ -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Intentions ›"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/text_espresso"
+                    android:layout_centerVertical="true" />
+
+                <ImageButton
+                    android:id="@+id/btnAddIntention"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/ic_add_circle"
+                    android:background="@android:color/transparent"
+                    android:tint="@color/text_espresso"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="Add intention" />
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="22dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/card_cream">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="＋  Add Intentions"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_caramel" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- ════════════════════════════════════ -->
+            <!--        REFLECTIONS SECTION           -->
+            <!-- ════════════════════════════════════ -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reflections ›"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/text_espresso"
+                    android:layout_centerVertical="true" />
+
+                <ImageButton
+                    android:id="@+id/btnAddReflection"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:src="@drawable/ic_add_circle"
+                    android:background="@android:color/transparent"
+                    android:tint="@color/text_espresso"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="Add reflection" />
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="22dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="@color/card_cream">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="＋  Add Reflections"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_caramel" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!--          BOTTOM NAVIGATION BAR               -->
+    <!-- ════════════════════════════════════════════ -->
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -6,4 +6,27 @@
     </style>
 
     <style name="Theme.Bhava" parent="Base.Theme.Bhava" />
+
+    <style name="Theme.Hallow" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/text_espresso</item>
+        <item name="colorPrimaryVariant">@color/text_brown</item>
+        <item name="colorOnPrimary">@color/card_cream</item>
+        <item name="colorSurface">@color/card_cream</item>
+        <item name="android:windowBackground">@color/bg_parchment</item>
+        <item name="android:statusBarColor">@color/bg_parchment</item>
+        <item name="android:navigationBarColor">@color/card_cream</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <!--  ── Bottom Nav Active Indicator ──  -->
+    <style name="ActiveIndicatorStyle">
+        <item name="android:color">@color/card_cream_dark</item>
+        <item name="shapeAppearance">@style/ActiveIndicatorShape</item>
+    </style>
+    <style name="ActiveIndicatorShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+
+
 </resources>

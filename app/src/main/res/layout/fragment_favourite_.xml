@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_parchment">
+
+    <!-- ════════════════════════════════════════ -->
+    <!--            TOP SECTION (fixed)           -->
+    <!-- ════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/headerBlock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/bg_parchment"
+        android:elevation="4dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- ── Top Nav Row ── -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:paddingHorizontal="8dp">
+
+            <!-- Back arrow -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@android:color/transparent"
+                android:tint="@color/text_espresso"
+                android:padding="8dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/cd_back" />
+
+            <!-- Sort / Filter icon -->
+            <ImageButton
+                android:id="@+id/btnSort"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_sort"
+                android:background="@android:color/transparent"
+                android:tint="@color/text_espresso"
+                android:padding="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:contentDescription="@string/cd_sort" />
+
+        </RelativeLayout>
+
+        <!-- ── Page Title ── -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorites_title"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="@color/text_espresso"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="16dp" />
+
+        <!-- ── Tab Layout ── -->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/bg_parchment"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/text_espresso"
+            app:tabTextColor="@color/text_caramel"
+        app:tabTextAppearance="@style/FavTabTextAppearance"
+        app:tabIndicatorColor="@color/text_espresso"
+        app:tabIndicatorHeight="2.5dp"
+        app:tabIndicatorFullWidth="true"
+        app:tabRippleColor="@color/ripple_brown">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_collections" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tab_sessions" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <!-- Thin full-width divider under tabs -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider_warm" />
+
+    </LinearLayout>
+
+    <!-- ════════════════════════════════════════ -->
+    <!--         VIEW PAGER (tab content)         -->
+    <!-- ════════════════════════════════════════ -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="168dp" />
+    <!--
+        168dp = ~56dp top nav + ~52dp title + ~48dp tabs + 12dp gap
+        Adjust if your title text wraps.
+        Wire ViewPager2 to TabLayout in Activity using TabLayoutMediator.
+    -->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

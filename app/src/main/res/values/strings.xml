@@ -2,4 +2,112 @@
     <string name="app_name">Bhava</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="btn_join_challenge">Join Challenge</string>
+    <string name="label_more">MORE</string>
+    <!--  ── Labels ──  -->
+    <string name="featuring_label">Featuring</string>
+    <!--
+            These are PLACEHOLDER strings.
+            All values below are set programmatically at runtime via their view IDs.
+            e.g., findViewById<TextView>(R.id.textTitle).text = challenge.title
+         -->
+    <string name="challenge_title_placeholder">Holy Week in the Holy Land</string>
+    <string name="host1_name_placeholder">Jonathan Roumie</string>
+    <string name="host2_name_placeholder">Jeff Cavins</string>
+    <string name="challenge_desc_placeholder">Join Jeff Cavins and Jonathan Roumie this Holy Week for a prayer experience like no other. Now f…</string>
+    <string name="badge_joined_placeholder">45.1K joined</string>
+    <string name="badge_starts_placeholder">Starts in 11 days</string>
+    <!--  ── Content Descriptions ──  -->
+
+    <string name="morning_title_placeholder">Wednesday Daily Rosary</string>
+    <string name="morning_subtitle_placeholder">Glorious Mysteries</string>
+    <string name="guide_name_placeholder">Jonathan</string>
+    <string name="media_duration_placeholder">21 min</string>
+
+    <string name="session_desc_placeholder">Today we\'ll meditate on the five Glorious Mysteries of the Rosary.</string>
+    <!--  Static labels  -->
+    <string name="listening_now">317 Listening Now</string>
+    <string name="btn_play">Play</string>
+    <string name="btn_pray_intention">Pray for an Intention</string>
+
+    <string name="label_guide">Guide</string>
+    <string name="label_media_options">Media Options</string>
+    <!--  Content descriptions  -->
+
+    <string name="cd_hero_art">Session artwork</string>
+    <string name="cd_live_dot">Live indicator</string>
+    <string name="cd_mini_play">Play</string>
+    <string name="cd_mini_more">More options</string>
+
+    <string name="cd_play_session">Play session</string>
+    <string name="cd_session_more">More options</string>
+    <string name="cd_host1_avatar">Host 1 avatar</string>
+    <string name="cd_host2_avatar">Host 2 avatar</string>
+
+    <string name="favorites_title">Favorites</string>
+    <string name="tab_collections">Collections</string>
+    <string name="tab_sessions">Sessions</string>
+    <!--  ── Empty States ──  -->
+    <string name="empty_collections_title">No Collections Yet</string>
+    <string name="empty_collections_subtitle">Tap the star on any collection to save it here for quick access.</string>
+    <string name="empty_sessions_title">No Sessions Yet</string>
+    <string name="empty_sessions_subtitle">Tap the star on any prayer session to save it here for quick access.</string>
+    <!--  ── Content Descriptions ──  -->
+    <string name="cd_back">Back</string>
+    <string name="cd_sort">Sort or filter</string>
+
+    <string name="routine_title">Your Routine</string>
+    <string name="routine_date">Wed, Mar 18</string>
+
+    <string name="gospel_item_title">Daily Gospel</string>
+    <string name="gospel_item_subtitle">Wednesday of the Fourth Week of Lent</string>
+
+    <string name="cd_item_more">More options</string>
+    <string name="cd_gospel_thumb">Daily Gospel thumbnail</string>
+
+
+    <string name="bhava_ai_title">Bhava AI</string>
+    <string name="bhava_intro">Do you have a question about the faith? If you\'re not sure, try one of the following ones:</string>
+    <string name="bhava_q1">What does Code of Canon Law Can. 932 say?</string>
+    <string name="bhava_q2">What are Holy Days of Obligation?</string>
+    <string name="bhava_q3">What is Bhava AI?</string>
+    <string name="bhava_disclaimer">Bhava AI is in beta, so its responses are not always perfect. When in doubt consult a human.</string>
+    <string name="bhava_input_hint">Ask a question</string>
+
+    <string name="cd_more_options">More options</string>
+    <string name="cd_send">Send</string>
+    <string name="cd_bhava_logo">Bhava AI</string>
+
+    <string name="username">Yash</string>
+    <string name="streak_label">Streak</string>
+    <string name="streak_count">0</string>
+    <string name="streak_prompt">Pray today and start building a habit!</string>
+    <string name="routine_label">Routine</string>
+    <string name="routine_edit">Edit</string>
+    <string name="routine_time">6:00 PM</string>
+    <string name="gospel_title">Tue Mar 17: Daily Gospel</string>
+    <string name="gospel_subtitle">Tuesday of the Fourth Week of Lent</string>
+    <string name="recently_prayed">Recently Prayed</string>
+    <string name="morning_offering">Morning Offering</string>
+    <string name="morning_subtitle">Begin your day</string>
+    <string name="morning_sessions">1 session</string>
+    <string name="favorites_label">Favorites</string>
+    <string name="downloads_label">Downloads</string>
+    <string name="intentions_label">Intentions</string>
+    <string name="add_intentions">＋ Add Intentions</string>
+    <string name="reflections_label">Reflections</string>
+    <string name="add_reflections">＋ Add Reflections</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_bible">Bible</string>
+    <string name="nav_discover">Discover</string>
+    <string name="nav_church">Church</string>
+    <string name="nav_me">Me</string>
+    <string name="cd_friends">Friends</string>
+    <string name="cd_settings">Settings</string>
+    <string name="cd_completed">Completed</string>
+    <string name="cd_no_favorites">No favorites yet</string>
+    <string name="cd_no_downloads">No downloads yet</string>
+    <string name="cd_add_intention">Add intention</string>
+    <string name="cd_add_reflection">Add reflection</string>
 </resources>

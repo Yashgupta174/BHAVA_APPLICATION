@@ -382,6 +382,7 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="64dp"
+                            android:id="@+id/favourite"
                             android:layout_height="64dp"
                             app:cardCornerRadius="20dp"
                             app:cardElevation="4dp"
@@ -419,6 +420,7 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="64dp"
+                            android:id="@+id/ask_bhava"
                             android:layout_height="64dp"
                             app:cardCornerRadius="20dp"
                             app:cardElevation="4dp"
@@ -456,6 +458,7 @@
 
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="64dp"
+                            android:id="@+id/routine"
                             android:layout_height="64dp"
                             app:cardCornerRadius="20dp"
                             app:cardElevation="4dp"
@@ -494,6 +497,7 @@
                         <com.google.android.material.card.MaterialCardView
                             android:layout_width="64dp"
                             android:layout_height="64dp"
+                            android:id="@+id/recent"
                             app:cardCornerRadius="20dp"
                             app:cardElevation="4dp"
                             app:cardBackgroundColor="@color/action_button_bg">
@@ -530,14 +534,14 @@
             <!-- ========== MORNING ROUTINES SECTION ========== -->
             <include layout="@layout/section_morning_routines"/>
 
-            <!-- ========== TRENDING NOW SECTION ========== -->
-            <include layout="@layout/section_trending"/>
+<!--            &lt;!&ndash; ========== TRENDING NOW SECTION ========== &ndash;&gt;-->
+<!--            <include layout="@layout/section_trending"/>-->
 
             <!-- ========== DAILY PRACTICES SECTION ========== -->
             <include layout="@layout/section_daily_practices"/>
 
-            <!-- ========== SPIRITUAL MUSIC SECTION ========== -->
-            <include layout="@layout/section_spiritual_music"/>
+<!--            &lt;!&ndash; ========== SPIRITUAL MUSIC SECTION ========== &ndash;&gt;-->
+<!--            <include layout="@layout/section_spiritual_music"/>-->
 
             <!-- ========== LEARNING PATHS SECTION ========== -->
             <include layout="@layout/section_learning_paths"/>

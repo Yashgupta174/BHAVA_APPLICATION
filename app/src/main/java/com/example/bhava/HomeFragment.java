@@ -111,6 +111,8 @@ public class HomeFragment extends Fragment {
             openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
         });
 
+
+        //  Social media handling
         view.findViewById(R.id.instagram).setOnClickListener(v -> {
             openSocialMedia(        "instagram://user?username=thespiritualcompany108",
                     "https://www.instagram.com/thespiritualcompany108");
@@ -127,6 +129,30 @@ public class HomeFragment extends Fragment {
         });
 
 
+        view.findViewById(R.id.nav_me).setOnClickListener(v -> {
+            openNavbarMeFragment();
+        });
+
+        view.findViewById(R.id.nav_bhava_ai).setOnClickListener(v -> {
+            openNavbarBhavaAiFragment();
+        });
+
+        view.findViewById(R.id.ask_bhava).setOnClickListener(v -> {
+            openNavbarBhavaAiFragment();
+        });
+
+        view.findViewById(R.id.favourite).setOnClickListener(v -> {
+            openFavouriteFragment();
+        });
+
+        view.findViewById(R.id.routine).setOnClickListener(v -> {
+            openRoutineFragment();
+        });
+
+        view.findViewById(R.id.recent).setOnClickListener(v -> {
+            openRecentFragment();
+        });
+
 
 
 
@@ -138,6 +164,58 @@ public class HomeFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void openRecentFragment() {
+        RecentFragment fragment = new RecentFragment();
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void openRoutineFragment() {
+
+        RoutineFragment fragment = new RoutineFragment();
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void openFavouriteFragment() {
+
+        Favourite_Fragment fragment = new Favourite_Fragment();
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void openNavbarBhavaAiFragment() {
+        Bhava_Ai_Fragment fragment = new Bhava_Ai_Fragment();
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void openNavbarMeFragment() {
+        Navbar_Me_Fragment fragment = new Navbar_Me_Fragment();
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
 

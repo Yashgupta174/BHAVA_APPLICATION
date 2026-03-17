@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!--
+        Apply pulse animation in Activity:
+        val pulse = AnimationUtils.loadAnimation(this, R.anim.pulse_scale)
+        binding.liveDot.startAnimation(pulse)
+    -->
+    <solid android:color="@color/live_dot_green" />
+</shape>

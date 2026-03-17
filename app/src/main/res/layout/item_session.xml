@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/session_item_ripple"
+    android:paddingHorizontal="20dp"
+    android:paddingVertical="16dp"
+    android:minHeight="72dp">
+
+    <!-- ── Play / Lock icon (left) ── -->
+    <ImageView
+        android:id="@+id/ivSessionIcon"
+        android:layout_width="34dp"
+        android:layout_height="34dp"
+        android:src="@drawable/ic_play_circle"
+        android:tint="@color/accent_gold"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="Play session" />
+
+    <!-- ── Three-dot overflow (right) ── -->
+    <ImageButton
+        android:id="@+id/btnSessionMore"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_more_horiz"
+        android:background="@android:color/transparent"
+        android:tint="@color/text_caramel"
+        android:padding="6dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="More options" />
+
+    <!-- ── Title + subtitle + duration ── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_toEndOf="@id/ivSessionIcon"
+        android:layout_toStartOf="@id/btnSessionMore"
+        android:layout_centerVertical="true"
+        android:paddingHorizontal="14dp">
+
+        <TextView
+            android:id="@+id/tvSessionTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Session Title"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textColor="@color/text_espresso"
+            android:layout_marginBottom="3dp" />
+
+        <TextView
+            android:id="@+id/tvSessionSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Day 1: Host Names"
+            android:textSize="13sp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text_brown"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Duration row with camera icon -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:src="@drawable/ic_videocam"
+                android:tint="@color/text_caramel"
+                android:layout_marginEnd="4dp"
+                android:contentDescription="Video" />
+
+            <TextView
+                android:id="@+id/tvSessionDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7 min"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_caramel" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

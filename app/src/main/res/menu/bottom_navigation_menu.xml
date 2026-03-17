@@ -13,7 +13,7 @@
         android:title="Shorts" />
 
     <item
-        android:id="@+id/nav_discover"
+        android:id="@+id/nav_bhava_ai"
         android:icon="@drawable/ic_nav_discover"
         android:title="Bhava" />
 
