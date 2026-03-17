@@ -79,6 +79,21 @@ public class HomeFragment extends Fragment {
             openDetailLearningathFragment( "Learning Path Mantra Mastery");
         });
 
+        // 🔹 Timeless Wisdom Karma Yoga Card Click
+        view.findViewById(R.id.card_timeless_wisom_karma_yoga).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Timeless Wisdom Karma Yoga");
+        });
+
+        // 🔹 Timeless Wisdom Bhakti Sutras Card Click
+        view.findViewById(R.id.card_timeless_wisdom_bhakti_sutras).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Timeless Wisdom Bhakti Sutras");
+        });
+
+        // 🔹 Timeless Wisdom Yoga Sutras Card Click
+        view.findViewById(R.id.card_timeless_wisdom_yoga_sutras).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Timeless Wisdom Yoga Sutras");
+        });
+
 
 
 
@@ -87,6 +102,23 @@ public class HomeFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void openDetailTimelessWisdomFragment(String title) {
+        Detailed_timeless_wisdom_Fragment fragment =
+                new Detailed_timeless_wisdom_Fragment();
+
+        Bundle bundle = new Bundle();
+        // which card clicked
+        bundle.putString("title", title);   // optional (for UI)
+
+        fragment.setArguments(bundle);
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void openDetailLearningathFragment(String title) {
