@@ -94,6 +94,21 @@ public class HomeFragment extends Fragment {
             openDetailTimelessWisdomFragment( "Timeless Wisdom Yoga Sutras");
         });
 
+        // 🔹 Latest Teaching Karma and Dharma Card Click
+        view.findViewById(R.id.card_latest_teaching_karma_dharma).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Latest Teaching Karma and Dharma");
+        });
+
+        // 🔹 Latest Teaching Divine Grace Card Click
+        view.findViewById(R.id.card_latest_teaching_divine_grace).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Latest Teaching Divine Grace");
+        });
+
+            // 🔹 Latest Teaching Inner Peace Card Click
+        view.findViewById(R.id.card_latest_teaching_inner_peace).setOnClickListener(v -> {
+            openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
+        });
+
 
 
 

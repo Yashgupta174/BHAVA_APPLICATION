@@ -58,7 +58,7 @@
 
             <!-- Card 1: Karma and Dharma -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_karma_dharma"
+                android:id="@+id/card_latest_teaching_karma_dharma"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
@@ -161,7 +161,7 @@
 
             <!-- Card 2: Divine Grace -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_divine_grace"
+                android:id="@+id/card_latest_teaching_divine_grace"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
@@ -264,7 +264,7 @@
 
             <!-- Card 3: Inner Peace -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_inner_peace"
+                android:id="@+id/card_latest_teaching_inner_peace"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
