@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/bhava_background">
+
+    <!-- Section Header with Animation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Trending Now"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View All"
+            android:textColor="@color/accent_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+
+    <!-- Horizontal Scroll View with Smooth Scrolling -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingEnd="12dp"
+        android:overScrollMode="never"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:animateLayoutChanges="true">
+
+            <!-- Trending Card 1: Sacred Mantras -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_trending_1"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container with Overlay Gradient -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/daily_practices_mantra_chanting"
+                            android:contentDescription="Sacred Mantras"/>
+
+                        <!-- Gradient Overlay for Better Badge Visibility -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/gradient_overlay_top"/>
+
+                        <!-- Live Listening Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="● 54 Listening"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_live"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% ratio (60dp) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:elevation="2dp">
+
+                        <!-- Title Row with Logo Icon -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="3dp">
+
+                            <ImageView
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:src="@drawable/logo"
+                                app:tint="@color/bhava_primary"
+                                android:contentDescription="Logo"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="5dp"
+                                android:text="Sacred Mantras"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:lineSpacingMultiplier="1.1"
+                                android:letterSpacing="0.01"/>
+                        </LinearLayout>
+
+                        <!-- Subtitle -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="108 Names of Divine"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="3dp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+
+                        <!-- Sessions Info -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18 sessions"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="9sp"
+                            android:alpha="0.75"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Trending Card 2: Divine Wisdom -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_trending_2"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container with Overlay Gradient -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/daily_practices_daily_pooja"
+                            android:contentDescription="Divine Wisdom"/>
+
+                        <!-- Gradient Overlay for Better Badge Visibility -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/gradient_overlay_top"/>
+
+                        <!-- Hot Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="🔥 Hot"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_hot"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% ratio (60dp) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:elevation="2dp">
+
+                        <!-- Title Row with Logo Icon -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="3dp">
+
+                            <ImageView
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:src="@drawable/logo"
+                                app:tint="@color/bhava_primary"
+                                android:contentDescription="Logo"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="5dp"
+                                android:text="Divine Wisdom"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:lineSpacingMultiplier="1.1"
+                                android:letterSpacing="0.01"/>
+                        </LinearLayout>
+
+                        <!-- Subtitle -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Spiritual Teachings"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="3dp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+
+                        <!-- Sessions Info -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="24 sessions"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="9sp"
+                            android:alpha="0.75"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Trending Card 3: Karma Yoga Path -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_trending_3"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container with Overlay Gradient -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/timeless_wisdom_karma_yoga"
+                            android:contentDescription="Karma Yoga Path"/>
+
+                        <!-- Gradient Overlay for Better Badge Visibility -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/gradient_overlay_top"/>
+
+                        <!-- Popular Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="⭐ Popular"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_popular"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% ratio (60dp) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:elevation="2dp">
+
+                        <!-- Title Row with Logo Icon -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="3dp">
+
+                            <ImageView
+                                android:layout_width="13dp"
+                                android:layout_height="13dp"
+                                android:src="@drawable/logo"
+                                app:tint="@color/bhava_primary"
+                                android:contentDescription="Logo"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="5dp"
+                                android:text="Karma Yoga Path"
+                                android:textColor="@color/text_primary"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:lineSpacingMultiplier="1.1"
+                                android:letterSpacing="0.01"/>
+                        </LinearLayout>
+
+                        <!-- Subtitle -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Path of Action"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="10sp"
+                            android:layout_marginBottom="3dp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+
+                        <!-- Sessions Info -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12 sessions"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="9sp"
+                            android:alpha="0.75"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Wisdom badge with indigo/deep blue gradient (wisdom/philosophy theme) -->
+<!-- Place in: res/drawable/badge_wisdom.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#6366F1"
+        android:endColor="#4338CA"
+        android:type="linear"/>
+    <corners android:radius="12dp"/>
+</shape>

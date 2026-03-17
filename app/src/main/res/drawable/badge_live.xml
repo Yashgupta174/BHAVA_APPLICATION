@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Live indicator badge with red gradient background -->
+<!-- Place in: res/drawable/badge_live.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#FF4444"
+        android:endColor="#CC0000"
+        android:type="linear"/>
+    <corners android:radius="12dp"/>
+</shape>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/bhava_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Daily Inspiration"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingEnd="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Quote Card 1: Bhagavad Gita -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="320dp"
+                android:layout_height="200dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/card_bg_light"
+                android:layout_marginEnd="16dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BHAGAVAD GITA"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="&quot;Karmanye vadhikaraste ma phaleshu kadachana.&quot;"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.4"/>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/logo_open"
+                        android:layout_marginTop="12dp"
+                        app:tint="@color/accent_color"
+                        android:contentDescription="Share"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Quote Card 2: Upanishads -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="320dp"
+                android:layout_height="200dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/card_bg_light"
+                android:layout_marginEnd="16dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="UPANISHADS"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="&quot;Asato ma sad gamaya, tamaso ma jyotir gamaya.&quot;"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.4"/>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/logo_open"
+                        android:layout_marginTop="12dp"
+                        app:tint="@color/accent_color"
+                        android:contentDescription="Share"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Quote Card 3: Ramayana -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="320dp"
+                android:layout_height="200dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="@color/card_bg_light"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="24dp"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="RAMAYANA"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:letterSpacing="0.1"
+                        android:layout_marginBottom="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="&quot;Dharmam vistarya loke prathayishyati.&quot;"
+                        android:textColor="@color/text_primary"
+                        android:textSize="18sp"
+                        android:fontFamily="serif"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:lineSpacingMultiplier="1.4"/>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/logo_open"
+                        android:layout_marginTop="12dp"
+                        app:tint="@color/accent_color"
+                        android:contentDescription="Share"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

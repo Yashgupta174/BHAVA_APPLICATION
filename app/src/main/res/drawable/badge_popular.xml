@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Popular badge with purple-pink gradient -->
+<!-- Place in: res/drawable/badge_popular.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#9333EA"
+        android:endColor="#EC4899"
+        android:type="linear"/>
+    <corners android:radius="12dp"/>
+</shape>

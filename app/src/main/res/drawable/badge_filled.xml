@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Alternative badge style with filled background (optional) -->
+<!-- Place in: res/drawable/badge_filled.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#FF6B35"/>
+    <corners android:radius="10dp"/>
+</shape>

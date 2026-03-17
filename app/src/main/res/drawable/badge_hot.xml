@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Hot badge with orange-red gradient -->
+<!-- Place in: res/drawable/badge_hot.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#FF6B35"
+        android:endColor="#FF4500"
+        android:type="linear"/>
+    <corners android:radius="12dp"/>
+</shape>

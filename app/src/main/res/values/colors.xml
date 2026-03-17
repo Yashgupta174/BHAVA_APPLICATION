@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bottom_nav_selected">#1e2d1e</color>
+    <color name="bottom_nav_unselected">#eed8c0</color>
+
+    <!-- Background Colors -->
+    <color name="bhava_background">#e7c4a0</color>
+    <color name="card_content_bg">#FFFFFF</color>
+    <color name="card_bg_light">#f8edde</color>
+    <color name="bottom_nav_bg">#f8edde</color>
+    <color name="action_button_bg">#f8edde</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#1e2d1e</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_tertiary">#9CA3AF</color>
+
+
+    <!-- Accent Colors -->
+    <color name="accent_color">#FF6B35</color>
+    <color name="accent_light">#FF8A5B</color>
+    <color name="accent_dark">#E55A2B</color>
+
+    <!-- Primary Brand Colors -->
+    <color name="bhava_primary">#6b4423</color>
+    <color name="bhava_primary_dark">#4a2e18</color>
+    <color name="bhava_accent">#c89858</color>
+
+    <!-- Badge Colors -->
+    <color name="badge_live_start">#FF4444</color>
+    <color name="badge_live_end">#CC0000</color>
+    <color name="badge_featured_start">#FFD700</color>
+    <color name="badge_featured_end">#FFA500</color>
+    <color name="badge_new_start">#667EEA</color>
+    <color name="badge_new_end">#764BA2</color>
+
+    <!-- Status Colors -->
+    <color name="success_color">#4CAF50</color>
+
+    <!-- Interactive States -->
+    <color name="ripple_color">#20FF6B35</color>
+    <color name="card_pressed">#F5F5F5</color>
+
+    <!-- Shadow Colors -->
+    <color name="shadow_light">#10000000</color>
+    <color name="shadow_medium">#20000000</color>
+    <color name="shadow_dark">#40000000</color>
+
+    <!-- Transparent Overlays -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#40FFFFFF</color>
+</resources>

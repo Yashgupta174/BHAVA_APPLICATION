@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bottom Navigation Active Indicator Color -->
+<!-- Place in: res/color/bottom_nav_indicator_color.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:alpha="0.12"
+        android:color="#E0CE3A"/>
+</selector>

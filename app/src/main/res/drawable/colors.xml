@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bottom Navigation Colors -->
+    <color name="bottom_nav_selected">#000000</color>
+    <color name="bottom_nav_unselected">#999999</color>
+    
+    <!-- Primary Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="brown">#8B4513</color>
+    <color name="dark_red">#8B0000</color>
+    <color name="blue">#1E88E5</color>
+    <color name="dark_gray">#2C2C2C</color>
+    <color name="gold">#D4AF37</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#000000</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_tertiary">#999999</color>
+    
+    <!-- Background Colors -->
+    <color name="background_white">#FFFFFF</color>
+    <color name="background_light_gray">#F5F5F5</color>
+    <color name="background_light">#F0F0F0</color>
+    
+    <!-- Overlay Colors -->
+    <color name="overlay_dark">#80000000</color>
+    <color name="overlay_light">#80FFFFFF</color>
+</resources>

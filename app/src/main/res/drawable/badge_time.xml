@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Time badge background (e.g., "5 min", "10 min") -->
+<!-- Place in: res/drawable/badge_time.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#FF6B35"
+        android:endColor="#E55A2B"
+        android:type="linear"/>
+    <corners android:radius="12dp"/>
+</shape>

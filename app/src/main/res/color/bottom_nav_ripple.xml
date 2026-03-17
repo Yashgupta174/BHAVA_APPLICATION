@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bottom Navigation Ripple Color -->
+<!-- Place in: res/color/bottom_nav_ripple.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:alpha="0.12"
+        android:color="#FF6B35"/>
+</selector>

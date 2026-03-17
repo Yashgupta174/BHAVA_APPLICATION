@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/bhava_background">
+
+    <!-- Section Header with Animation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Active Challenges"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View All"
+            android:textColor="@color/accent_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+
+    <!-- Horizontal Scroll View with Smooth Scrolling -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingEnd="12dp"
+        android:overScrollMode="never"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:animateLayoutChanges="true">
+
+            <!-- Challenge Card 1: 21-Days Dhyan -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_dhyan"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container with Overlay Gradient -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/challenge_21days"
+                            android:contentDescription="21 Days Challenge"/>
+
+                        <!-- Gradient Overlay for Better Badge Visibility -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/gradient_overlay_top"/>
+
+                        <!-- Live Badge with Pulse Animation -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="● 16,087 Live"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_live"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% of Image Height (33dp for 110dp image) -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:elevation="2dp">
+
+                        <!-- Title Row with Icon -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/pluss"
+                                android:contentDescription="Add"
+                                android:tint="@color/accent_color"
+                                android:alpha="0.9"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="5dp"
+                                android:text="21-Days Dhyan Challenge"
+                                android:textColor="@color/text_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:lineSpacingMultiplier="1.1"
+                                android:letterSpacing="0.01"/>
+                        </LinearLayout>
+
+                        <!-- Description with Better Spacing -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Day 25: Breathwork and Pranayamas"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="9sp"
+                            android:layout_marginBottom="5dp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+
+                        <!-- Badges with Enhanced Styling -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="start">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✓ 19M"
+                                android:textColor="@color/text_primary"
+                                android:background="@drawable/badge_outlined"
+                                android:paddingStart="7dp"
+                                android:paddingEnd="7dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:textSize="8sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp"
+                                android:elevation="1dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="23 days"
+                                android:textColor="@color/text_primary"
+                                android:background="@drawable/badge_outlined"
+                                android:paddingStart="7dp"
+                                android:paddingEnd="7dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:textSize="8sp"
+                                android:textStyle="bold"
+                                android:elevation="1dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Challenge Card 2: 108-Days Mantra -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_mantra"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container with Overlay Gradient -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/challenge_108days_mantra"
+                            android:contentDescription="108 Days Mantra"/>
+
+                        <!-- Gradient Overlay for Better Visibility -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/gradient_overlay_top"/>
+
+                        <!-- Featured Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="✨ Featured"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_featured"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% of Image Height -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:elevation="2dp">
+
+                        <!-- Title Row with Icon -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/pluss"
+                                android:contentDescription="Add"
+                                android:tint="@color/accent_color"
+                                android:alpha="0.9"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="5dp"
+                                android:text="108-Days Mantra Sadhana"
+                                android:textColor="@color/text_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:lineSpacingMultiplier="1.1"
+                                android:letterSpacing="0.01"/>
+                        </LinearLayout>
+
+                        <!-- Description with Better Spacing -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sacred sound healing journey"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="9sp"
+                            android:layout_marginBottom="5dp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+
+                        <!-- Badges with Enhanced Styling -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="start">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✓ 8.5M"
+                                android:textColor="@color/text_primary"
+                                android:background="@drawable/badge_outlined"
+                                android:paddingStart="7dp"
+                                android:paddingEnd="7dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:textSize="8sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp"
+                                android:elevation="1dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="108 sessions"
+                                android:textColor="@color/text_primary"
+                                android:background="@drawable/badge_outlined"
+                                android:paddingStart="7dp"
+                                android:paddingEnd="7dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:textSize="8sp"
+                                android:textStyle="bold"
+                                android:elevation="1dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Challenge Card 3: 40-Days Geeta -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_geeta"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container with Overlay Gradient -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/challeneg_40days_geeta"
+                            android:contentDescription="40 Days Geeta"/>
+
+                        <!-- Gradient Overlay for Better Visibility -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:background="@drawable/gradient_overlay_top"/>
+
+                        <!-- New Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="🆕 New"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_new"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% of Image Height -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:elevation="2dp">
+
+                        <!-- Title Row with Icon -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:layout_marginBottom="4dp">
+
+                            <ImageView
+                                android:layout_width="14dp"
+                                android:layout_height="14dp"
+                                android:src="@drawable/pluss"
+                                android:contentDescription="Add"
+                                android:tint="@color/accent_color"
+                                android:alpha="0.9"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="5dp"
+                                android:text="40-Days Gita Journey"
+                                android:textColor="@color/text_primary"
+                                android:textSize="11sp"
+                                android:textStyle="bold"
+                                android:maxLines="1"
+                                android:ellipsize="end"
+                                android:lineSpacingMultiplier="1.1"
+                                android:letterSpacing="0.01"/>
+                        </LinearLayout>
+
+                        <!-- Description with Better Spacing -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Deep dive into sacred wisdom"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="9sp"
+                            android:layout_marginBottom="5dp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+
+                        <!-- Badges with Enhanced Styling -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="start">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="✓ 12M"
+                                android:textColor="@color/text_primary"
+                                android:background="@drawable/badge_outlined"
+                                android:paddingStart="7dp"
+                                android:paddingEnd="7dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:textSize="8sp"
+                                android:textStyle="bold"
+                                android:layout_marginEnd="5dp"
+                                android:elevation="1dp"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="40 days"
+                                android:textColor="@color/text_primary"
+                                android:background="@drawable/badge_outlined"
+                                android:paddingStart="7dp"
+                                android:paddingEnd="7dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:textSize="8sp"
+                                android:textStyle="bold"
+                                android:elevation="1dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

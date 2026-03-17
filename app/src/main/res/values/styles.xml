@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Challenge Card Style -->
+    <style name="ChallengeCard">
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="cardMaxElevation">12dp</item>
+        <item name="rippleColor">@color/ripple_color</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- Card Title Style -->
+    <style name="CardTitle">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <!-- Card Description Style -->
+    <style name="CardDescription">
+        <item name="android:textSize">9sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:alpha">0.85</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <!-- Badge Style -->
+    <style name="Badge">
+        <item name="android:textSize">8sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:paddingStart">7dp</item>
+        <item name="android:paddingEnd">7dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">3dp</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+
+    <!-- Top Badge Style (Live, Featured, New) -->
+    <style name="TopBadge">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:elevation">4dp</item>
+        <item name="android:shadowColor">#80000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+
+    <style name="BottomNavTextActive" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+
+    <!-- Inactive text style (unselected items) -->
+    <style name="BottomNavTextInactive" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">11sp</item>
+        <item name="android:letterSpacing">0.02</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Active indicator style (background for selected item) -->
+    <style name="BottomNavActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/bottom_nav_indicator_color</item>
+        <item name="android:height">32dp</item>
+        <item name="android:width">64dp</item>
+        <item name="shapeAppearance">@style/BottomNavIndicatorShape</item>
+    </style>
+
+    <!-- Shape for active indicator -->
+    <style name="BottomNavIndicatorShape" parent="ShapeAppearance.Material3.Corner.Full">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+</resources>

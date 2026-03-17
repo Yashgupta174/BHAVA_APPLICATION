@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/bhava_background">
+
+    <!-- Section Header with Animation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Recently Prayed"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.02"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View All"
+            android:textColor="@color/accent_color"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:padding="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:stateListAnimator="@null"/>
+    </LinearLayout>
+
+    <!-- Horizontal Scroll View with Smooth Scrolling -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingEnd="12dp"
+        android:overScrollMode="never"
+        android:scrollbarStyle="outsideOverlay">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:animateLayoutChanges="true">
+
+            <!-- Card 1: Morning Offering -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_morning"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/challenge_108days_mantra"
+                            android:contentDescription="Morning Offering"/>
+
+                        <!-- Gradient Overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/gradient_overlay_bottom"/>
+
+                        <!-- Time Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|start"
+                            android:layout_margin="10dp"
+                            android:text="5 min"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_time"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% ratio -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:elevation="2dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Morning Offering"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:letterSpacing="0.01"
+                            android:layout_marginBottom="4dp"/>
+
+                        <!-- Description -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Meditation"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: Evening Reflection -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_evening"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/challenge_21days"
+                            android:contentDescription="Evening Reflection"/>
+
+                        <!-- Gradient Overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/gradient_overlay_bottom"/>
+
+                        <!-- Time Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|start"
+                            android:layout_margin="10dp"
+                            android:text="10 min"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_time"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% ratio -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:elevation="2dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Evening Reflection"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:letterSpacing="0.01"
+                            android:layout_marginBottom="4dp"/>
+
+                        <!-- Description -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Contemplation"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 3: Gratitude Practice -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_gratitude"
+                android:layout_width="165dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardMaxElevation="12dp"
+                android:layout_marginEnd="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:stateListAnimator="@android:anim/fade_in"
+                app:rippleColor="@color/accent_color"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Image Container -->
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/challeneg_40days_geeta"
+                            android:contentDescription="Gratitude Practice"/>
+
+                        <!-- Gradient Overlay -->
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/gradient_overlay_bottom"/>
+
+                        <!-- Time Badge -->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|start"
+                            android:layout_margin="10dp"
+                            android:text="3 min"
+                            android:textColor="#FFFFFF"
+                            android:background="@drawable/badge_time"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:textSize="10sp"
+                            android:textStyle="bold"
+                            android:elevation="4dp"
+                            android:shadowColor="#80000000"
+                            android:shadowDx="0"
+                            android:shadowDy="2"
+                            android:shadowRadius="4"/>
+                    </FrameLayout>
+
+                    <!-- Content Section: 30% ratio -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:orientation="vertical"
+                        android:background="@color/card_content_bg"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:elevation="2dp"
+                        android:gravity="center_vertical">
+
+                        <!-- Title -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Gratitude Practice"
+                            android:textColor="@color/text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:letterSpacing="0.01"
+                            android:layout_marginBottom="4dp"/>
+
+                        <!-- Description -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Daily practice"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="11sp"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:lineSpacingMultiplier="1.1"
+                            android:alpha="0.85"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Progress track background -->
+<!-- Place in: res/drawable/progress_track_background.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#30FFFFFF"/>
+    <corners android:radius="3dp"/>
+</shape>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Teaching badge with rose/pink gradient (latest/fresh content theme) -->
+<!-- Place in: res/drawable/badge_teaching.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="135"
+        android:startColor="#F472B6"
+        android:endColor="#DB2777"
+        android:type="linear"/>
+    <corners android:radius="12dp"/>
+</shape>

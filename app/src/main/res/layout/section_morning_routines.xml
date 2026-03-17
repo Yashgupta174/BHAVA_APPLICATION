@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/bhava_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Morning Routines"
+        android:textColor="@color/text_primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingEnd="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!-- Routine Card 1 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                android:layout_marginEnd="16dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/card_content_bg"
+                    android:padding="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/daily_practices_daily_pooja"
+                            android:contentDescription="Daily Pooja"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Daily Pooja"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Morning Worship"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="15-20 min"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Routine Card 2 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                android:layout_marginEnd="16dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/card_content_bg"
+                    android:padding="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/challenge_21days"
+                            android:contentDescription="Meditation"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Meditation"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Mindful Practice"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="10-30 min"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Routine Card 3 -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:clickable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/card_content_bg"
+                    android:padding="16dp">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/challeneg_40days_geeta"
+                            android:contentDescription="Pranayama"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp"
+                        android:layout_gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pranayama"
+                            android:textColor="@color/text_primary"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Breathing Practice"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="13sp"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="5-15 min"
+                            android:textColor="@color/text_tertiary"
+                            android:textSize="12sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>
