@@ -10,17 +10,14 @@
     <item
         android:id="@+id/nav_bible"
         android:icon="@drawable/ic_nav_bible"
-        android:title="Bible" />
+        android:title="Shorts" />
 
     <item
         android:id="@+id/nav_discover"
         android:icon="@drawable/ic_nav_discover"
-        android:title="Discover" />
+        android:title="Bhava" />
 
-    <item
-        android:id="@+id/nav_church"
-        android:icon="@drawable/ic_nav_church"
-        android:title="Church" />
+
 
     <item
         android:id="@+id/nav_me"

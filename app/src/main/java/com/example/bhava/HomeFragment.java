@@ -1,5 +1,7 @@
 package com.example.bhava;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -110,16 +112,21 @@ public class HomeFragment extends Fragment {
         });
 
         view.findViewById(R.id.instagram).setOnClickListener(v -> {
-            openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
+            openSocialMedia(        "instagram://user?username=thespiritualcompany108",
+                    "https://www.instagram.com/thespiritualcompany108");
         });
 
         view.findViewById(R.id.facebook).setOnClickListener(v -> {
-            openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
+            openSocialMedia("fb://page/profile.php?id=61583433762092",
+                    "https://www.facebook.com/profile.php?id=61583433762092");
         });
 
         view.findViewById(R.id.youtube).setOnClickListener(v -> {
-            openDetailTimelessWisdomFragment( "Latest Teaching Inner Peace");
+            openSocialMedia("vnd.youtube://@TheSpiritualCompany",
+                    "https://www.youtube.com/@TheSpiritualCompany");
         });
+
+
 
 
 
@@ -131,6 +138,19 @@ public class HomeFragment extends Fragment {
 
 
         return view;
+    }
+
+
+    private void openSocialMedia(String appUrl, String webUrl) {
+        try {
+            // Try to open app
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(appUrl));
+            startActivity(intent);
+        } catch (Exception e) {
+            // If app not installed → open website
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(webUrl));
+            startActivity(intent);
+        }
     }
 
     private void openDetailTimelessWisdomFragment(String title) {

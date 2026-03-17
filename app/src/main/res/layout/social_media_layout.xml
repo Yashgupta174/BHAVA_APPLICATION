@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp"
     android:background="@color/bhava_background">
 
     <!-- Section Title (Optional) -->
@@ -47,10 +46,10 @@
                 android:gravity="center">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="64dp"
+                    android:layout_width="50dp"
                     android:id="@+id/instagram"
-                    android:layout_height="64dp"
-                    app:cardCornerRadius="16dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="26dp"
                     app:cardElevation="4dp"
                     android:layout_marginBottom="8dp">
 
@@ -93,10 +92,10 @@
                 android:gravity="center">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="64dp"
+                    android:layout_width="50dp"
                     android:id="@+id/facebook"
-                    android:layout_height="64dp"
-                    app:cardCornerRadius="16dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="26dp"
                     app:cardElevation="4dp"
                     android:layout_marginBottom="8dp">
 
@@ -139,10 +138,10 @@
                 android:gravity="center">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:layout_width="64dp"
+                    android:layout_width="50dp"
                     android:id="@+id/youtube"
-                    android:layout_height="64dp"
-                    app:cardCornerRadius="16dp"
+                    android:layout_height="50dp"
+                    app:cardCornerRadius="26dp"
                     app:cardElevation="4dp"
                     android:layout_marginBottom="8dp">
 
