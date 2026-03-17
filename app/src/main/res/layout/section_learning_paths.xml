@@ -58,7 +58,7 @@
 
             <!-- Card 1: 108 Days of Devotion -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_108_devotion"
+                android:id="@+id/card_learning_path_108_days_of_devotion"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
@@ -161,7 +161,7 @@
 
             <!-- Card 2: Bhagavad Gita Journey -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_gita_journey"
+                android:id="@+id/card_learning_path_bhagavad_gita_journey"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"
@@ -264,7 +264,7 @@
 
             <!-- Card 3: Mantra Mastery -->
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_mantra_mastery"
+                android:id="@+id/card_learning_path_mantra_mastery"
                 android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="16dp"

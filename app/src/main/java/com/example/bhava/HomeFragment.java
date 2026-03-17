@@ -64,6 +64,21 @@ public class HomeFragment extends Fragment {
             openDetailDailyPractiseFragment( "Daily Practise Yoga Practice");
         });
 
+        // 🔹 Learning Path 108 Days of Devotion Card Click
+        view.findViewById(R.id.card_learning_path_108_days_of_devotion).setOnClickListener(v -> {
+            openDetailLearningathFragment( "Learning Path 108 Days of Devotion");
+        });
+
+        // 🔹 Learning Path Bhagavad Gita Journey Card Click
+        view.findViewById(R.id.card_learning_path_bhagavad_gita_journey).setOnClickListener(v -> {
+            openDetailLearningathFragment( "Learning Path Bhagavad Gita Journey");
+        });
+
+        // 🔹 Learning Path Mantra Mastery Card Click
+        view.findViewById(R.id.card_learning_path_mantra_mastery).setOnClickListener(v -> {
+            openDetailLearningathFragment( "Learning Path Mantra Mastery");
+        });
+
 
 
 
@@ -72,6 +87,24 @@ public class HomeFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void openDetailLearningathFragment(String title) {
+        Detailed_learning_path_Fragment fragment =
+                new Detailed_learning_path_Fragment();
+
+        Bundle bundle = new Bundle();
+        // which card clicked
+        bundle.putString("title", title);   // optional (for UI)
+
+        fragment.setArguments(bundle);
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
+
     }
 
     private void openDetailDailyPractiseFragment(String title) {

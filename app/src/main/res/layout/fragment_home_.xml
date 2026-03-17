@@ -560,6 +560,8 @@
             <!-- ========== PRAYER STATS ========== -->
             <include layout="@layout/section_prayer_stats"/>
 
+
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
