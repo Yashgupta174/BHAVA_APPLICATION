@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Semi-transparent dark pill behind the subtitle TextView.
+    This guarantees "Guided Contemplative Prayer · 27 min" is
+    always readable regardless of the hero image colours behind it.
+    Alpha 0x44 = ~27% opacity — subtle, not distracting.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="20dp" />
+    <solid android:color="#44000000" />
+</shape>

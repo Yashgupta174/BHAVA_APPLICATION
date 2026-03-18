@@ -3,6 +3,18 @@
 
 
 
+
+    <!--  Hero  -->
+    <color name="hero_dark_start">#1A0F08</color>
+    <color name="hero_dark_mid">#3D1F0A</color>
+    <color name="hero_dark_end">#7A3A10</color>
+    <!--  Options card  -->
+
+    <color name="mini_player_text_muted">#80FFFFFF</color>
+    <color name="mini_player_progress_track">#33FFFFFF</color>
+    <!--  Avatar chips  -->
+
+
     <color name="gold_bg">#FDF3DC</color>
 
     <color name="hero_start">#F5E8C8</color>
