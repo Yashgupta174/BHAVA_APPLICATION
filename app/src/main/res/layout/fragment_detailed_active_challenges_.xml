@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:background="@color/bg_parchment">
 
-    <!-- ════════════════════════════════════════ -->
-    <!--          COLLAPSING HERO HEADER          -->
-    <!-- ════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--          COLLAPSING HERO HEADER             -->
+    <!-- ════════════════════════════════════════════ -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="260dp"
         android:background="@android:color/transparent"
         app:elevation="0dp">
 
@@ -23,7 +23,7 @@
             app:contentScrim="@color/bg_parchment"
             app:titleEnabled="false">
 
-            <!-- Hero background image / gradient -->
+            <!-- Hero gradient background -->
             <View
                 android:id="@+id/heroBackground"
                 android:layout_width="match_parent"
@@ -32,52 +32,76 @@
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.5" />
 
-            <!-- "Join Challenge" pill button centered in hero -->
+            <!-- Decorative circles overlay -->
+            <View
+                android:layout_width="220dp"
+                android:layout_height="220dp"
+                android:background="@drawable/hero_circle_large"
+                android:layout_gravity="top|end"
+                android:layout_marginTop="-60dp"
+                android:layout_marginEnd="-40dp"
+                app:layout_collapseMode="parallax" />
+
+            <View
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="@drawable/hero_circle_small"
+                android:layout_gravity="bottom|start"
+                android:layout_marginBottom="-30dp"
+                android:layout_marginStart="20dp"
+                app:layout_collapseMode="parallax" />
+
+            <!-- Join Challenge button — centred in hero -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="28dp"
                 app:layout_collapseMode="parallax">
 
                 <Button
                     android:id="@+id/btnJoinChallenge"
                     android:layout_width="wrap_content"
-                    android:layout_height="56dp"
-                    android:text="@string/btn_join_challenge"
-                    android:textSize="17sp"
+                    android:layout_height="52dp"
+                    android:text="Join Challenge"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:fontFamily="serif"
                     android:textColor="@color/text_espresso"
                     android:background="@drawable/join_btn_bg"
-                    android:paddingHorizontal="40dp"
-                    app:cornerRadius="50dp" />
+                    android:paddingStart="44dp"
+                    android:paddingEnd="44dp"
+                    android:stateListAnimator="@null"
+                    android:elevation="6dp" />
+
             </LinearLayout>
 
-            <!-- Back button pinned top-start -->
+            <!-- Back button pinned to top-start -->
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:src="@drawable/ic_arrow_back"
                 android:background="@drawable/circle_btn_bg"
                 android:padding="10dp"
                 android:tint="@color/text_espresso"
                 android:layout_gravity="top|start"
                 android:layout_margin="14dp"
-                android:contentDescription="@string/cd_back"
+                android:contentDescription="Go back"
+                android:stateListAnimator="@null"
                 app:layout_collapseMode="pin" />
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- ════════════════════════════════════════ -->
-    <!--          SCROLLABLE BODY                 -->
-    <!-- ════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--           SCROLLABLE BODY                   -->
+    <!-- ════════════════════════════════════════════ -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbarThumbVertical="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -86,233 +110,295 @@
             android:orientation="vertical"
             android:paddingBottom="32dp">
 
-            <!-- ── Info Card (title, featuring, description, badges) ── -->
-            <androidx.cardview.widget.CardView
+            <!-- ── INFO CARD ── -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="0dp"
-                app:cardCornerRadius="0dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/card_cream">
+                android:orientation="vertical"
+                android:background="@color/card_cream"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="22dp"
+                android:paddingBottom="20dp">
 
-                <LinearLayout
+                <!-- Challenge title -->
+                <TextView
+                    android:id="@+id/textTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingHorizontal="20dp"
-                    android:paddingTop="22dp"
-                    android:paddingBottom="18dp">
+                    android:text="21-Day Inner Peace &amp; Mindfulness Journey"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/text_espresso"
+                    android:lineSpacingMultiplier="1.25"
+                    android:layout_marginBottom="14dp" />
 
-                    <!-- ── DYNAMIC TITLE — id = textTitle ── -->
-                    <TextView
-                        android:id="@+id/textTitle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/challenge_title_placeholder"
-                        android:textSize="26sp"
-                        android:textStyle="bold"
-                        android:fontFamily="serif"
-                        android:textColor="@color/text_espresso"
-                        android:lineSpacingMultiplier="1.15"
-                        android:layout_marginBottom="14dp" />
+                <!-- "Featuring" label -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FEATURING"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/text_caramel"
+                    android:letterSpacing="0.12"
+                    android:layout_marginBottom="10dp" />
 
-                    <!-- ── "Featuring" label ── -->
-                    <TextView
+                <!-- Hosts row -->
+                <LinearLayout
+                    android:id="@+id/featuringRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="14dp">
+
+                    <!-- Host 1 -->
+                    <FrameLayout
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/avatar_bg_orange"
+                        android:layout_marginEnd="8dp">
+
+                        <TextView
+                            android:id="@+id/tvHost1Initials"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="AR"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:fontFamily="serif"
+                            android:textColor="@color/chip_text_orange" />
+
+                    </FrameLayout>
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/featuring_label"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:fontFamily="sans-serif-medium"
-                        android:textColor="@color/text_brown"
-                        android:layout_marginBottom="10dp" />
+                        android:orientation="vertical"
+                        android:layout_marginEnd="20dp">
 
-                    <!-- ── Featuring row (avatars + names) ── -->
-                    <LinearLayout
-                        android:id="@+id/featuringRow"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginBottom="14dp">
-
-                        <!-- Host 1 avatar -->
-                        <ImageView
-                            android:id="@+id/ivHost1"
-                            android:layout_width="52dp"
-                            android:layout_height="52dp"
-                            android:src="@drawable/placeholder_avatar"
-                            android:background="@drawable/avatar_bg"
-                            android:scaleType="centerCrop"
-                            android:layout_marginEnd="10dp"
-                            android:contentDescription="Host 1" />
-
-                        <!-- Host 1 name -->
                         <TextView
                             android:id="@+id/tvHost1Name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/host1_name_placeholder"
-                            android:textSize="15sp"
-                            android:textStyle="bold"
-                            android:fontFamily="serif"
-                            android:textColor="@color/text_espresso"
-                            android:layout_marginEnd="18dp" />
-
-                        <!-- Host 2 avatar -->
-                        <ImageView
-                            android:id="@+id/ivHost2"
-                            android:layout_width="52dp"
-                            android:layout_height="52dp"
-                            android:src="@drawable/placeholder_avatar"
-                            android:background="@drawable/avatar_bg"
-                            android:scaleType="centerCrop"
-                            android:layout_marginEnd="10dp"
-                            android:contentDescription="Host 2" />
-
-                        <!-- Host 2 name -->
-                        <TextView
-                            android:id="@+id/tvHost2Name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/host2_name_placeholder"
-                            android:textSize="15sp"
+                            android:text="Arjun Rao"
+                            android:textSize="14sp"
                             android:textStyle="bold"
                             android:fontFamily="serif"
                             android:textColor="@color/text_espresso" />
 
-                    </LinearLayout>
-
-                    <!-- ── Description (truncated with MORE) ── -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginBottom="16dp">
-
                         <TextView
-                            android:id="@+id/tvDescription"
-                            android:layout_width="0dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/challenge_desc_placeholder"
-                            android:textSize="14sp"
+                            android:text="Vedic Counsellor"
+                            android:textSize="11sp"
                             android:fontFamily="sans-serif"
-                            android:textColor="@color/text_brown"
-                            android:lineSpacingMultiplier="1.5"
-                            android:maxLines="3"
-                            android:ellipsize="end" />
-
-                        <TextView
-                            android:id="@+id/tvMore"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/label_more"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:fontFamily="sans-serif-medium"
                             android:textColor="@color/text_caramel"
-                            android:layout_gravity="bottom"
-                            android:paddingStart="4dp" />
+                            android:layout_marginTop="1dp" />
+
                     </LinearLayout>
 
-                    <!-- ── Badges row (joined count + starts in) ── -->
+                    <!-- Host 2 -->
+                    <FrameLayout
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:background="@drawable/avatar_bg_green"
+                        android:layout_marginEnd="8dp">
+
+                        <TextView
+                            android:id="@+id/tvHost2Initials"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="PM"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            android:fontFamily="serif"
+                            android:textColor="@color/chip_text_green" />
+
+                    </FrameLayout>
+
                     <LinearLayout
-                        android:id="@+id/badgesRow"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/tvJoinedBadge"
+                            android:id="@+id/tvHost2Name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/badge_joined_placeholder"
-                            android:textSize="13sp"
+                            android:text="Priya Mehta"
+                            android:textSize="14sp"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-medium"
-                            android:textColor="@color/card_cream"
-                            android:background="@drawable/badge_filled_bg"
-                            android:paddingHorizontal="14dp"
-                            android:paddingVertical="7dp"
-                            android:layout_marginEnd="10dp" />
+                            android:fontFamily="serif"
+                            android:textColor="@color/text_espresso" />
 
                         <TextView
-                            android:id="@+id/tvStartsBadge"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/badge_starts_placeholder"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:fontFamily="sans-serif-medium"
-                            android:textColor="@color/accent_gold"
-                            android:background="@drawable/badge_outline_bg"
-                            android:paddingHorizontal="14dp"
-                            android:paddingVertical="7dp" />
+                            android:text="Meditation Guide"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/text_caramel"
+                            android:layout_marginTop="1dp" />
 
                     </LinearLayout>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
-            <!-- ── Divider between info card and session list ── -->
+                <!-- Description + MORE -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="bottom"
+                    android:layout_marginBottom="16dp">
+
+                    <TextView
+                        android:id="@+id/tvDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="A transformative 21-day journey blending Vedic wisdom, guided meditation and daily intention-setting to help you cultivate lasting inner stillness and clarity."
+                        android:textSize="13.5sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/text_caramel"
+                        android:lineSpacingMultiplier="1.6"
+                        android:maxLines="3"
+                        android:ellipsize="end" />
+
+                    <TextView
+                        android:id="@+id/tvMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="More"
+                        android:textSize="13.5sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/accent_color"
+                        android:paddingStart="6dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                </LinearLayout>
+
+                <!-- Badges row -->
+                <LinearLayout
+                    android:id="@+id/badgesRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvJoinedBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1.2k joined"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/white"
+                        android:background="@drawable/badge_filled_bg"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvStartsBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⏳ Starts in 3 days"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/accent_gold"
+                        android:background="@drawable/badge_outline_bg"
+                        android:paddingStart="13dp"
+                        android:paddingEnd="13dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:id="@+id/tvSessionCountBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="21 sessions"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/text_caramel"
+                        android:background="@drawable/badge_neutral_bg"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Full-width divider -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/divider_warm"
-                android:layout_marginTop="4dp" />
+                android:background="@color/divider_warm" />
 
-            <!-- ════════════════════════════════ -->
-            <!--        SESSION LIST              -->
-            <!--   (repeated item rows)           -->
-            <!-- ════════════════════════════════ -->
-
-            <!-- Session Item 1 -->
-            <include layout="@layout/item_session"
-                android:id="@+id/session1"
+            <!-- Sessions section header -->
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="10dp">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divider_warm"
-                android:layout_marginHorizontal="20dp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sessions"
+                    android:textSize="17sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/text_espresso" />
 
-            <!-- Session Item 2 -->
-            <include layout="@layout/item_session"
-                android:id="@+id/session2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="21 total"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/text_caramel_light"
+                    android:background="@drawable/badge_neutral_bg"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divider_warm"
-                android:layout_marginHorizontal="20dp" />
+            </LinearLayout>
 
-            <!-- Session Item 3 -->
-            <include layout="@layout/item_session"
-                android:id="@+id/session3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <!-- Session items using include -->
+            <include layout="@layout/item_session" android:id="@+id/session1" />
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="@color/divider_warm" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/divider_warm"
-                android:layout_marginHorizontal="20dp" />
+            <include layout="@layout/item_session" android:id="@+id/session2" />
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="@color/divider_warm" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
 
-            <!-- Session Item 4 -->
-            <include layout="@layout/item_session"
-                android:id="@+id/session4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+            <include layout="@layout/item_session" android:id="@+id/session3" />
+            <View android:layout_width="match_parent" android:layout_height="1dp"
+                android:background="@color/divider_warm" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
 
-            <!--
-                For dynamic lists, replace <include> blocks with a
-                RecyclerView and an adapter instead.
-            -->
+            <include layout="@layout/item_session" android:id="@+id/session4" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -3,6 +3,12 @@
 
 
 
+    <color name="gold_bg">#FDF3DC</color>
+
+    <color name="hero_start">#F5E8C8</color>
+    <color name="hero_mid">#E8C97A</color>
+    <color name="hero_end">#C84B0C</color>
+
     <color name="thumb_gospel">#FDE8D8</color>
     <color name="thumb_pooja">#F5E4B0</color>
     <color name="thumb_meditation">#D8EDD6</color>

@@ -7,6 +7,9 @@
     <string name="label_more">MORE</string>
     <!--  ── Labels ──  -->
 
+
+    <string name="sessions_label">Sessions</string>
+
     <string name="add_routine">+ Add New Routine</string>
     <string name="progress_label">Today\'s progress</string>
 
