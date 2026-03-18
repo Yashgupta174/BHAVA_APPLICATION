@@ -79,6 +79,28 @@
         <item name="android:letterSpacing">0</item>
     </style>
 
+    <style name="Theme.DailyRoutine" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/accent_color</item>
+        <item name="colorPrimaryVariant">@color/accent_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/bg_parchment</item>
+        <item name="android:statusBarColor">@color/bg_parchment</item>
+        <item name="android:navigationBarColor">@color/bg_parchment</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+    </style>
+
+
+    <style name="Theme.BhavaChat" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/accent_color</item>
+        <item name="colorPrimaryVariant">@color/accent_light</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/bg_parchment</item>
+        <item name="android:statusBarColor">@color/bg_parchment</item>
+        <item name="android:navigationBarColor">@color/bg_parchment</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
     <!-- Active indicator style (background for selected item) -->
     <style name="BottomNavActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@color/bottom_nav_indicator_color</item>

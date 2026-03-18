@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    One dot of the three-dot typing indicator.
+    Animate alpha + scaleX/scaleY with ObjectAnimator in your Activity
+    to create the pulsing bounce effect.
+
+    Example Kotlin animation for each dot:
+        val anim = ObjectAnimator.ofFloat(dot, "alpha", 0.3f, 1f, 0.3f)
+        anim.duration = 900
+        anim.repeatCount = ObjectAnimator.INFINITE
+        anim.startDelay = 0L / 180L / 360L  (per dot)
+        anim.start()
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/text_caramel_light" />
+    <size android:width="7dp" android:height="7dp" />
+</shape>

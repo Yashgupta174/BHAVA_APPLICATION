@@ -6,61 +6,81 @@
     android:layout_height="match_parent"
     android:background="@color/bg_parchment">
 
-    <!-- ════════════════════════════════════════ -->
-    <!--              TOP APP BAR                 -->
-    <!-- ════════════════════════════════════════ -->
-    <RelativeLayout
+    <!-- ════════════════════════════════════════════ -->
+    <!--               TOP APP BAR                   -->
+    <!-- ════════════════════════════════════════════ -->
+    <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:background="@color/bg_parchment"
-        android:paddingHorizontal="8dp"
         android:elevation="4dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- Back arrow -->
+        <!-- Back button -->
         <ImageButton
             android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:src="@drawable/ic_arrow_back"
-            android:background="@android:color/transparent"
+            android:background="@drawable/bg_icon_btn"
             android:tint="@color/text_espresso"
-            android:padding="8dp"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="Back" />
+            android:padding="10dp"
+            android:contentDescription="Back"
+            android:stateListAnimator="@null" />
 
-        <!-- Title -->
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
+        <!-- Title block (center, weight=1) -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/bhava_ai_title"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:textColor="@color/text_espresso"
-            android:layout_centerInParent="true" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp">
 
-        <!-- More options -->
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bhava_ai_title"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_espresso"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spiritual Guide"
+                android:textSize="10sp"
+                android:textColor="@color/text_caramel"
+                android:layout_gravity="center"
+                android:letterSpacing="0.05" />
+
+        </LinearLayout>
+
+        <!-- More options button -->
         <ImageButton
             android:id="@+id/btnMore"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:src="@drawable/ic_more_vert"
-            android:background="@android:color/transparent"
+            android:background="@drawable/bg_icon_btn"
             android:tint="@color/text_espresso"
-            android:padding="8dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="More options" />
+            android:padding="10dp"
+            android:contentDescription="More options"
+            android:stateListAnimator="@null" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <!-- Thin decorative divider under top bar -->
+    <!-- Divider under top bar -->
     <View
         android:id="@+id/dividerTop"
         android:layout_width="match_parent"
@@ -70,15 +90,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- ════════════════════════════════════════ -->
-    <!--           CHAT SCROLL AREA               -->
-    <!-- ════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--             CHAT SCROLL AREA                -->
+    <!-- ════════════════════════════════════════════ -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/chatScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:fillViewport="true"
-        android:scrollbarThumbVertical="@android:color/transparent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
         app:layout_constraintTop_toBottomOf="@id/dividerTop"
         app:layout_constraintBottom_toTopOf="@id/disclaimerText"
         app:layout_constraintStart_toStartOf="parent"
@@ -89,174 +110,387 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="20dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
             android:paddingTop="24dp"
             android:paddingBottom="16dp">
 
-            <!-- ── Warning / Logo Icon ── -->
-            <ImageView
-                android:id="@+id/ivBhavaIcon"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/ic_bhava_logo"
-                android:tint="@color/accent_gold"
-                android:layout_marginBottom="16dp"
-                android:contentDescription="Bhava AI" />
+            <!-- ── Logo + Brand Row ── -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="20dp">
 
-            <!-- ── Intro Message Bubble (System) ── -->
+                <!-- Gradient icon background -->
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_logo_circle"
+                    android:layout_marginEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_bhava_logo"
+                        android:tint="@color/white"
+                        android:layout_gravity="center"
+                        android:contentDescription="Bhava AI" />
+
+                </FrameLayout>
+
+                <!-- Name + tagline -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/bhava_ai_title"
+                        android:textSize="15sp"
+                        android:textColor="@color/text_espresso" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="✦ Your spiritual companion"
+                        android:textSize="11sp"
+                        android:textColor="@color/text_caramel"
+                        android:layout_marginTop="1dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ── Intro Message ── -->
             <TextView
                 android:id="@+id/tvIntroMessage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/bhava_intro"
                 android:textSize="16sp"
-                android:lineSpacingMultiplier="1.5"
-                android:fontFamily="serif"
+                android:lineSpacingMultiplier="1.65"
                 android:textColor="@color/text_espresso"
                 android:layout_marginBottom="28dp" />
 
-            <!-- ── Suggestion Chip 1 (right-aligned) ── -->
+            <!-- ── "You might ask" label ── -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YOU MIGHT ASK"
+                android:textSize="10.5sp"
+                android:letterSpacing="0.12"
+                android:textAllCaps="true"
+                android:textColor="@color/text_caramel_light"
+                android:layout_marginBottom="12dp" />
+
+            <!-- ── Suggestion Chip 1 ── -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="end"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/chipQuestion1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/bhava_q1"
-                    android:textSize="15sp"
-                    android:fontFamily="sans-serif"
+                    android:textSize="14sp"
                     android:textColor="@color/text_espresso"
                     android:background="@drawable/suggestion_chip_bg"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="14dp"
-                    android:maxWidth="290dp" />
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:lineSpacingMultiplier="1.4"
+                    android:maxWidth="270dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="@drawable/ripple_chip" />
+
             </LinearLayout>
 
-            <!-- ── Suggestion Chip 2 (right-aligned, slightly less) ── -->
+            <!-- ── Suggestion Chip 2 ── -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="end"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/chipQuestion2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/bhava_q2"
-                    android:textSize="15sp"
-                    android:fontFamily="sans-serif"
+                    android:textSize="14sp"
                     android:textColor="@color/text_espresso"
                     android:background="@drawable/suggestion_chip_bg"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="14dp"
-                    android:maxWidth="260dp" />
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:lineSpacingMultiplier="1.4"
+                    android:maxWidth="270dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="@drawable/ripple_chip" />
+
             </LinearLayout>
 
-            <!-- ── Suggestion Chip 3 (right-aligned, most indented) ── -->
+            <!-- ── Suggestion Chip 3 ── -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="end"
-                android:layout_marginBottom="12dp">
+                android:layout_marginBottom="10dp">
 
                 <TextView
                     android:id="@+id/chipQuestion3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/bhava_q3"
-                    android:textSize="15sp"
-                    android:fontFamily="sans-serif"
+                    android:textSize="14sp"
                     android:textColor="@color/text_espresso"
                     android:background="@drawable/suggestion_chip_bg"
-                    android:paddingHorizontal="20dp"
-                    android:paddingVertical="14dp"
-                    android:maxWidth="240dp" />
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp"
+                    android:lineSpacingMultiplier="1.4"
+                    android:maxWidth="270dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:foreground="@drawable/ripple_chip" />
+
+            </LinearLayout>
+
+            <!-- ── Typing indicator (shown while AI is responding) ── -->
+            <!-- Controlled via visibility in Activity: View.VISIBLE / View.GONE -->
+            <LinearLayout
+                android:id="@+id/typingIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp"
+                android:visibility="visible">
+
+                <View
+                    android:id="@+id/typingDot1"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:background="@drawable/shape_typing_dot"
+                    android:layout_marginEnd="5dp" />
+
+                <View
+                    android:id="@+id/typingDot2"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:background="@drawable/shape_typing_dot"
+                    android:layout_marginEnd="5dp" />
+
+                <View
+                    android:id="@+id/typingDot3"
+                    android:layout_width="7dp"
+                    android:layout_height="7dp"
+                    android:background="@drawable/shape_typing_dot" />
+
             </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- ════════════════════════════════════════ -->
-    <!--          DISCLAIMER TEXT                 -->
-    <!-- ════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--              DISCLAIMER TEXT                -->
+    <!-- ════════════════════════════════════════════ -->
     <TextView
         android:id="@+id/disclaimerText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bhava_disclaimer"
-        android:textSize="12sp"
-        android:fontFamily="sans-serif"
-        android:textColor="@color/text_caramel"
-        android:lineSpacingMultiplier="1.4"
-        android:paddingHorizontal="20dp"
-        android:paddingTop="10dp"
+        android:textSize="11.5sp"
+        android:textColor="@color/text_caramel_light"
+        android:lineSpacingMultiplier="1.45"
+        android:gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@id/inputCard"
+        android:background="@color/bg_parchment"
+        app:layout_constraintBottom_toTopOf="@id/quickActionsRow"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- ════════════════════════════════════════ -->
-    <!--          BOTTOM INPUT BAR                -->
-    <!-- ════════════════════════════════════════ -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--          QUICK ACTION PILLS ROW             -->
+    <!-- ════════════════════════════════════════════ -->
+    <HorizontalScrollView
+        android:id="@+id/quickActionsRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="6dp"
+        android:clipToPadding="false"
+        android:background="@color/bg_parchment"
+        app:layout_constraintBottom_toTopOf="@id/inputCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:id="@+id/pillMantras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🕉 Mantras"
+                android:textSize="12sp"
+                android:textColor="@color/text_caramel"
+                android:background="@drawable/bg_quick_pill"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/pillFestivals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🪔 Festivals"
+                android:textSize="12sp"
+                android:textColor="@color/text_caramel"
+                android:background="@drawable/bg_quick_pill"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/pillScriptures"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📖 Scriptures"
+                android:textSize="12sp"
+                android:textColor="@color/text_caramel"
+                android:background="@drawable/bg_quick_pill"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_marginEnd="6dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/pillMeditation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🌸 Meditation"
+                android:textSize="12sp"
+                android:textColor="@color/text_caramel"
+                android:background="@drawable/bg_quick_pill"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!--            BOTTOM INPUT CARD                -->
+    <!-- ════════════════════════════════════════════ -->
     <androidx.cardview.widget.CardView
         android:id="@+id/inputCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
         android:layout_marginBottom="20dp"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="28dp"
         app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/card_cream"
+        app:cardBackgroundColor="@color/bg_warm_cream"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="20dp"
-            android:paddingVertical="4dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:minHeight="56dp">
 
+            <!-- Attach / mic icon button -->
+            <ImageButton
+                android:id="@+id/btnAttach"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:src="@drawable/ic_attach"
+                android:background="@drawable/bg_input_action_btn"
+                android:tint="@color/text_caramel"
+                android:padding="8dp"
+                android:contentDescription="Attach"
+                android:stateListAnimator="@null" />
+
+            <!-- Text input -->
             <EditText
                 android:id="@+id/etInput"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="@string/bhava_input_hint"
-                android:textColorHint="@color/text_caramel"
-            android:textColor="@color/text_espresso"
-            android:textSize="15sp"
-            android:fontFamily="sans-serif"
-            android:background="@android:color/transparent"
-            android:paddingVertical="14dp"
-            android:paddingEnd="44dp"
-            android:maxLines="4"
-            android:inputType="textMultiLine|textCapSentences"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/btnSend" />
+                android:textColorHint="@color/text_caramel_light"
+                android:textColor="@color/text_espresso"
+                android:textSize="14.5sp"
+                android:background="@android:color/transparent"
+                android:paddingStart="10dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:maxLines="4"
+                android:inputType="textMultiLine|textCapSentences"
+                android:imeOptions="actionSend" />
 
-            <!-- Send button -->
+            <!-- Send button — accent gradient pill -->
             <ImageButton
                 android:id="@+id/btnSend"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
                 android:src="@drawable/ic_send"
-                android:background="@drawable/send_btn_bg"
-                android:padding="8dp"
-                android:tint="@color/card_cream"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:contentDescription="Send" />
+                android:background="@drawable/bg_send_btn"
+                android:tint="@color/white"
+                android:padding="10dp"
+                android:contentDescription="Send"
+                android:stateListAnimator="@null" />
 
-        </RelativeLayout>
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

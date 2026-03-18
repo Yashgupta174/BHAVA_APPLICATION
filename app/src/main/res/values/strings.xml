@@ -6,6 +6,12 @@
     <string name="btn_join_challenge">Join Challenge</string>
     <string name="label_more">MORE</string>
     <!--  ── Labels ──  -->
+
+    <string name="add_routine">+ Add New Routine</string>
+    <string name="progress_label">Today\'s progress</string>
+
+
+
     <string name="featuring_label">Featuring</string>
     <!--
             These are PLACEHOLDER strings.

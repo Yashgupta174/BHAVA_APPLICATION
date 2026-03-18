@@ -2,6 +2,43 @@
 <resources>
 
 
+
+    <color name="thumb_gospel">#FDE8D8</color>
+    <color name="thumb_pooja">#F5E4B0</color>
+    <color name="thumb_meditation">#D8EDD6</color>
+    <color name="thumb_journal">#D4E4F5</color>
+    <color name="thumb_evening">#EDE4D6</color>
+    <color name="chip_bg_orange">#FDE8D8</color>
+    <color name="chip_text_orange">#9E3D0B</color>
+
+
+
+    <!-- Backgrounds -->
+
+    <color name="bg_parchment_deep">#EDE4D6</color>
+    <color name="bg_warm_cream">#FBF7F0</color>
+
+    <!-- Text -->
+
+    <color name="text_caramel_light">#C49A6C</color>
+
+
+
+    <!-- Row icon backgrounds -->
+    <color name="icon_bg_coffee">#F0E6D4</color>
+    <color name="icon_bg_music">#E6EEF5</color>
+    <color name="icon_bg_book">#F0EBE6</color>
+    <color name="icon_bg_plant">#EAF0E6</color>
+    <color name="icon_bg_art">#F2EAF5</color>
+
+    <!-- Tag chip colours -->
+    <color name="chip_bg_warm">#F3E3CF</color>
+    <color name="chip_text_warm">#7A4A1E</color>
+    <color name="chip_bg_green">#D8EDD6</color>
+    <color name="chip_text_green">#2E6C28</color>
+    <color name="chip_bg_blue">#D4E4F5</color>
+    <color name="chip_text_blue">#1A4B7A</color>
+
     <!--  ── Accents ──  -->
     <color name="accent_gold">#B87A2A</color>
     <color name="accent_gold_light">#D4A855</color>
@@ -15,7 +52,7 @@
     <!--  ── Ripple ──  -->
 
 
-    <color name="bg_parchment">#E7C39F</color>
+    <color name="bg_parchment">#f6e7d6</color>
     <!--  ── Card Surfaces ──  -->
     <color name="card_cream">#FDEBD0</color>
     <color name="card_cream_dark">#F5D8B8</color>
@@ -46,11 +83,11 @@
     <color name="bottom_nav_unselected">#eed8c0</color>
 
     <!-- Background Colors -->
-    <color name="bhava_background">#e7c4a0</color>
+    <color name="bhava_background">#f6e7d6</color>
     <color name="card_content_bg">#FFFFFF</color>
-    <color name="card_bg_light">#f8edde</color>
+    <color name="card_bg_light">#e7c39f</color>
     <color name="bottom_nav_bg">#f8edde</color>
-    <color name="action_button_bg">#f8edde</color>
+    <color name="action_button_bg">#e7c39f</color>
 
     <!-- Text Colors -->
     <color name="text_primary">#1e2d1e</color>
