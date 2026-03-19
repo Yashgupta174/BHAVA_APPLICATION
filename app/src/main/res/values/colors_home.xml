@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-
-
-
-
-
-    <!-- Accent & Interactive Colors -->
-
-    <!-- Status Colors -->
-    <color name="live_indicator">#FF4444</color>
-
-    
+    <!-- Note: All colors have been consolidated into values/colors.xml -->
+    <!-- This file is kept for backwards compatibility -->
 </resources>

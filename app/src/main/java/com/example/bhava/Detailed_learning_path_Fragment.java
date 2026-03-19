@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -42,6 +43,27 @@ public class Detailed_learning_path_Fragment extends Fragment {
             textView.setText("Learning Path");
         }
 
+        // ✅ Set up btnPlay click listener to open Music Player Fragment
+        Button btnPlay = view.findViewById(R.id.btnPlay);
+        btnPlay.setOnClickListener(v -> {
+            openMusicPlayerFragment();
+        });
+
         return view;
+    }
+
+    // ✅ Open Music Player Fragment
+    private void openMusicPlayerFragment() {
+        Music_Player_Fragment fragment = new Music_Player_Fragment();
+
+        Bundle bundle = new Bundle();
+        bundle.putString("title", title != null ? title : "Music Player");
+        fragment.setArguments(bundle);
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

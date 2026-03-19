@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    sw360dp — Most common small Android phones.
+    Examples: Samsung Galaxy A13, Redmi Note series, Moto G series.
+    Smallest width = 360dp.
+
+    Visible width in scroll = 360 - 20dp (outer left padding) = 340dp
+    We want: 2 full cards + ~30% peek of 3rd card.
+
+    Formula:
+      total_used     = 2 * card + 2 * 12dp_gutter + peek
+      340            = 2 * card + 24 + peek
+      peek           = card * 0.30  (30% of one card width)
+      340            = 2.30 * card + 24
+      card           = (340 - 24) / 2.30 = 316 / 2.30 ≈ 137dp
+
+    Result: 2 cards of 137dp + 2×12dp gutters + 41dp peek = 339dp ✓
+-->
+<resources>
+    <dimen name="daily_card_width">137dp</dimen>
+    <dimen name="daily_card_image_height">105dp</dimen>
+    <dimen name="daily_card_content_height">60dp</dimen>
+</resources>

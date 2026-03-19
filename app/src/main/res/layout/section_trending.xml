@@ -4,17 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="0dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:background="@color/bhava_background">
 
-    <!-- Section Header with Animation -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="16dp"
-        android:animateLayoutChanges="true">
+        android:paddingEnd="20dp"
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -24,9 +26,10 @@
             android:textColor="@color/text_primary"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:letterSpacing="0.02"/>
+            android:letterSpacing="0.02" />
 
         <TextView
+            android:id="@+id/tvViewAllTrending"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="View All"
@@ -37,38 +40,36 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:stateListAnimator="@null"/>
+            android:stateListAnimator="@null" />
+
     </LinearLayout>
 
-    <!-- Horizontal Scroll View with Smooth Scrolling -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
         android:clipToPadding="false"
-        android:paddingEnd="12dp"
-        android:overScrollMode="never"
-        android:scrollbarStyle="outsideOverlay">
+        android:paddingEnd="20dp"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:animateLayoutChanges="true">
+            android:orientation="horizontal">
 
-            <!-- Trending Card 1: Sacred Mantras -->
+            <!-- Card 1: Sacred Mantras -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_trending_1"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -77,28 +78,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container with Overlay Gradient -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/daily_practices_mantra_chanting"
-                            android:contentDescription="Sacred Mantras"/>
+                            android:contentDescription="Sacred Mantras" />
 
-                        <!-- Gradient Overlay for Better Badge Visibility -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
-                            android:background="@drawable/gradient_overlay_top"/>
+                            android:layout_gravity="top"
+                            android:background="@drawable/gradient_overlay_top" />
 
-                        <!-- Live Listening Badge -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
                             android:layout_margin="10dp"
                             android:text="● 54 Listening"
                             android:textColor="#FFFFFF"
@@ -113,13 +113,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% ratio (60dp) -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="10dp"
@@ -128,7 +128,6 @@
                         android:paddingBottom="8dp"
                         android:elevation="2dp">
 
-                        <!-- Title Row with Logo Icon -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -141,7 +140,7 @@
                                 android:layout_height="13dp"
                                 android:src="@drawable/logo"
                                 app:tint="@color/bhava_primary"
-                                android:contentDescription="Logo"/>
+                                android:contentDescription="Logo" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -154,11 +153,10 @@
                                 android:textStyle="bold"
                                 android:maxLines="1"
                                 android:ellipsize="end"
-                                android:lineSpacingMultiplier="1.1"
-                                android:letterSpacing="0.01"/>
+                                android:letterSpacing="0.01" />
+
                         </LinearLayout>
 
-                        <!-- Subtitle -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -168,34 +166,33 @@
                             android:layout_marginBottom="3dp"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85" />
 
-                        <!-- Sessions Info -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="18 sessions"
                             android:textColor="@color/text_tertiary"
                             android:textSize="9sp"
-                            android:alpha="0.75"/>
+                            android:alpha="0.75" />
+
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Trending Card 2: Divine Wisdom -->
+            <!-- Card 2: Divine Wisdom -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_trending_2"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -204,28 +201,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container with Overlay Gradient -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/daily_practices_daily_pooja"
-                            android:contentDescription="Divine Wisdom"/>
+                            android:contentDescription="Divine Wisdom" />
 
-                        <!-- Gradient Overlay for Better Badge Visibility -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
-                            android:background="@drawable/gradient_overlay_top"/>
+                            android:layout_gravity="top"
+                            android:background="@drawable/gradient_overlay_top" />
 
-                        <!-- Hot Badge -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
                             android:layout_margin="10dp"
                             android:text="🔥 Hot"
                             android:textColor="#FFFFFF"
@@ -240,13 +236,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% ratio (60dp) -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="10dp"
@@ -255,7 +251,6 @@
                         android:paddingBottom="8dp"
                         android:elevation="2dp">
 
-                        <!-- Title Row with Logo Icon -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -268,7 +263,7 @@
                                 android:layout_height="13dp"
                                 android:src="@drawable/logo"
                                 app:tint="@color/bhava_primary"
-                                android:contentDescription="Logo"/>
+                                android:contentDescription="Logo" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -281,11 +276,10 @@
                                 android:textStyle="bold"
                                 android:maxLines="1"
                                 android:ellipsize="end"
-                                android:lineSpacingMultiplier="1.1"
-                                android:letterSpacing="0.01"/>
+                                android:letterSpacing="0.01" />
+
                         </LinearLayout>
 
-                        <!-- Subtitle -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -295,34 +289,33 @@
                             android:layout_marginBottom="3dp"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85" />
 
-                        <!-- Sessions Info -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="24 sessions"
                             android:textColor="@color/text_tertiary"
                             android:textSize="9sp"
-                            android:alpha="0.75"/>
+                            android:alpha="0.75" />
+
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Trending Card 3: Karma Yoga Path -->
+            <!-- Card 3: Karma Yoga Path -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_trending_3"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -331,28 +324,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container with Overlay Gradient -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/timeless_wisdom_karma_yoga"
-                            android:contentDescription="Karma Yoga Path"/>
+                            android:contentDescription="Karma Yoga Path" />
 
-                        <!-- Gradient Overlay for Better Badge Visibility -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
-                            android:background="@drawable/gradient_overlay_top"/>
+                            android:layout_gravity="top"
+                            android:background="@drawable/gradient_overlay_top" />
 
-                        <!-- Popular Badge -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
                             android:layout_margin="10dp"
                             android:text="⭐ Popular"
                             android:textColor="#FFFFFF"
@@ -367,13 +359,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% ratio (60dp) -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="10dp"
@@ -382,7 +374,6 @@
                         android:paddingBottom="8dp"
                         android:elevation="2dp">
 
-                        <!-- Title Row with Logo Icon -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -395,7 +386,7 @@
                                 android:layout_height="13dp"
                                 android:src="@drawable/logo"
                                 app:tint="@color/bhava_primary"
-                                android:contentDescription="Logo"/>
+                                android:contentDescription="Logo" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -408,11 +399,10 @@
                                 android:textStyle="bold"
                                 android:maxLines="1"
                                 android:ellipsize="end"
-                                android:lineSpacingMultiplier="1.1"
-                                android:letterSpacing="0.01"/>
+                                android:letterSpacing="0.01" />
+
                         </LinearLayout>
 
-                        <!-- Subtitle -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -422,17 +412,16 @@
                             android:layout_marginBottom="3dp"
                             android:maxLines="1"
                             android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85" />
 
-                        <!-- Sessions Info -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="12 sessions"
                             android:textColor="@color/text_tertiary"
                             android:textSize="9sp"
-                            android:alpha="0.75"/>
+                            android:alpha="0.75" />
+
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>

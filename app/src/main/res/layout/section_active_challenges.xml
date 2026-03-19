@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="0dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:background="@color/bhava_background">
 
-    <!-- Section Header with Animation -->
+    <!-- Section Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="16dp"
-        android:animateLayoutChanges="true">
+        android:paddingEnd="20dp"
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -24,9 +28,10 @@
             android:textColor="@color/text_primary"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:letterSpacing="0.02"/>
+            android:letterSpacing="0.02" />
 
         <TextView
+            android:id="@+id/tvViewAllChallenges"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="View All"
@@ -37,38 +42,36 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:stateListAnimator="@null"/>
+            android:stateListAnimator="@null" />
+
     </LinearLayout>
 
-    <!-- Horizontal Scroll View with Smooth Scrolling -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
-        android:clipToPadding="false"
-        android:paddingEnd="12dp"
         android:overScrollMode="never"
-        android:scrollbarStyle="outsideOverlay">
+        android:clipToPadding="false"
+        android:paddingEnd="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:animateLayoutChanges="true">
+            android:orientation="horizontal">
 
-            <!-- Challenge Card 1: 21-Days Dhyan -->
+            <!-- Card 1: 21-Days Dhyan Challenge -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_dhyan"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -77,28 +80,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container with Overlay Gradient -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/challenge_21days"
-                            android:contentDescription="21 Days Challenge"/>
+                            android:contentDescription="21 Days Challenge" />
 
-                        <!-- Gradient Overlay for Better Badge Visibility -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
-                            android:background="@drawable/gradient_overlay_top"/>
+                            android:layout_gravity="top"
+                            android:background="@drawable/gradient_overlay_top" />
 
-                        <!-- Live Badge with Pulse Animation -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
                             android:layout_margin="10dp"
                             android:text="● 16,087 Live"
                             android:textColor="#FFFFFF"
@@ -113,13 +115,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% of Image Height (33dp for 110dp image) -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="10dp"
@@ -128,7 +130,6 @@
                         android:paddingBottom="8dp"
                         android:elevation="2dp">
 
-                        <!-- Title Row with Icon -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -142,7 +143,7 @@
                                 android:src="@drawable/pluss"
                                 android:contentDescription="Add"
                                 android:tint="@color/accent_color"
-                                android:alpha="0.9"/>
+                                android:alpha="0.9" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -156,10 +157,10 @@
                                 android:maxLines="1"
                                 android:ellipsize="end"
                                 android:lineSpacingMultiplier="1.1"
-                                android:letterSpacing="0.01"/>
+                                android:letterSpacing="0.01" />
+
                         </LinearLayout>
 
-                        <!-- Description with Better Spacing -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -170,9 +171,8 @@
                             android:maxLines="1"
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85" />
 
-                        <!-- Badges with Enhanced Styling -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                                 android:textSize="8sp"
                                 android:textStyle="bold"
                                 android:layout_marginEnd="5dp"
-                                android:elevation="1dp"/>
+                                android:elevation="1dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -206,25 +206,26 @@
                                 android:paddingBottom="3dp"
                                 android:textSize="8sp"
                                 android:textStyle="bold"
-                                android:elevation="1dp"/>
+                                android:elevation="1dp" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Challenge Card 2: 108-Days Mantra -->
+            <!-- Card 2: 108-Days Mantra Sadhana -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_mantra"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -233,28 +234,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container with Overlay Gradient -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/challenge_108days_mantra"
-                            android:contentDescription="108 Days Mantra"/>
+                            android:contentDescription="108 Days Mantra" />
 
-                        <!-- Gradient Overlay for Better Visibility -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
-                            android:background="@drawable/gradient_overlay_top"/>
+                            android:layout_gravity="top"
+                            android:background="@drawable/gradient_overlay_top" />
 
-                        <!-- Featured Badge -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
                             android:layout_margin="10dp"
                             android:text="✨ Featured"
                             android:textColor="#FFFFFF"
@@ -269,13 +269,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% of Image Height -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="10dp"
@@ -284,7 +284,6 @@
                         android:paddingBottom="8dp"
                         android:elevation="2dp">
 
-                        <!-- Title Row with Icon -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -298,7 +297,7 @@
                                 android:src="@drawable/pluss"
                                 android:contentDescription="Add"
                                 android:tint="@color/accent_color"
-                                android:alpha="0.9"/>
+                                android:alpha="0.9" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -312,10 +311,10 @@
                                 android:maxLines="1"
                                 android:ellipsize="end"
                                 android:lineSpacingMultiplier="1.1"
-                                android:letterSpacing="0.01"/>
+                                android:letterSpacing="0.01" />
+
                         </LinearLayout>
 
-                        <!-- Description with Better Spacing -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -326,9 +325,8 @@
                             android:maxLines="1"
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85" />
 
-                        <!-- Badges with Enhanced Styling -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -348,7 +346,7 @@
                                 android:textSize="8sp"
                                 android:textStyle="bold"
                                 android:layout_marginEnd="5dp"
-                                android:elevation="1dp"/>
+                                android:elevation="1dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -362,25 +360,26 @@
                                 android:paddingBottom="3dp"
                                 android:textSize="8sp"
                                 android:textStyle="bold"
-                                android:elevation="1dp"/>
+                                android:elevation="1dp" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Challenge Card 3: 40-Days Geeta -->
+            <!-- Card 3: 40-Days Gita Journey (peek card) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_geeta"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -389,28 +388,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container with Overlay Gradient -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/challeneg_40days_geeta"
-                            android:contentDescription="40 Days Geeta"/>
+                            android:contentDescription="40 Days Geeta" />
 
-                        <!-- Gradient Overlay for Better Visibility -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
-                            android:background="@drawable/gradient_overlay_top"/>
+                            android:layout_gravity="top"
+                            android:background="@drawable/gradient_overlay_top" />
 
-                        <!-- New Badge -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
                             android:layout_margin="10dp"
                             android:text="🆕 New"
                             android:textColor="#FFFFFF"
@@ -425,13 +423,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% of Image Height -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="10dp"
@@ -440,7 +438,6 @@
                         android:paddingBottom="8dp"
                         android:elevation="2dp">
 
-                        <!-- Title Row with Icon -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -454,7 +451,7 @@
                                 android:src="@drawable/pluss"
                                 android:contentDescription="Add"
                                 android:tint="@color/accent_color"
-                                android:alpha="0.9"/>
+                                android:alpha="0.9" />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -468,10 +465,10 @@
                                 android:maxLines="1"
                                 android:ellipsize="end"
                                 android:lineSpacingMultiplier="1.1"
-                                android:letterSpacing="0.01"/>
+                                android:letterSpacing="0.01" />
+
                         </LinearLayout>
 
-                        <!-- Description with Better Spacing -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -482,9 +479,8 @@
                             android:maxLines="1"
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85" />
 
-                        <!-- Badges with Enhanced Styling -->
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -504,7 +500,7 @@
                                 android:textSize="8sp"
                                 android:textStyle="bold"
                                 android:layout_marginEnd="5dp"
-                                android:elevation="1dp"/>
+                                android:elevation="1dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -518,7 +514,8 @@
                                 android:paddingBottom="3dp"
                                 android:textSize="8sp"
                                 android:textStyle="bold"
-                                android:elevation="1dp"/>
+                                android:elevation="1dp" />
+
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -526,4 +523,5 @@
 
         </LinearLayout>
     </HorizontalScrollView>
+
 </LinearLayout>

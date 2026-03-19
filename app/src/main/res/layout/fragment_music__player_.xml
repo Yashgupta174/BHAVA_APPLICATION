@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/player_bg">
+
+    <!-- ════════════════════════════════════════════ -->
+    <!--           SCROLLABLE BODY                   -->
+    <!-- ════════════════════════════════════════════ -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="40dp">
+
+            <!-- ── TOP NAV ROW ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_arrow_back"
+                    android:background="@drawable/bg_player_icon_btn"
+                    android:tint="@color/player_text"
+                    android:padding="10dp"
+                    android:contentDescription="Go back"
+                    android:stateListAnimator="@null" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="NOW PLAYING"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/player_muted"
+                    android:gravity="center"
+                    android:letterSpacing="0.12" />
+
+                <ImageButton
+                    android:id="@+id/btnMore"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_more_vert_light"
+                    android:background="@drawable/bg_player_icon_btn"
+                    android:padding="10dp"
+                    android:contentDescription="More options"
+                    android:stateListAnimator="@null" />
+
+            </LinearLayout>
+
+            <!-- ── ALBUM ARTWORK ── -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardArtwork"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginBottom="4dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="24dp"
+                app:cardBackgroundColor="@color/player_surface"
+                android:layout_weight="1">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="0dp">
+
+                    <!-- Artwork image / background -->
+                    <ImageView
+                        android:id="@+id/ivArtwork"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/player_artwork_default"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="Track artwork" />
+
+                    <!-- Mandala overlay -->
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_mandala_overlay"
+                        android:scaleType="fitCenter"
+                        android:alpha="0.15"
+                        android:contentDescription="@null" />
+
+                    <!-- Bottom gradient scrim -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/player_artwork_scrim" />
+
+                    <!-- Live badge + heart — bottom row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="16dp">
+
+                        <!-- Live listening badge -->
+                        <LinearLayout
+                            android:id="@+id/listeningBadge"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/bg_listening_badge"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="12dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp">
+
+                            <View
+                                android:id="@+id/liveDot"
+                                android:layout_width="8dp"
+                                android:layout_height="8dp"
+                                android:background="@drawable/live_dot"
+                                android:layout_marginEnd="7dp" />
+
+                            <TextView
+                                android:id="@+id/tvListeningCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="16,087 Listening"
+                                android:textSize="11sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:textColor="@color/white"
+                                android:letterSpacing="0.03" />
+
+                        </LinearLayout>
+
+                        <!-- Spacer -->
+                        <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+
+                        <!-- Heart / favourite button -->
+                        <ImageButton
+                            android:id="@+id/btnFavourite"
+                            android:layout_width="34dp"
+                            android:layout_height="34dp"
+                            android:src="@drawable/ic_heart_filled"
+                            android:background="@drawable/bg_artwork_action_btn"
+                            android:padding="7dp"
+                            android:contentDescription="Add to favourites"
+                            android:stateListAnimator="@null" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ── TRACK INFO ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="0dp">
+
+                <TextView
+                    android:id="@+id/tvTrackTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Om Namah Shivaya"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/player_text"
+                    android:lineSpacingMultiplier="1.15"
+                    android:letterSpacing="-0.02"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/tvTrackSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="108 Sacred Chants · Divine Bhajans"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/player_muted"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Meta tags row -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:overScrollMode="never">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mantra"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/player_accent"
+                            android:background="@drawable/bg_meta_pill"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="108 BPM"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/player_accent"
+                            android:background="@drawable/bg_meta_pill"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
+                            android:layout_marginEnd="8dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Raga Bhairavi"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/player_accent"
+                            android:background="@drawable/bg_meta_pill"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <!-- ── PROGRESS BAR ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="20dp">
+
+                <!-- Seekbar -->
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="38"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:thumbOffset="0dp"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp" />
+
+                <!-- Time labels -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/tvCurrentTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2:47"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/player_muted" />
+
+                    <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/tvTotalTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7:18"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/player_muted" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── PLAYBACK CONTROLS ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="20dp">
+
+                <!-- Repeat -->
+                <ImageButton
+                    android:id="@+id/btnRepeat"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/ic_repeat"
+                    android:background="@android:color/transparent"
+                    android:tint="@color/player_accent"
+                    android:contentDescription="Repeat"
+                    android:stateListAnimator="@null" />
+
+                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+
+                <!-- Previous -->
+                <ImageButton
+                    android:id="@+id/btnPrevious"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:src="@drawable/ic_skip_previous"
+                    android:background="@drawable/bg_player_ctrl_btn"
+                    android:tint="@color/player_text"
+                    android:padding="14dp"
+                    android:contentDescription="Previous"
+                    android:stateListAnimator="@null" />
+
+                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+
+                <!-- PLAY / PAUSE (main) -->
+                <ImageButton
+                    android:id="@+id/btnPlayPause"
+                    android:layout_width="68dp"
+                    android:layout_height="68dp"
+                    android:src="@drawable/ic_pause"
+                    android:background="@drawable/bg_play_btn_gradient"
+                    android:tint="@color/white"
+                    android:padding="16dp"
+                    android:contentDescription="Play or Pause"
+                    android:elevation="8dp"
+                    android:stateListAnimator="@null" />
+
+                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+
+                <!-- Next -->
+                <ImageButton
+                    android:id="@+id/btnNext"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:src="@drawable/ic_skip_next"
+                    android:background="@drawable/bg_player_ctrl_btn"
+                    android:tint="@color/player_text"
+                    android:padding="14dp"
+                    android:contentDescription="Next"
+                    android:stateListAnimator="@null" />
+
+                <View android:layout_width="0dp" android:layout_height="1dp" android:layout_weight="1"/>
+
+                <!-- Shuffle -->
+                <ImageButton
+                    android:id="@+id/btnShuffle"
+                    android:layout_width="42dp"
+                    android:layout_height="42dp"
+                    android:src="@drawable/ic_shuffle"
+                    android:background="@android:color/transparent"
+                    android:tint="@color/player_muted"
+                    android:contentDescription="Shuffle"
+                    android:stateListAnimator="@null" />
+
+            </LinearLayout>
+
+            <!-- ── EXTRA ACTIONS ROW ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp">
+
+                <!-- Queue -->
+                <LinearLayout
+                    android:id="@+id/btnQueue"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_queue_music" android:tint="@color/player_muted" android:contentDescription="Queue"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Queue" android:textSize="9sp" android:fontFamily="sans-serif-medium" android:textColor="@color/player_muted" android:letterSpacing="0.05" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- Share -->
+                <LinearLayout
+                    android:id="@+id/btnShare"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_share" android:tint="@color/player_muted" android:contentDescription="Share"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Share" android:textSize="9sp" android:fontFamily="sans-serif-medium" android:textColor="@color/player_muted" android:letterSpacing="0.05" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- Download -->
+                <LinearLayout
+                    android:id="@+id/btnDownload"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_download" android:tint="@color/player_muted" android:contentDescription="Download"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Download" android:textSize="9sp" android:fontFamily="sans-serif-medium" android:textColor="@color/player_muted" android:letterSpacing="0.05" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- Sleep Timer -->
+                <LinearLayout
+                    android:id="@+id/btnSleepTimer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_sleep_timer" android:tint="@color/player_muted" android:contentDescription="Sleep Timer"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Timer" android:textSize="9sp" android:fontFamily="sans-serif-medium" android:textColor="@color/player_muted" android:letterSpacing="0.05" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+                <!-- Rate -->
+                <LinearLayout
+                    android:id="@+id/btnRate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+                    <ImageView android:layout_width="20dp" android:layout_height="20dp" android:src="@drawable/ic_star" android:tint="@color/player_accent" android:contentDescription="Rate"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Favourite" android:textSize="9sp" android:fontFamily="sans-serif-medium" android:textColor="@color/player_accent" android:letterSpacing="0.05" android:layout_marginTop="4dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ── VOLUME BAR ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="16dp">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_volume_low"
+                    android:tint="@color/player_muted"
+                    android:contentDescription="Volume low" />
+
+                <SeekBar
+                    android:id="@+id/seekBarVolume"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:max="100"
+                    android:progress="70"
+                    android:progressDrawable="@drawable/seekbar_volume_progress"
+                    android:thumb="@drawable/seekbar_volume_thumb" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_volume_high"
+                    android:tint="@color/player_muted"
+                    android:contentDescription="Volume high" />
+
+            </LinearLayout>
+
+            <!-- ── DIVIDER ── -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/player_divider"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp"
+                android:layout_marginTop="20dp" />
+
+            <!-- ── UP NEXT HEADER ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="28dp"
+                android:paddingEnd="28dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="UP NEXT"
+                    android:textSize="11sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/player_muted"
+                    android:letterSpacing="0.12" />
+
+                <TextView
+                    android:id="@+id/tvSeeAllQueue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See All"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/player_accent"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!-- ── QUEUE ITEMS (include item layout 3 times) ── -->
+            <include layout="@layout/item_queue_track" android:id="@+id/queueItem1"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/player_divider"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp" />
+
+            <include layout="@layout/item_queue_track" android:id="@+id/queueItem2"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/player_divider"
+                android:layout_marginStart="28dp"
+                android:layout_marginEnd="28dp" />
+
+            <include layout="@layout/item_queue_track" android:id="@+id/queueItem3"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

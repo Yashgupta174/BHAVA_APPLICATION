@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    sw600dp — 7-inch tablets and foldables.
+    Examples: Samsung Galaxy Tab A7 Lite, Pixel Tablet, Nexus 7.
+    Smallest width ≈ 600dp.
+
+    On tablets we want 3 full cards + a 30% peek of the 4th.
+    Visible width = 600 - 20 = 580dp
+
+    Formula (3 cards + 30% peek):
+      580 = 3.30 * card + 3 * 12gutter
+      580 = 3.30 * card + 36
+      card = (580 - 36) / 3.30 = 544 / 3.30 ≈ 164dp
+
+    Result: 3 × 164dp + 3×12dp gutters + 49dp peek = 577dp ✓
+-->
+<resources>
+    <dimen name="daily_card_width">164dp</dimen>
+    <dimen name="daily_card_image_height">115dp</dimen>
+    <dimen name="daily_card_content_height">62dp</dimen>
+</resources>

@@ -1,129 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- ════════════════════════════════════════════ -->
+    <!--     MUSIC PLAYER SPECIFIC COLORS            -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="player_bg">#1A0F08</color>
+    <color name="player_surface">#251409</color>
+    <color name="player_card">#2E1A0C</color>
+    <color name="player_text">#F5EFE6</color>
+    <color name="player_muted">#8C7B6A</color>
+    <color name="player_accent">#E8732A</color>
+    <color name="player_accent_dark">#C84B0C</color>
+    <color name="player_gold">#F5C842</color>
+    <color name="player_divider">#1AFFFFFF</color>
+    <color name="player_icon_btn_bg">#12FFFFFF</color>
 
+    <!-- Mini Player Bar -->
+    <color name="mini_player_bg">#1A4A40</color>
+    <color name="mini_player_text_muted">#80FFFFFF</color>
+    <color name="mini_player_progress_track">#33FFFFFF</color>
 
+    <!-- Seekbar Colors -->
+    <color name="seekbar_played">#E8732A</color>
+    <color name="seekbar_unplayed">#1FFFFFFF</color>
+    <color name="seekbar_thumb">#FFFFFF</color>
 
-    <!--  Hero  -->
+    <!-- Meta Pill -->
+    <color name="meta_pill_bg">#2EE8732A</color>
+    <color name="meta_pill_border">#4DE8732A</color>
+
+    <!-- Queue Bar -->
+    <color name="queue_bar_top">#E8732A</color>
+    <color name="queue_bar_bottom">#C84B0C</color>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!--     HERO AND BACKGROUND COLORS              -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="bg_parchment">#f6e7d6</color>
+    <color name="bg_parchment_deep">#EDE4D6</color>
+    <color name="bg_warm_cream">#FBF7F0</color>
+
+    <!-- Hero Gradients -->
     <color name="hero_dark_start">#1A0F08</color>
     <color name="hero_dark_mid">#3D1F0A</color>
     <color name="hero_dark_end">#7A3A10</color>
-    <!--  Options card  -->
-
-    <color name="mini_player_text_muted">#80FFFFFF</color>
-    <color name="mini_player_progress_track">#33FFFFFF</color>
-    <!--  Avatar chips  -->
-
-
-    <color name="gold_bg">#FDF3DC</color>
-
     <color name="hero_start">#F5E8C8</color>
     <color name="hero_mid">#E8C97A</color>
     <color name="hero_end">#C84B0C</color>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!--     TEXT COLORS                             -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="text_espresso">#3B2507</color>
+    <color name="text_brown">#7A5230</color>
+    <color name="text_caramel">#C8A882</color>
+    <color name="text_caramel_light">#C49A6C</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_ivory">#EDD9C0</color>
+    <color name="text_primary">#1e2d1e</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_tertiary">#9CA3AF</color>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!--     CARD AND SURFACE COLORS                 -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="card_cream">#FDEBD0</color>
+    <color name="card_cream_dark">#F5D8B8</color>
+    <color name="card_content_bg">#FFFFFF</color>
+    <color name="card_bg_light">#e7c39f</color>
+    <color name="card_pressed">#F5F5F5</color>
+    <color name="options_card_bg">#F0FDEBD0</color>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!--     THUMBNAIL AND CHIP COLORS               -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="gold_bg">#FDF3DC</color>
 
     <color name="thumb_gospel">#FDE8D8</color>
     <color name="thumb_pooja">#F5E4B0</color>
     <color name="thumb_meditation">#D8EDD6</color>
     <color name="thumb_journal">#D4E4F5</color>
     <color name="thumb_evening">#EDE4D6</color>
+
+    <!-- Chip Backgrounds -->
+    <color name="chip_bg">#F0D8BC</color>
+    <color name="chip_bg_warm">#F3E3CF</color>
+    <color name="chip_bg_green">#D8EDD6</color>
+    <color name="chip_bg_blue">#D4E4F5</color>
     <color name="chip_bg_orange">#FDE8D8</color>
+
+    <!-- Chip Text -->
+    <color name="chip_text_warm">#7A4A1E</color>
+    <color name="chip_text_green">#2E6C28</color>
+    <color name="chip_text_blue">#1A4B7A</color>
     <color name="chip_text_orange">#9E3D0B</color>
 
+    <!-- Chip Stroke -->
+    <color name="chip_stroke">#D4A855</color>
 
+    <!-- ════════════════════════════════════════════ -->
+    <!--     BUTTON AND ACCENT COLORS                -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="accent_color">#FF6B35</color>
+    <color name="accent_light">#FF8A5B</color>
+    <color name="accent_dark">#E55A2B</color>
+    <color name="accent_gold">#B87A2A</color>
+    <color name="accent_gold_light">#D4A855</color>
 
-    <!-- Backgrounds -->
+    <!-- Prayer Button -->
+    <color name="pray_btn_color">#2E4A40</color>
 
-    <color name="bg_parchment_deep">#EDE4D6</color>
-    <color name="bg_warm_cream">#FBF7F0</color>
+    <!-- Send Button -->
+    <color name="send_bg">#3B2507</color>
 
-    <!-- Text -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--     BRAND COLORS                            -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="bhava_primary">#6b4423</color>
+    <color name="bhava_primary_dark">#4a2e18</color>
+    <color name="bhava_accent">#c89858</color>
+    <color name="bhava_background">#f6e7d6</color>
 
-    <color name="text_caramel_light">#C49A6C</color>
+    <!-- ════════════════════════════════════════════ -->
+    <!--     GRADIENT COLORS (Gospel CARDS)          -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="gospel_top">#2E7D6B</color>
+    <color name="gospel_bottom">#1A4A3A</color>
 
+    <!-- Morning Offering Card Gradients -->
+    <color name="morning_top">#D4607A</color>
+    <color name="morning_mid">#E8884A</color>
+    <color name="morning_bottom">#5A2040</color>
 
-
-    <!-- Row icon backgrounds -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--     ICON BACKGROUND COLORS                  -->
+    <!-- ════════════════════════════════════════════ -->
     <color name="icon_bg_coffee">#F0E6D4</color>
     <color name="icon_bg_music">#E6EEF5</color>
     <color name="icon_bg_book">#F0EBE6</color>
     <color name="icon_bg_plant">#EAF0E6</color>
     <color name="icon_bg_art">#F2EAF5</color>
 
-    <!-- Tag chip colours -->
-    <color name="chip_bg_warm">#F3E3CF</color>
-    <color name="chip_text_warm">#7A4A1E</color>
-    <color name="chip_bg_green">#D8EDD6</color>
-    <color name="chip_text_green">#2E6C28</color>
-    <color name="chip_bg_blue">#D4E4F5</color>
-    <color name="chip_text_blue">#1A4B7A</color>
-
-    <!--  ── Accents ──  -->
-    <color name="accent_gold">#B87A2A</color>
-    <color name="accent_gold_light">#D4A855</color>
-    <!--  ── Suggestion Chips ──  -->
-    <color name="chip_bg">#F0D8BC</color>
-    <color name="chip_stroke">#D4A855</color>
-    <!--  ── Divider ──  -->
-    <color name="divider_warm">#D4B896</color>
-    <!--  ── Send Button ──  -->
-    <color name="send_bg">#3B2507</color>
-    <!--  ── Ripple ──  -->
-
-
-    <color name="bg_parchment">#f6e7d6</color>
-    <!--  ── Card Surfaces ──  -->
-    <color name="card_cream">#FDEBD0</color>
-    <color name="card_cream_dark">#F5D8B8</color>
-    <!--  ── Text ──  -->
-    <color name="text_espresso">#3B2507</color>
-    <color name="text_brown">#7A5230</color>
-    <color name="text_caramel">#C8A882</color>
-    <color name="text_white">#FFFFFF</color>
-    <color name="text_ivory">#EDD9C0</color>
-    <!--  ── Gospel Card Gradient Colors ──  -->
-    <color name="gospel_top">#2E7D6B</color>
-    <color name="gospel_bottom">#1A4A3A</color>
-    <!--  ── Morning Offering Card Gradient Colors ──  -->
-    <color name="morning_top">#D4607A</color>
-    <color name="morning_mid">#E8884A</color>
-    <color name="morning_bottom">#5A2040</color>
-    <!--  ── Nav Bar ──  -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--     NAVIGATION COLORS                       -->
+    <!-- ════════════════════════════════════════════ -->
     <color name="nav_active">#3B2507</color>
     <color name="nav_inactive">#C8A882</color>
-    <!--  ── Time Badge ──  -->
-    <color name="badge_bg">#55000000</color>
-    <!--  ── Ripple ──  -->
-    <color name="ripple_brown">#333B2507</color>
-
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
     <color name="bottom_nav_selected">#1e2d1e</color>
     <color name="bottom_nav_unselected">#eed8c0</color>
-
-    <!-- Background Colors -->
-    <color name="bhava_background">#f6e7d6</color>
-    <color name="card_content_bg">#FFFFFF</color>
-    <color name="card_bg_light">#e7c39f</color>
     <color name="bottom_nav_bg">#f8edde</color>
     <color name="action_button_bg">#e7c39f</color>
 
-    <!-- Text Colors -->
-    <color name="text_primary">#1e2d1e</color>
-    <color name="text_secondary">#6B7280</color>
-    <color name="text_tertiary">#9CA3AF</color>
-
-
-    <!-- Accent Colors -->
-    <color name="accent_color">#FF6B35</color>
-    <color name="accent_light">#FF8A5B</color>
-    <color name="accent_dark">#E55A2B</color>
-
-    <!-- Primary Brand Colors -->
-    <color name="bhava_primary">#6b4423</color>
-    <color name="bhava_primary_dark">#4a2e18</color>
-    <color name="bhava_accent">#c89858</color>
-
-    <!-- Badge Colors -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--     BADGE COLORS                            -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="badge_bg">#55000000</color>
     <color name="badge_live_start">#FF4444</color>
     <color name="badge_live_end">#CC0000</color>
     <color name="badge_featured_start">#FFD700</color>
@@ -131,28 +162,33 @@
     <color name="badge_new_start">#667EEA</color>
     <color name="badge_new_end">#764BA2</color>
 
-    <!-- Status Colors -->
-    <color name="success_color">#4CAF50</color>
+    <!-- Live Indicators -->
+    <color name="live_green">#4ADE80</color>
+    <color name="live_dot_green">#4CAF50</color>
 
-    <!-- Interactive States -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--     DIVIDER AND RIPPLE COLORS               -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="divider_warm">#D4B896</color>
+    <color name="ripple_brown">#333B2507</color>
     <color name="ripple_color">#20FF6B35</color>
-    <color name="card_pressed">#F5F5F5</color>
 
-    <!-- Shadow Colors -->
+    <!-- ════════════════════════════════════════════ -->
+    <!--     SHADOW AND OVERLAY COLORS               -->
+    <!-- ════════════════════════════════════════════ -->
     <color name="shadow_light">#10000000</color>
     <color name="shadow_medium">#20000000</color>
     <color name="shadow_dark">#40000000</color>
-
-    <!-- Transparent Overlays -->
     <color name="overlay_dark">#80000000</color>
     <color name="overlay_light">#40FFFFFF</color>
     <color name="hintTextColor">#40FFFFFF</color>
 
-    <color name="options_card_bg">#F0FDEBD0</color>
-    <!--  Mini player bar: deep teal matching the rosary hero  -->
-    <color name="mini_player_bg">#1A4A40</color>
-    <!--  Pray button: rich espresso-teal  -->
-    <color name="pray_btn_color">#2E4A40</color>
-    <!--  Live dot green  -->
-    <color name="live_dot_green">#4CAF50</color>
+    <!-- ════════════════════════════════════════════ -->
+    <!--     UTILITY COLORS                          -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="transparent">#00000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="success_color">#4CAF50</color>
+
 </resources>

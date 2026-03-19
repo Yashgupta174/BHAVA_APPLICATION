@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    sw480dp — Large phones and small tablets.
+    Examples: Samsung Galaxy Note, large foldables unfolded, Xiaomi Max series.
+    Smallest width ≈ 480dp.
+
+    Visible width in scroll = 480 - 20dp = 460dp
+
+    Formula:
+      460 = 2.30 * card + 24
+      card = (460 - 24) / 2.30 = 436 / 2.30 ≈ 189dp
+
+    Result: 2 cards of 189dp + 2×12dp gutters + 57dp peek = 459dp ✓
+-->
+<resources>
+    <dimen name="daily_card_width">189dp</dimen>
+    <dimen name="daily_card_image_height">120dp</dimen>
+    <dimen name="daily_card_content_height">64dp</dimen>
+</resources>

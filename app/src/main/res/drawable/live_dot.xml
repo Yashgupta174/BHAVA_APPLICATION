@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    Green live indicator dot.
-    Animate with ObjectAnimator in Activity for pulse effect:
-        val pulse = ObjectAnimator.ofFloat(binding.liveDot, "alpha", 1f, 0.3f, 1f)
-        pulse.duration = 1400
-        pulse.repeatCount = ObjectAnimator.INFINITE
-        pulse.start()
+    Animate alpha with ObjectAnimator in Activity:
+    val pulse = ObjectAnimator.ofFloat(binding.liveDot, "alpha", 1f, 0.2f, 1f)
+    pulse.duration = 1400
+    pulse.repeatCount = ObjectAnimator.INFINITE
+    pulse.start()
 -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="oval">
-    <solid android:color="#4ADE80" />
-    <size android:width="8dp" android:height="8dp" />
+    <solid android:color="@color/live_green"/>
+    <size android:width="8dp" android:height="8dp"/>
 </shape>

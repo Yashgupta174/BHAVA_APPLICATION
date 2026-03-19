@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="0dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
     android:background="@color/bhava_background">
 
-    <!-- Section Header with Animation -->
+    <!-- Section Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginBottom="16dp"
-        android:animateLayoutChanges="true">
+        android:paddingEnd="20dp"
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="0dp"
@@ -24,9 +28,10 @@
             android:textColor="@color/text_primary"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:letterSpacing="0.02"/>
+            android:letterSpacing="0.02" />
 
         <TextView
+            android:id="@+id/tvViewAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="View All"
@@ -37,38 +42,36 @@
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
             android:focusable="true"
-            android:stateListAnimator="@null"/>
+            android:stateListAnimator="@null" />
+
     </LinearLayout>
 
-    <!-- Horizontal Scroll View with Smooth Scrolling -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
-        android:clipToPadding="false"
-        android:paddingEnd="12dp"
         android:overScrollMode="never"
-        android:scrollbarStyle="outsideOverlay">
+        android:clipToPadding="false"
+        android:paddingEnd="20dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:animateLayoutChanges="true">
+            android:orientation="horizontal">
 
             <!-- Card 1: Daily Pooja -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_daily_practise_daily_pooja"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -77,25 +80,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/daily_practices_daily_pooja"
-                            android:contentDescription="Daily Pooja"/>
+                            android:contentDescription="Daily Pooja" />
 
-                        <!-- Gradient Overlay -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:background="@drawable/gradient_overlay_bottom"/>
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/gradient_overlay_bottom" />
 
-                        <!-- Time Badge -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -114,13 +115,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% ratio (60dp) -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="12dp"
@@ -130,7 +131,6 @@
                         android:elevation="2dp"
                         android:gravity="center_vertical">
 
-                        <!-- Title -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -142,9 +142,8 @@
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
                             android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp"/>
+                            android:layout_marginBottom="4dp" />
 
-                        <!-- Description -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -154,7 +153,8 @@
                             android:maxLines="1"
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85" />
+
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -162,16 +162,16 @@
             <!-- Card 2: Mantra Chanting -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_daily_practise_mantra_chanting"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -180,28 +180,27 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container with Overlay Gradient -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/daily_practices_mantra_chanting"
-                            android:contentDescription="Mantra Chanting"/>
+                            android:contentDescription="Mantra Chanting" />
 
-                        <!-- Gradient Overlay for Better Badge Visibility -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="60dp"
-                            android:background="@drawable/gradient_overlay_top"/>
+                            android:layout_gravity="top"
+                            android:background="@drawable/gradient_overlay_top" />
 
-                        <!-- Listening Badge -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
                             android:layout_margin="10dp"
                             android:text="● 10k Listening"
                             android:textColor="#FFFFFF"
@@ -216,13 +215,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% ratio (60dp) -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="12dp"
@@ -232,7 +231,6 @@
                         android:elevation="2dp"
                         android:gravity="center_vertical">
 
-                        <!-- Title -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -244,46 +242,45 @@
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
                             android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp"/>
+                            android:layout_marginBottom="4dp" />
 
-                        <!-- Description -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Sacred Sound"
                             android:textColor="@color/text_secondary"
                             android:textSize="11sp"
-                            android:layout_marginBottom="3dp"
                             android:maxLines="1"
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85"
+                            android:layout_marginBottom="3dp" />
 
-                        <!-- Sessions Info -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="15 sessions"
                             android:textColor="@color/text_tertiary"
                             android:textSize="9sp"
-                            android:alpha="0.75"/>
+                            android:alpha="0.75" />
+
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- Card 3: Yoga Practice -->
+            <!-- Card 3: Yoga Practice (peek card) -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_daily_practise_yoga_practice"
-                android:layout_width="165dp"
+                android:layout_width="@dimen/daily_card_width"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:stateListAnimator="@android:anim/fade_in"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="8dp"
                 app:cardMaxElevation="12dp"
-                android:layout_marginEnd="12dp"
-                android:foreground="?attr/selectableItemBackground"
-                android:clickable="true"
-                android:focusable="true"
-                android:stateListAnimator="@android:anim/fade_in"
                 app:rippleColor="@color/accent_color"
                 app:strokeWidth="0dp">
 
@@ -292,25 +289,23 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Image Container -->
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="110dp">
+                        android:layout_height="@dimen/daily_card_image_height">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
                             android:src="@drawable/challenge_21days"
-                            android:contentDescription="Yoga Practice"/>
+                            android:contentDescription="Yoga Practice" />
 
-                        <!-- Gradient Overlay -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="40dp"
-                            android:background="@drawable/gradient_overlay_bottom"/>
+                            android:layout_gravity="bottom"
+                            android:background="@drawable/gradient_overlay_bottom" />
 
-                        <!-- Time Badge -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -329,13 +324,13 @@
                             android:shadowColor="#80000000"
                             android:shadowDx="0"
                             android:shadowDy="2"
-                            android:shadowRadius="4"/>
+                            android:shadowRadius="4" />
+
                     </FrameLayout>
 
-                    <!-- Content Section: 30% ratio (60dp) -->
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="@dimen/daily_card_content_height"
                         android:orientation="vertical"
                         android:background="@color/card_content_bg"
                         android:paddingStart="12dp"
@@ -345,7 +340,6 @@
                         android:elevation="2dp"
                         android:gravity="center_vertical">
 
-                        <!-- Title -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -357,9 +351,8 @@
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
                             android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp"/>
+                            android:layout_marginBottom="4dp" />
 
-                        <!-- Description -->
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -369,11 +362,13 @@
                             android:maxLines="1"
                             android:ellipsize="end"
                             android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"/>
+                            android:alpha="0.85" />
+
                     </LinearLayout>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </HorizontalScrollView>
+
 </LinearLayout>

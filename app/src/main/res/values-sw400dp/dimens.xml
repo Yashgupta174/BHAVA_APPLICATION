@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    sw400dp — Mid-range and popular phones.
+    Examples: Samsung Galaxy S series, Pixel 6/7, OnePlus, iPhone-sized equivalents.
+    Smallest width ≈ 400–412dp.
+
+    Visible width in scroll = 400 - 20dp = 380dp
+
+    Formula:
+      380 = 2.30 * card + 24
+      card = (380 - 24) / 2.30 = 356 / 2.30 ≈ 154dp
+
+    Result: 2 cards of 154dp + 2×12dp gutters + 46dp peek = 378dp ✓
+-->
+<resources>
+    <dimen name="daily_card_width">154dp</dimen>
+    <dimen name="daily_card_image_height">110dp</dimen>
+    <dimen name="daily_card_content_height">62dp</dimen>
+</resources>

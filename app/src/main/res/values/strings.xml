@@ -10,11 +10,38 @@
 
 
 
+    <string name="now_playing">NOW PLAYING</string>
+    <string name="btn_back">Go back</string>
+    <string name="btn_more">More options</string>
+    <string name="btn_favourite">Add to favourites</string>
+    <string name="btn_play_pause">Play or Pause</string>
+    <string name="btn_previous">Previous track</string>
+    <string name="btn_next">Next track</string>
+    <string name="btn_repeat">Repeat</string>
+    <string name="btn_shuffle">Shuffle</string>
+    <string name="btn_queue">Queue</string>
+    <string name="btn_share">Share</string>
+    <string name="btn_download">Download</string>
+    <string name="btn_sleep_timer">Sleep Timer</string>
+    <string name="btn_rate">Favourite</string>
+    <string name="vol_low">Volume low</string>
+    <string name="vol_high">Volume high</string>
+    <string name="up_next">UP NEXT</string>
+    <string name="see_all">See All</string>
+    <string name="track_artwork">Track artwork</string>
+    <string name="track_thumbnail">Track thumbnail</string>
+    <string name="playing_indicator">Playing</string>
+    <!--  Default track data — replace dynamically in Activity  -->
+    <string name="default_track_title">Om Namah Shivaya</string>
+    <string name="default_track_subtitle">108 Sacred Chants · Divine Bhajans</string>
+    <string name="default_listening_count">16,087 Listening</string>
+    <string name="default_time_current">2:47</string>
+    <string name="default_time_total">7:18</string>
+
     <string name="sessions_label">Sessions</string>
 
     <string name="add_routine">+ Add New Routine</string>
     <string name="progress_label">Today\'s progress</string>
-
 
 
     <string name="featuring_label">Featuring</string>
