@@ -123,6 +123,16 @@
 
     </style>
 
+    <style name="Theme.DivyaStore" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/store_accent</item>
+        <item name="colorPrimaryVariant">@color/store_accent2</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:windowBackground">@color/store_bg</item>
+        <item name="android:statusBarColor">@color/store_bg</item>
+        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
     <style name="Theme.MusicPlayer" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/player_accent</item>
         <item name="colorPrimaryVariant">@color/player_accent_dark</item>

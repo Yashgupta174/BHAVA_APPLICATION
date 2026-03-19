@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardMaxElevation="6dp"
+    app:cardBackgroundColor="@color/store_card"
+    app:strokeWidth="0dp">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ── PRODUCT IMAGE AREA ── -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <!-- Background colour — set programmatically per product -->
+            <View
+                android:id="@+id/prodImageBg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/prod_img_bg_saffron" />
+
+            <!-- Product image (use Glide to load) -->
+            <ImageView
+                android:id="@+id/ivProduct"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_product_placeholder"
+                android:scaleType="fitCenter"
+                android:contentDescription="Product image" />
+
+            <!-- Subtle bottom scrim -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:background="@drawable/prod_img_scrim" />
+
+        </FrameLayout>
+
+        <!-- ── BADGE (New / Sale / Popular) ── -->
+        <TextView
+            android:id="@+id/tvBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="New"
+            android:textSize="9sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_badge_new"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:letterSpacing="0.04"
+            android:visibility="gone" />
+
+        <!-- ── WISHLIST BUTTON ── -->
+        <ImageButton
+            android:id="@+id/btnWishlist"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_heart_outline_dark"
+            android:background="@drawable/bg_wishlist_btn"
+            android:padding="6dp"
+            android:contentDescription="Add to wishlist"
+            android:stateListAnimator="@null" />
+
+        <!-- ── PRODUCT INFO ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="150dp"
+            android:padding="10dp">
+
+            <!-- Category tag -->
+            <TextView
+                android:id="@+id/tvProductTag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dhoop"
+                android:textSize="9sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/store_accent"
+                android:background="@drawable/bg_tag_saffron"
+                android:paddingStart="7dp"
+                android:paddingEnd="7dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginBottom="5dp" />
+
+            <!-- Product name -->
+            <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chandan Dhoop Sticks Premium"
+                android:textSize="13sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/store_text"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.25"
+                android:layout_marginBottom="3dp" />
+
+            <!-- Weight / quantity -->
+            <TextView
+                android:id="@+id/tvProductWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pack of 20 sticks · 50g"
+                android:textSize="10sp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/store_muted"
+                android:layout_marginBottom="6dp" />
+
+            <!-- Star rating row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="7dp">
+
+                <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star_filled" android:tint="@color/star_color" android:contentDescription="@null"/>
+                <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star_filled" android:tint="@color/star_color" android:layout_marginStart="2dp" android:contentDescription="@null"/>
+                <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star_filled" android:tint="@color/star_color" android:layout_marginStart="2dp" android:contentDescription="@null"/>
+                <ImageView android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star_filled" android:tint="@color/star_color" android:layout_marginStart="2dp" android:contentDescription="@null"/>
+                <ImageView android:id="@+id/star5" android:layout_width="10dp" android:layout_height="10dp" android:src="@drawable/ic_star_empty" android:tint="@color/divider_warm" android:layout_marginStart="2dp" android:contentDescription="@null"/>
+
+                <TextView
+                    android:id="@+id/tvRatingCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(128)"
+                    android:textSize="10sp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/store_muted"
+                    android:layout_marginStart="4dp" />
+
+            </LinearLayout>
+
+            <!-- Price row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Price group -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹149"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/store_accent" />
+
+                    <TextView
+                        android:id="@+id/tvPriceOld"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="₹199"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/store_muted"
+                        android:layout_marginStart="5dp"
+                        android:visibility="gone" />
+
+                </LinearLayout>
+
+                <!-- Add to cart button -->
+                <ImageButton
+                    android:id="@+id/btnAddToCart"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_plus"
+                    android:background="@drawable/bg_add_cart_btn"
+                    android:tint="@color/white"
+                    android:padding="6dp"
+                    android:contentDescription="Add to cart"
+                    android:stateListAnimator="@null" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

@@ -7,38 +7,41 @@
 
     <!-- Top Circle -->
     <path
-        android:strokeColor="@color/player_muted"
-        android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
-        android:pathData="M18,5m-3,0a3,3 0,1 1,6,0a3,3 0,1 1,-6,0" />
+        android:pathData="M18,5m-3,0a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"
+        android:strokeWidth="2"
+        android:strokeColor="@color/store_muted"
+        android:strokeLineCap="round"/>
 
-    <!-- Center Circle -->
+    <!-- Middle Circle -->
     <path
-        android:strokeColor="@color/player_muted"
-        android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
-        android:pathData="M6,12m-3,0a3,3 0,1 1,6,0a3,3 0,1 1,-6,0" />
+        android:pathData="M6,12m-3,0a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"
+        android:strokeWidth="2"
+        android:strokeColor="@color/store_muted"
+        android:strokeLineCap="round"/>
 
     <!-- Bottom Circle -->
     <path
-        android:strokeColor="@color/player_muted"
-        android:strokeWidth="2"
         android:fillColor="@android:color/transparent"
-        android:pathData="M18,19m-3,0a3,3 0,1 1,6,0a3,3 0,1 1,-6,0" />
+        android:pathData="M18,19m-3,0a3,3 0,1 0,6 0a3,3 0,1 0,-6 0"
+        android:strokeWidth="2"
+        android:strokeColor="@color/store_muted"
+        android:strokeLineCap="round"/>
 
-    <!-- Connection Line 1 -->
+    <!-- Connection Line 1 (Converted from <line> to <path>) -->
     <path
+        android:fillColor="@android:color/transparent"
         android:pathData="M8.59,13.51 L15.42,17.49"
         android:strokeWidth="2"
-        android:strokeColor="@color/player_muted"
-        android:strokeLineCap="round"
-        android:fillColor="@android:color/transparent"/>
+        android:strokeColor="@color/store_muted"
+        android:strokeLineCap="round"/>
 
-    <!-- Connection Line 2 -->
+    <!-- Connection Line 2 (Converted from <line> to <path>) -->
     <path
+        android:fillColor="@android:color/transparent"
         android:pathData="M15.41,6.51 L8.59,10.49"
         android:strokeWidth="2"
-        android:strokeColor="@color/player_muted"
-        android:strokeLineCap="round"
-        android:fillColor="@android:color/transparent"/>
+        android:strokeColor="@color/store_muted"
+        android:strokeLineCap="round"/>
 </vector>

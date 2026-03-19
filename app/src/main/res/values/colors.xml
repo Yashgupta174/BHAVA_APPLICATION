@@ -121,6 +121,43 @@
     <color name="bhava_accent">#c89858</color>
     <color name="bhava_background">#f6e7d6</color>
 
+    <color name="store_bg">#FBF6EF</color>
+    <color name="store_card">#FFFFFF</color>
+    <color name="store_surface">#FFFFFF</color>
+    <!--  Store text  -->
+    <color name="store_text">#2C1810</color>
+    <color name="store_muted">#8B6A52</color>
+    <!--  Accent / brand  -->
+    <color name="store_accent">#C84B0C</color>
+    <color name="store_accent2">#E8732A</color>
+    <color name="store_gold">#B8860B</color>
+    <!--  Dividers  -->
+    <color name="store_divider">#E8D8C4</color>
+
+    <!--  Star rating  -->
+    <color name="star_color">#F5A623</color>
+    <!--  Product image backgrounds  -->
+    <color name="prod_img_bg_saffron">#FDF0E6</color>
+    <color name="prod_img_bg_green">#EAF3DE</color>
+    <color name="prod_img_bg_blue">#E6F1FB</color>
+    <color name="prod_img_bg_gold">#F5ECD0</color>
+    <!--  Tag backgrounds and text  -->
+    <color name="tag_saffron_bg">#FDF0E6</color>
+    <color name="tag_saffron_text">#C84B0C</color>
+    <color name="tag_green_bg">#EAF3DE</color>
+    <color name="tag_green_text">#3B6D11</color>
+    <color name="tag_blue_bg">#E6F1FB</color>
+    <color name="tag_blue_text">#0C447C</color>
+    <!--  Badge colours  -->
+    <color name="badge_new_bg">#C84B0C</color>
+    <color name="badge_sale_bg">#3B6D11</color>
+    <color name="badge_popular_bg">#B8860B</color>
+    <!--  Offer strip  -->
+    <color name="offer_strip_bg">#F5ECD0</color>
+    <color name="offer_strip_border">#D4B87A</color>
+    <!--  Bottom nav  -->
+
+
     <!-- ════════════════════════════════════════════ -->
     <!--     GRADIENT COLORS (Gospel CARDS)          -->
     <!-- ════════════════════════════════════════════ -->

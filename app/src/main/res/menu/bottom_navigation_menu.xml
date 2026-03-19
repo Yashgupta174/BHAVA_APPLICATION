@@ -17,6 +17,11 @@
         android:icon="@drawable/ic_nav_discover"
         android:title="Bhava" />
 
+    <item
+        android:id="@+id/nav_divine_store"
+        android:icon="@drawable/ic_cart"
+        android:title="Store" />
+
 
 
     <item

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="80dp" android:height="80dp"
+    android:viewportWidth="80" android:viewportHeight="80">
+    <!-- Diya / lamp silhouette as placeholder -->
+    <path
+        android:pathData="M40,18 C34,18 28,22 26,28 L24,38 L56,38 L54,28 C52,22 46,18 40,18Z"
+        android:fillColor="#D4A96A"
+        android:strokeWidth="0"/>
+    <path
+        android:pathData="M20,38 L60,38 L58,48 L22,48Z"
+        android:fillColor="#C49A5A"
+        android:strokeWidth="0"/>
+    <path
+        android:pathData="M18,48 L62,48 L62,54 Q40,60 18,54Z"
+        android:fillColor="#B8860B"
+        android:strokeWidth="0"/>
+    <!-- Flame -->
+    <path
+        android:pathData="M40,14 C40,14 36,20 37,24 C38,28 43,28 44,24 C45,20 40,14 40,14Z"
+        android:fillColor="#E8732A"
+        android:strokeWidth="0"/>
+    <path
+        android:pathData="M40,16 C40,16 38,20 38.5,23 C39,26 41,26 41.5,23 C42,20 40,16 40,16Z"
+        android:fillColor="#F5C842"
+        android:strokeWidth="0"/>
+    <!-- Wick -->
+    <path
+        android:pathData="M40,24 L40,28"
+        android:strokeWidth="1.5" android:strokeColor="#2C1810"
+        android:strokeLineCap="round"/>
+</vector>

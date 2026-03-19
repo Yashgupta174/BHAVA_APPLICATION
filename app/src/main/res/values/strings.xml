@@ -7,8 +7,38 @@
     <string name="label_more">MORE</string>
     <!--  ── Labels ──  -->
 
+    <string name="store_greeting">🙏 Namaste</string>
+    <string name="store_name">Divya Store</string>
+    <string name="store_search_hint">Search dhoop, incense, pooja items…</string>
+    <string name="store_view_all">View All</string>
+    <string name="store_shop_now">Shop Now</string>
+    <string name="store_featured">Featured Products</string>
+    <string name="store_pooja_kits">Pooja Kits</string>
+    <string name="store_trending">Trending This Week</string>
+    <string name="store_offer_title">Free shipping on orders above ₹499</string>
+    <string name="store_coupon">DIVYA10</string>
+    <string name="store_coupon_text"> for 10% off</string>
+    <string name="store_banner_label">SPECIAL OFFER</string>
+    <string name="store_banner_title">Navratri\nPooja Kits</string>
+    <string name="store_banner_sub">Complete kits starting ₹199</string>
 
-
+    <string name="nav_search">Search</string>
+    <string name="nav_orders">Orders</string>
+    <string name="nav_wishlist">Wishlist</string>
+    <string name="nav_profile">Profile</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="add_to_wishlist">Add to wishlist</string>
+    <string name="cart">Cart</string>
+    <string name="profile">Profile</string>
+    <!--  Categories  -->
+    <string name="cat_all">All</string>
+    <string name="cat_dhoop">Dhoop</string>
+    <string name="cat_incense">Incense</string>
+    <string name="cat_diyas">Diyas</string>
+    <string name="cat_flowers">Flowers</string>
+    <string name="cat_idols">Idols</string>
+    <string name="cat_kits">Pooja Kits</string>
+    <string name="cat_oils">Sacred Oils</string>
 
     <string name="now_playing">NOW PLAYING</string>
     <string name="btn_back">Go back</string>

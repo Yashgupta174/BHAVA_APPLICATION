@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/store_bg">
+
+    <!-- ════════ SCROLLABLE BODY ════════ -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none"
+        android:clipToPadding="false"
+        android:paddingBottom="80dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- ── HEADER ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="4dp">
+
+                <!-- Greeting + store name -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🙏 Namaste"
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/store_muted"
+                        android:letterSpacing="0.05"
+                        android:layout_marginBottom="2dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Divya Store"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:textColor="@color/store_text" />
+
+                </LinearLayout>
+
+                <!-- Cart button -->
+                <FrameLayout
+                    android:id="@+id/btnCart"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_store_icon_btn"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_cart"
+                        android:tint="@color/store_text"
+                        android:contentDescription="Cart" />
+
+                    <TextView
+                        android:id="@+id/tvCartCount"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="-4dp"
+                        android:layout_marginEnd="-4dp"
+                        android:background="@drawable/bg_cart_badge"
+                        android:text="3"
+                        android:textSize="9sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/white"
+                        android:gravity="center" />
+
+                </FrameLayout>
+
+                <!-- Avatar / profile -->
+                <FrameLayout
+                    android:id="@+id/btnProfile"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_avatar"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="AK"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/white" />
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- ── SEARCH BAR ── -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_search_bar"
+                android:clickable="true"
+                android:focusable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingStart="14dp"
+                    android:paddingEnd="14dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_search"
+                        android:tint="@color/store_muted"
+                        android:layout_marginEnd="10dp"
+                        android:contentDescription="Search" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Search dhoop, incense, pooja items…"
+                        android:textSize="13sp"
+                        android:fontFamily="sans-serif"
+                        android:textColor="@color/store_muted" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_filter"
+                        android:tint="@color/store_muted"
+                        android:contentDescription="Filter" />
+
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- ── CATEGORY PILLS ── -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:clipToPadding="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginTop="12dp">
+
+                <LinearLayout
+                    android:id="@+id/categoryRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/catAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="All"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/white"
+                        android:background="@drawable/bg_cat_pill_active"
+                        android:paddingStart="14dp"
+                        android:paddingEnd="14dp"
+                        android:paddingTop="7dp"
+                        android:paddingBottom="7dp"
+                        android:layout_marginEnd="8dp"
+                        android:clickable="true"
+                        android:focusable="true" />
+
+                    <TextView android:id="@+id/catDhoop" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dhoop" android:textSize="12sp" android:fontFamily="sans-serif-medium" android:textColor="@color/store_muted" android:background="@drawable/bg_cat_pill" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="7dp" android:paddingBottom="7dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true"/>
+                    <TextView android:id="@+id/catIncense" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Incense" android:textSize="12sp" android:fontFamily="sans-serif-medium" android:textColor="@color/store_muted" android:background="@drawable/bg_cat_pill" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="7dp" android:paddingBottom="7dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true"/>
+                    <TextView android:id="@+id/catDiyas" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Diyas" android:textSize="12sp" android:fontFamily="sans-serif-medium" android:textColor="@color/store_muted" android:background="@drawable/bg_cat_pill" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="7dp" android:paddingBottom="7dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true"/>
+                    <TextView android:id="@+id/catFlowers" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Flowers" android:textSize="12sp" android:fontFamily="sans-serif-medium" android:textColor="@color/store_muted" android:background="@drawable/bg_cat_pill" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="7dp" android:paddingBottom="7dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true"/>
+                    <TextView android:id="@+id/catIdols" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Idols" android:textSize="12sp" android:fontFamily="sans-serif-medium" android:textColor="@color/store_muted" android:background="@drawable/bg_cat_pill" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="7dp" android:paddingBottom="7dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true"/>
+                    <TextView android:id="@+id/catKits" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Pooja Kits" android:textSize="12sp" android:fontFamily="sans-serif-medium" android:textColor="@color/store_muted" android:background="@drawable/bg_cat_pill" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="7dp" android:paddingBottom="7dp" android:layout_marginEnd="8dp" android:clickable="true" android:focusable="true"/>
+                    <TextView android:id="@+id/catOils" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Sacred Oils" android:textSize="12sp" android:fontFamily="sans-serif-medium" android:textColor="@color/store_muted" android:background="@drawable/bg_cat_pill" android:paddingStart="14dp" android:paddingEnd="14dp" android:paddingTop="7dp" android:paddingBottom="7dp" android:clickable="true" android:focusable="true"/>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- ── HERO BANNER ── -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/heroBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="14dp"
+                android:clickable="true"
+                android:focusable="true"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/store_text">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp">
+
+                    <!-- Background gradient -->
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/banner_gradient" />
+
+                    <!-- Decorative Om symbol watermark -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🕉"
+                        android:textSize="70sp"
+                        android:alpha="0.07"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="120dp"
+                        android:contentDescription="@null" />
+
+                    <!-- Left: text content -->
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_centerVertical="true"
+                        android:paddingStart="18dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="SPECIAL OFFER"
+                            android:textSize="10sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="#A0FFFFFF"
+                            android:letterSpacing="0.1"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:id="@+id/tvBannerTitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Navratri\nPooja Kits"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:fontFamily="serif"
+                            android:textColor="@color/white"
+                            android:lineSpacingMultiplier="1.1"
+                            android:layout_marginBottom="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Complete kits starting ₹199"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="#CCFFFFFF"
+                            android:layout_marginBottom="10dp" />
+
+                        <TextView
+                            android:id="@+id/btnBannerShop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Shop Now"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/store_accent"
+                            android:background="@drawable/bg_banner_btn"
+                            android:paddingStart="14dp"
+                            android:paddingEnd="14dp"
+                            android:paddingTop="6dp"
+                            android:paddingBottom="6dp"
+                            android:clickable="true"
+                            android:focusable="true" />
+
+                    </LinearLayout>
+
+                    <!-- Right: icon -->
+                    <FrameLayout
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="18dp"
+                        android:background="@drawable/bg_banner_icon">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="🪔"
+                            android:textSize="36sp"
+                            android:contentDescription="@null" />
+
+                    </FrameLayout>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- ── OFFER STRIP ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_offer_strip"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎁"
+                    android:textSize="20sp"
+                    android:layout_marginEnd="12dp"
+                    android:contentDescription="@null" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Free shipping on orders above ₹499"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/store_gold"
+                        android:layout_marginBottom="2dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Use code"
+                            android:textSize="11sp"
+                            android:textColor="@color/store_muted" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DIVYA10"
+                            android:textSize="11sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:textColor="@color/store_accent"
+                            android:background="@drawable/bg_coupon_code"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            android:paddingTop="2dp"
+                            android:paddingBottom="2dp"
+                            android:layout_marginStart="6dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" for 10% off"
+                            android:textSize="11sp"
+                            android:textColor="@color/store_muted" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── FEATURED PRODUCTS HEADER ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Featured Products"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/store_text" />
+
+                <TextView
+                    android:id="@+id/tvViewAllFeatured"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View All"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/store_accent"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!-- ── PRODUCT GRID (2 columns) ── -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:useDefaultMargins="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <!-- Product 1 -->
+                <include layout="@layout/item_product_card"
+                    android:id="@+id/product1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Product 2 -->
+                <include layout="@layout/item_product_card"
+                    android:id="@+id/product2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Product 3 -->
+                <include layout="@layout/item_product_card"
+                    android:id="@+id/product3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Product 4 -->
+                <include layout="@layout/item_product_card"
+                    android:id="@+id/product4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_marginStart="6dp"
+                    android:layout_marginBottom="12dp"/>
+
+            </GridLayout>
+
+            <!-- ── POOJA KITS SECTION HEADER ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pooja Kits"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/store_text" />
+
+                <TextView
+                    android:id="@+id/tvViewAllKits"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View All"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/store_accent"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!-- ── POOJA KITS HORIZONTAL SCROLL ── -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:overScrollMode="never"
+                android:clipToPadding="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <LinearLayout
+                    android:id="@+id/kitsRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/item_kit_card" android:id="@+id/kit1" android:layout_width="150dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp"/>
+                    <include layout="@layout/item_kit_card" android:id="@+id/kit2" android:layout_width="150dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp"/>
+                    <include layout="@layout/item_kit_card" android:id="@+id/kit3" android:layout_width="150dp" android:layout_height="wrap_content" android:layout_marginEnd="12dp"/>
+                    <include layout="@layout/item_kit_card" android:id="@+id/kit4" android:layout_width="150dp" android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- ── TRENDING SECTION HEADER ── -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Trending This Week"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:fontFamily="serif"
+                    android:textColor="@color/store_text" />
+
+                <TextView
+                    android:id="@+id/tvViewAllTrending"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View All"
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/store_accent"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!-- ── TRENDING GRID (2 columns) ── -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:useDefaultMargins="false"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="12dp">
+
+                <include layout="@layout/item_product_card" android:id="@+id/trending1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_marginEnd="6dp" android:layout_marginBottom="12dp"/>
+                <include layout="@layout/item_product_card" android:id="@+id/trending2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:layout_marginStart="6dp" android:layout_marginBottom="12dp"/>
+
+            </GridLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

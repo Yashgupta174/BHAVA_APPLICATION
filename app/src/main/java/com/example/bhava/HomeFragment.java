@@ -133,6 +133,12 @@ public class HomeFragment extends Fragment {
             openNavbarMeFragment();
         });
 
+        view.findViewById(R.id.nav_divine_store).setOnClickListener(v -> {
+            openNavbarHomeStoreFragment();
+        });
+
+
+
         view.findViewById(R.id.nav_bhava_ai).setOnClickListener(v -> {
             openNavbarBhavaAiFragment();
         });
@@ -164,6 +170,17 @@ public class HomeFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void openNavbarHomeStoreFragment() {
+
+        Home_Store_Fragment fragment = new Home_Store_Fragment();
+
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void openRecentFragment() {
