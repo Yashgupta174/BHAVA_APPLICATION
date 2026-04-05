@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:background="@color/bg_parchment">
 
@@ -110,6 +111,28 @@
             android:orientation="vertical"
             android:paddingBottom="32dp">
 
+            <!-- Begin Session button -->
+            <Button
+                android:id="@+id/btnPlay"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="12dp"
+                android:text="Begin Session"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:textColor="@color/white"
+                android:background="@drawable/play_btn_bg"
+                android:drawableStart="@drawable/ic_play_triangle"
+                android:drawablePadding="12dp"
+                android:paddingStart="32dp"
+                android:gravity="center_vertical"
+                android:stateListAnimator="@null"
+                android:elevation="4dp" />
+
             <!-- ── INFO CARD ── -->
             <LinearLayout
                 android:layout_width="match_parent"
@@ -135,119 +158,54 @@
                     android:layout_marginBottom="14dp" />
 
                 <!-- "Featuring" label -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="FEATURING"
-                    android:textSize="11sp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textColor="@color/text_caramel"
-                    android:letterSpacing="0.12"
-                    android:layout_marginBottom="10dp" />
-
-                <!-- Hosts row -->
                 <LinearLayout
-                    android:id="@+id/featuringRow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:layout_marginBottom="14dp">
+                    android:layout_marginBottom="10dp">
 
-                    <!-- Host 1 -->
-                    <FrameLayout
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:background="@drawable/avatar_bg_orange"
-                        android:layout_marginEnd="8dp">
-
-                        <TextView
-                            android:id="@+id/tvHost1Initials"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="AR"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:fontFamily="serif"
-                            android:textColor="@color/chip_text_orange" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginEnd="20dp">
+                        android:text="GUIDE: "
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/text_caramel"
+                        android:letterSpacing="0.12" />
 
-                        <TextView
-                            android:id="@+id/tvHost1Name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Arjun Rao"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:fontFamily="serif"
-                            android:textColor="@color/text_espresso" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Vedic Counsellor"
-                            android:textSize="11sp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/text_caramel"
-                            android:layout_marginTop="1dp" />
-
-                    </LinearLayout>
-
-                    <!-- Host 2 -->
-                    <FrameLayout
-                        android:layout_width="46dp"
-                        android:layout_height="46dp"
-                        android:background="@drawable/avatar_bg_green"
-                        android:layout_marginEnd="8dp">
-
-                        <TextView
-                            android:id="@+id/tvHost2Initials"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="PM"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            android:fontFamily="serif"
-                            android:textColor="@color/chip_text_green" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/tvGuideName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tvHost2Name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Priya Mehta"
-                            android:textSize="14sp"
-                            android:textStyle="bold"
-                            android:fontFamily="serif"
-                            android:textColor="@color/text_espresso" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Meditation Guide"
-                            android:textSize="11sp"
-                            android:fontFamily="sans-serif"
-                            android:textColor="@color/text_caramel"
-                            android:layout_marginTop="1dp" />
-
-                    </LinearLayout>
-
+                        android:text="Mentor Name"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:textColor="@color/accent_color" />
                 </LinearLayout>
+
+                <!-- Hosts row (Dynamic) -->
+                <LinearLayout
+                    android:id="@+id/hostsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Quick Summary (Dynamic) -->
+                <TextView
+                    android:id="@+id/tvSummary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Quick Summary of this session..."
+                    android:textSize="14sp"
+                    android:textStyle="italic"
+                    android:fontFamily="serif"
+                    android:textColor="@color/text_espresso"
+                    android:lineSpacingMultiplier="1.3"
+                    android:layout_marginBottom="14dp"
+                    android:visibility="gone" />
 
                 <!-- Description + MORE -->
                 <LinearLayout
@@ -385,20 +343,14 @@
 
             </LinearLayout>
 
-            <!-- Session items using include -->
-            <include layout="@layout/item_session" android:id="@+id/session1" />
-            <View android:layout_width="match_parent" android:layout_height="1dp"
-                android:background="@color/divider_warm" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
-
-            <include layout="@layout/item_session" android:id="@+id/session2" />
-            <View android:layout_width="match_parent" android:layout_height="1dp"
-                android:background="@color/divider_warm" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
-
-            <include layout="@layout/item_session" android:id="@+id/session3" />
-            <View android:layout_width="match_parent" android:layout_height="1dp"
-                android:background="@color/divider_warm" android:layout_marginStart="20dp" android:layout_marginEnd="20dp"/>
-
-            <include layout="@layout/item_session" android:id="@+id/session4" />
+            <!-- Sessions list (Dynamic) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSessions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_session" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

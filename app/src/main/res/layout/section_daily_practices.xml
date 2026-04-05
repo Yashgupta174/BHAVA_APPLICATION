@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -25,6 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Daily Practices"
+            android:fontFamily="@font/crimson_pro"
             android:textColor="@color/text_primary"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -41,334 +43,19 @@
             android:padding="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:focusable="true"
-            android:stateListAnimator="@null" />
+            android:focusable="true" />
 
     </LinearLayout>
 
-    <HorizontalScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDailyPractices"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"
-        android:overScrollMode="never"
+        android:layoutAnimation="@anim/layout_fall_down"
         android:clipToPadding="false"
-        android:paddingEnd="20dp">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Card 1: Daily Pooja -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_daily_practise_daily_pooja"
-                android:layout_width="@dimen/daily_card_width"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:stateListAnimator="@android:anim/fade_in"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                app:cardMaxElevation="12dp"
-                app:rippleColor="@color/accent_color"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_image_height">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/daily_practices_daily_pooja"
-                            android:contentDescription="Daily Pooja" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_gravity="bottom"
-                            android:background="@drawable/gradient_overlay_bottom" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|start"
-                            android:layout_margin="10dp"
-                            android:text="12 min"
-                            android:textColor="#FFFFFF"
-                            android:background="@drawable/badge_time"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:elevation="4dp"
-                            android:shadowColor="#80000000"
-                            android:shadowDx="0"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_content_height"
-                        android:orientation="vertical"
-                        android:background="@color/card_content_bg"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:elevation="2dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Daily Pooja"
-                            android:textColor="@color/text_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Morning Worship"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Card 2: Mantra Chanting -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_daily_practise_mantra_chanting"
-                android:layout_width="@dimen/daily_card_width"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:stateListAnimator="@android:anim/fade_in"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                app:cardMaxElevation="12dp"
-                app:rippleColor="@color/accent_color"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_image_height">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/daily_practices_mantra_chanting"
-                            android:contentDescription="Mantra Chanting" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="60dp"
-                            android:layout_gravity="top"
-                            android:background="@drawable/gradient_overlay_top" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top|start"
-                            android:layout_margin="10dp"
-                            android:text="● 10k Listening"
-                            android:textColor="#FFFFFF"
-                            android:background="@drawable/badge_live"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:elevation="4dp"
-                            android:shadowColor="#80000000"
-                            android:shadowDx="0"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_content_height"
-                        android:orientation="vertical"
-                        android:background="@color/card_content_bg"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:elevation="2dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Mantra Chanting"
-                            android:textColor="@color/text_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Sacred Sound"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85"
-                            android:layout_marginBottom="3dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="15 sessions"
-                            android:textColor="@color/text_tertiary"
-                            android:textSize="9sp"
-                            android:alpha="0.75" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Card 3: Yoga Practice (peek card) -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_daily_practise_yoga_practice"
-                android:layout_width="@dimen/daily_card_width"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:stateListAnimator="@android:anim/fade_in"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                app:cardMaxElevation="12dp"
-                app:rippleColor="@color/accent_color"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_image_height">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/challenge_21days"
-                            android:contentDescription="Yoga Practice" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_gravity="bottom"
-                            android:background="@drawable/gradient_overlay_bottom" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|start"
-                            android:layout_margin="10dp"
-                            android:text="20-45 min"
-                            android:textColor="#FFFFFF"
-                            android:background="@drawable/badge_time"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:elevation="4dp"
-                            android:shadowColor="#80000000"
-                            android:shadowDx="0"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_content_height"
-                        android:orientation="vertical"
-                        android:background="@color/card_content_bg"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:elevation="2dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Yoga Practice"
-                            android:textColor="@color/text_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Asanas and Flow"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-    </HorizontalScrollView>
+        android:paddingEnd="20dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_challenge" />
 
 </LinearLayout>

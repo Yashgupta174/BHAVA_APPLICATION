@@ -1,64 +1,129 @@
 package com.example.bhava;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Favourite_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
+import com.example.bhava.adapter.ChallengeAdapter;
+import com.example.bhava.model.ChallengeItem;
+import com.example.bhava.model.ChallengesResponse;
+import com.example.bhava.network.ApiClient;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Favourite_Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private RecyclerView rvFavorites;
+    private ChallengeAdapter adapter;
+    private List<ChallengeItem> favoriteList = new ArrayList<>();
+    private SwipeRefreshLayout swipeRefreshFav;
+    private ProgressBar pbFavLoading;
+    private TextView tvFavEmpty;
+    private TextView txtSessionCount;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public Favourite_Fragment() {}
 
-    public Favourite_Fragment() {
-        // Required empty public constructor
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_favourite_, container, false);
+
+        rvFavorites = view.findViewById(R.id.rvFavorites);
+        swipeRefreshFav = view.findViewById(R.id.swipeRefreshFav);
+        pbFavLoading = view.findViewById(R.id.pbFavLoading);
+        tvFavEmpty = view.findViewById(R.id.tvFavEmpty);
+        txtSessionCount = view.findViewById(R.id.txtSessionCount);
+
+        rvFavorites.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new ChallengeAdapter(challenge -> {
+            openDetailFragment(challenge);
+        });
+        adapter.setChallenges(favoriteList);
+        rvFavorites.setAdapter(adapter);
+
+        swipeRefreshFav.setOnRefreshListener(this::fetchFavorites);
+
+        fetchFavorites();
+
+        return view;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Favourite_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Favourite_Fragment newInstance(String param1, String param2) {
-        Favourite_Fragment fragment = new Favourite_Fragment();
+    private void fetchFavorites() {
+        if (getContext() == null) return;
+
+        pbFavLoading.setVisibility(View.VISIBLE);
+        tvFavEmpty.setVisibility(View.GONE);
+
+        ApiClient.getService(getContext()).getFavorites().enqueue(new Callback<ChallengesResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<ChallengesResponse> call, @NonNull Response<ChallengesResponse> response) {
+                if (isAdded()) {
+                    pbFavLoading.setVisibility(View.GONE);
+                    swipeRefreshFav.setRefreshing(false);
+
+                    if (response.isSuccessful() && response.body() != null) {
+                        favoriteList.clear();
+                        if (response.body().getData() != null) {
+                            favoriteList.addAll(response.body().getData());
+                        }
+                        adapter.setChallenges(favoriteList);
+
+                        if (txtSessionCount != null) {
+                            txtSessionCount.setText(favoriteList.size() + " items");
+                        }
+
+                        if (favoriteList.isEmpty()) {
+                            tvFavEmpty.setVisibility(View.VISIBLE);
+                        }
+                    } else {
+                        Toast.makeText(getContext(), "Failed to load favorites", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<ChallengesResponse> call, @NonNull Throwable t) {
+                if (isAdded()) {
+                    pbFavLoading.setVisibility(View.GONE);
+                    swipeRefreshFav.setRefreshing(false);
+                    Toast.makeText(getContext(), "Network error", Toast.LENGTH_SHORT).show();
+                    Log.e("FavouriteFragment", "Error", t);
+                }
+            }
+        });
+    }
+
+    private void openDetailFragment(ChallengeItem challenge) {
+        GenericDetailFragment fragment = new GenericDetailFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("challengeId", challenge.getId());
+        args.putString("title", challenge.getTitle());
+        args.putString("subtitle", challenge.getBadgeText());
+        args.putString("imageUrl", challenge.getImage());
+        args.putString("listeningCount", challenge.getJoinedCount());
         fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favourite_, container, false);
+        getParentFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 }

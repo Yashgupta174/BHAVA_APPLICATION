@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
@@ -10,6 +11,7 @@
     android:paddingBottom="20dp"
     android:background="@color/bhava_background">
 
+    <!-- Section Header -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,6 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Latest Teachings"
+            android:fontFamily="@font/crimson_pro"
             android:textColor="@color/text_primary"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -39,324 +42,19 @@
             android:padding="8dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:clickable="true"
-            android:focusable="true"
-            android:stateListAnimator="@null" />
+            android:focusable="true" />
 
     </LinearLayout>
 
-    <HorizontalScrollView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLatestTeachings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="none"
+        android:layoutAnimation="@anim/layout_fall_down"
         android:clipToPadding="false"
         android:paddingEnd="20dp"
-        android:overScrollMode="never">
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_challenge" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Card 1: Karma and Dharma -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_latest_teaching_karma_dharma"
-                android:layout_width="@dimen/daily_card_width"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:stateListAnimator="@android:anim/fade_in"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                app:cardMaxElevation="12dp"
-                app:rippleColor="@color/accent_color"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_image_height">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/latest_teaching_karma_and_dharma"
-                            android:contentDescription="Karma and Dharma" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_gravity="bottom"
-                            android:background="@drawable/gradient_overlay_bottom" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|start"
-                            android:layout_margin="10dp"
-                            android:text="12 min"
-                            android:textColor="#FFFFFF"
-                            android:background="@drawable/badge_teaching"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:elevation="4dp"
-                            android:shadowColor="#80000000"
-                            android:shadowDx="0"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_content_height"
-                        android:orientation="vertical"
-                        android:background="@color/card_content_bg"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:elevation="2dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Karma and Dharma"
-                            android:textColor="@color/text_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Philosophy"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Card 2: Divine Grace -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_latest_teaching_divine_grace"
-                android:layout_width="@dimen/daily_card_width"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:stateListAnimator="@android:anim/fade_in"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                app:cardMaxElevation="12dp"
-                app:rippleColor="@color/accent_color"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_image_height">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/latest_teaching_divine_grace"
-                            android:contentDescription="Divine Grace" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_gravity="bottom"
-                            android:background="@drawable/gradient_overlay_bottom" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|start"
-                            android:layout_margin="10dp"
-                            android:text="15 min"
-                            android:textColor="#FFFFFF"
-                            android:background="@drawable/badge_teaching"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:elevation="4dp"
-                            android:shadowColor="#80000000"
-                            android:shadowDx="0"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_content_height"
-                        android:orientation="vertical"
-                        android:background="@color/card_content_bg"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:elevation="2dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Divine Grace"
-                            android:textColor="@color/text_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Devotion"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <!-- Card 3: Inner Peace -->
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_latest_teaching_inner_peace"
-                android:layout_width="@dimen/daily_card_width"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="12dp"
-                android:clickable="true"
-                android:focusable="true"
-                android:foreground="?attr/selectableItemBackground"
-                android:stateListAnimator="@android:anim/fade_in"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="8dp"
-                app:cardMaxElevation="12dp"
-                app:rippleColor="@color/accent_color"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_image_height">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/challenge_108days_mantra"
-                            android:contentDescription="Inner Peace" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            android:layout_gravity="bottom"
-                            android:background="@drawable/gradient_overlay_bottom" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|start"
-                            android:layout_margin="10dp"
-                            android:text="10 min"
-                            android:textColor="#FFFFFF"
-                            android:background="@drawable/badge_teaching"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            android:elevation="4dp"
-                            android:shadowColor="#80000000"
-                            android:shadowDx="0"
-                            android:shadowDy="2"
-                            android:shadowRadius="4" />
-
-                    </FrameLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/daily_card_content_height"
-                        android:orientation="vertical"
-                        android:background="@color/card_content_bg"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:elevation="2dp"
-                        android:gravity="center_vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Inner Peace"
-                            android:textColor="@color/text_primary"
-                            android:textSize="13sp"
-                            android:textStyle="bold"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:letterSpacing="0.01"
-                            android:layout_marginBottom="4dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Meditation"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="11sp"
-                            android:maxLines="1"
-                            android:ellipsize="end"
-                            android:lineSpacingMultiplier="1.1"
-                            android:alpha="0.85" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
-    </HorizontalScrollView>
 </LinearLayout>

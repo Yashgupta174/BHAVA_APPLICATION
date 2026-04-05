@@ -178,4 +178,7 @@
     <string name="cd_no_downloads">No downloads yet</string>
     <string name="cd_add_intention">Add intention</string>
     <string name="cd_add_reflection">Add reflection</string>
+
+    <!-- Google Sign-In Placeholder -->
+    <string name="default_web_client_id">YOUR_CLIENT_ID_HERE</string>
 </resources>

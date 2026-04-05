@@ -1,64 +1,137 @@
 package com.example.bhava;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RoutineFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.bhava.adapter.ChallengeAdapter;
+import com.example.bhava.model.ChallengeItem;
+import com.example.bhava.model.ChallengesResponse;
+import com.example.bhava.network.ApiClient;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class RoutineFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private RecyclerView rvRoutines;
+    private ChallengeAdapter adapter;
+    private ProgressBar pbLoading;
+    private LinearLayout llEmptyState;
+    private List<ChallengeItem> routines = new ArrayList<>();
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public RoutineFragment() {}
 
-    public RoutineFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RoutineFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RoutineFragment newInstance(String param1, String param2) {
-        RoutineFragment fragment = new RoutineFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_routine, container, false);
+
+        rvRoutines = view.findViewById(R.id.rvRoutines);
+        pbLoading = view.findViewById(R.id.pbLoading);
+        llEmptyState = view.findViewById(R.id.llEmptyState);
+        ImageButton btnBack = view.findViewById(R.id.btnBack);
+        Button btnAdd = view.findViewById(R.id.btnAddRoutine);
+
+        if (btnBack != null) {
+            btnBack.setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
         }
+
+        if (btnAdd != null) {
+            btnAdd.setOnClickListener(v -> openEditRoutine());
+        }
+
+        setupRecyclerView();
+        fetchRoutines();
+
+        return view;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_routine, container, false);
+    private void setupRecyclerView() {
+        rvRoutines.setLayoutManager(new LinearLayoutManager(getContext()));
+        // Use a vertical list layout for the routine list
+        adapter = new ChallengeAdapter(R.layout.item_routine_list, this::openDetail);
+        rvRoutines.setAdapter(adapter);
+    }
+
+    private void fetchRoutines() {
+        if (getContext() == null) return;
+        pbLoading.setVisibility(View.VISIBLE);
+        llEmptyState.setVisibility(View.GONE);
+
+        ApiClient.getService(getContext()).getRoutines().enqueue(new Callback<ChallengesResponse>() {
+            @Override
+            public void onResponse(Call<ChallengesResponse> call, Response<ChallengesResponse> response) {
+                if (!isAdded()) return;
+                pbLoading.setVisibility(View.GONE);
+
+                if (response.isSuccessful() && response.body() != null) {
+                    routines.clear();
+                    if (response.body().getData() != null) {
+                        routines.addAll(response.body().getData());
+                    }
+                    
+                    adapter.setChallenges(routines);
+                    
+                    if (routines.isEmpty()) {
+                        llEmptyState.setVisibility(View.VISIBLE);
+                    } else {
+                        llEmptyState.setVisibility(View.GONE);
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Failed to load routines", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ChallengesResponse> call, Throwable t) {
+                if (isAdded()) {
+                    pbLoading.setVisibility(View.GONE);
+                    Log.e("RoutineFragment", "Error fetching routines", t);
+                    Toast.makeText(getContext(), "Network error", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
+    private void openDetail(ChallengeItem challenge) {
+        GenericDetailFragment detailFragment = new GenericDetailFragment();
+        Bundle args = new Bundle();
+        args.putString("challengeId", challenge.getId());
+        args.putString("title", challenge.getTitle());
+        args.putString("subtitle", challenge.getFullSubtitle());
+        args.putString("imageUrl", challenge.getImage());
+        args.putString("listeningCount", challenge.getJoinedCount());
+        detailFragment.setArguments(args);
+
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                .replace(R.id.fragment_container, detailFragment)
+                .addToBackStack(null).commit();
+    }
+
+    private void openEditRoutine() {
+        EditRoutineFragment fragment = new EditRoutineFragment();
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                .replace(R.id.fragment_container, fragment)
+                .addToBackStack(null).commit();
     }
 }

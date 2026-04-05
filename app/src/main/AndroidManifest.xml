@@ -4,15 +4,21 @@
     android:windowSoftInputMode="adjustResize"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Required for all network calls to backend -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bhava">
+
+        <!-- Existing Activities -->
         <activity
             android:name=".Home_screen"
             android:exported="false" />
@@ -22,18 +28,25 @@
         <activity
             android:name=".Splash_Screen"
             android:exported="true" >
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
         </activity>
+
+        <!-- ── New Backend-Integrated Activities ─────────────────── -->
+        <activity android:name=".EmailLoginActivity" android:exported="false" />
+        <activity android:name=".SignupActivity"     android:exported="false" />
+        <activity android:name=".ProfileActivity"   android:exported="false" />
+        <activity android:name=".CartActivity"       android:exported="false" />
+        <activity android:name=".OrdersActivity"     android:exported="false" />
+        <activity android:name=".ContactActivity"    android:exported="false" />
+        <activity android:name=".ForgotPasswordActivity" android:exported="false" />
+
     </application>
 
 </manifest>

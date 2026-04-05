@@ -1,140 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center_vertical"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
-    android:paddingTop="14dp"
-    android:paddingBottom="14dp"
-    android:background="?attr/selectableItemBackground"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="@color/premium_ivory"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground">
 
-    <!-- Session number badge -->
-    <FrameLayout
-        android:id="@+id/sessionNumContainer"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:background="@drawable/session_num_bg"
-        android:layout_marginEnd="14dp">
-
-        <TextView
-            android:id="@+id/tvSessionNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="1"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:textColor="@color/text_caramel" />
-
-    </FrameLayout>
-
-    <!-- Session info -->
     <LinearLayout
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp">
 
-        <TextView
-            android:id="@+id/tvSessionName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Session Title"
-            android:textSize="14sp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="@color/text_espresso"
-            android:maxLines="1"
-            android:ellipsize="end"
-            android:layout_marginBottom="3dp" />
-
-        <!-- Meta row: day + category -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:id="@+id/tvSessionDay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Day 1"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/text_caramel" />
-
-            <View
-                android:layout_width="3dp"
-                android:layout_height="3dp"
-                android:background="@drawable/shape_meta_dot"
-                android:layout_marginStart="6dp"
-                android:layout_marginEnd="6dp" />
-
-            <TextView
-                android:id="@+id/tvSessionCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Intro"
-                android:textSize="12sp"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/text_caramel" />
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <!-- Right side: play or lock + duration -->
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center_vertical">
-
-        <!-- Play button (visible when unlocked) -->
+        <!-- Session Number or Progress Icon -->
         <FrameLayout
-            android:id="@+id/btnPlay"
+            android:id="@+id/sessionNumContainer"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:background="@drawable/bg_play_btn"
-            android:layout_marginBottom="4dp">
+            android:layout_marginEnd="14dp">
 
-            <ImageView
-                android:layout_width="12dp"
-                android:layout_height="12dp"
+            <TextView
+                android:id="@+id/tvSessionNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/ic_play"
-                android:layout_marginStart="2dp"
-                android:contentDescription="Play session" />
+                android:text="12"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:textColor="@color/premium_text_espresso"
+                android:alpha="0.8" />
 
         </FrameLayout>
 
-        <!-- Lock icon (visible when locked — toggle visibility in adapter) -->
+        <!-- Session info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvSessionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inner Peace"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:tint="@color/premium_text_espresso"
+                android:textColor="@color/premium_text_espresso"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+            <!-- Meta row: day + category -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="4dp">
+
+                <TextView
+                    android:id="@+id/tvSessionDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Day 1"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/premium_text_tan" />
+
+                <View
+                    android:layout_width="3.5dp"
+                    android:layout_height="3.5dp"
+                    android:background="@drawable/shape_meta_dot"
+                    android:alpha="0.4"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tvSessionCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Introduction"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/premium_text_tan" />
+
+                <View
+                    android:layout_width="3.5dp"
+                    android:layout_height="3.5dp"
+                    android:background="@drawable/shape_meta_dot"
+                    android:alpha="0.4"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tvDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12 min"
+                    android:textSize="13sp"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/premium_text_tan" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Right side: stylized play button -->
+        <FrameLayout
+            android:id="@+id/btnPlay"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/premium_play_btn_circle">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_play_triangle"
+                android:layout_marginStart="2dp"
+                app:tint="@color/white"
+                android:contentDescription="Play" />
+
+        </FrameLayout>
+
+        <!-- Lock icon (overlayed if needed) -->
         <ImageView
             android:id="@+id/ivLock"
-            android:layout_width="18dp"
-            android:layout_height="18dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/ic_lock"
             android:alpha="0.35"
-            android:layout_marginBottom="4dp"
+            android:layout_marginStart="12dp"
             android:visibility="gone"
             android:contentDescription="Locked" />
 
-        <TextView
-            android:id="@+id/tvDuration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="12 min"
-            android:textSize="10sp"
-            android:fontFamily="sans-serif"
-            android:textColor="@color/text_caramel_light" />
-
     </LinearLayout>
 
-</LinearLayout>
+</com.google.android.material.card.MaterialCardView>

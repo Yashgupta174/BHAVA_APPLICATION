@@ -34,6 +34,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:background="@color/bg_parchment">
 
@@ -436,202 +437,79 @@
                 android:paddingEnd="20dp"
                 android:layout_marginBottom="12dp" />
 
-            <!-- Hosts horizontal scroll row -->
-            <HorizontalScrollView
+            <!-- Hosts row (Dynamic Container) -->
+            <LinearLayout
+                android:id="@+id/hostsContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:scrollbars="none"
+                android:orientation="horizontal"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:clipToPadding="false"
-                android:layout_marginBottom="18dp">
+                android:layout_marginBottom="18dp" />
 
-                <LinearLayout
-                    android:id="@+id/featuringRow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
 
-                    <!-- Host 1 -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginEnd="20dp">
-
-                        <FrameLayout
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/avatar_bg_orange"
-                            android:layout_marginEnd="10dp">
-
-                            <TextView
-                                android:id="@+id/tvHost1Initials"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="FT"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:fontFamily="serif"
-                                android:textColor="@color/chip_text_orange" />
-
-                        </FrameLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvHost1Name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Fr. Thomas"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="serif"
-                                android:textColor="@color/text_espresso" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Spiritual Director"
-                                android:textSize="11sp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@color/text_caramel"
-                                android:layout_marginTop="1dp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- Host 2 -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:layout_marginEnd="20dp">
-
-                        <FrameLayout
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/avatar_bg_green"
-                            android:layout_marginEnd="10dp">
-
-                            <TextView
-                                android:id="@+id/tvHost2Initials"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="SR"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:fontFamily="serif"
-                                android:textColor="@color/chip_text_green" />
-
-                        </FrameLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvHost2Name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Sr. Rosa"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="serif"
-                                android:textColor="@color/text_espresso" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Contemplative Guide"
-                                android:textSize="11sp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@color/text_caramel"
-                                android:layout_marginTop="1dp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <!-- Host 3 (optional, hidden by default) -->
-                    <LinearLayout
-                        android:id="@+id/host3Container"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center_vertical"
-                        android:visibility="gone">
-
-                        <FrameLayout
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
-                            android:background="@drawable/avatar_bg_blue"
-                            android:layout_marginEnd="10dp">
-
-                            <TextView
-                                android:id="@+id/tvHost3Initials"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="DM"
-                                android:textSize="15sp"
-                                android:textStyle="bold"
-                                android:fontFamily="serif"
-                                android:textColor="@color/chip_text_blue" />
-
-                        </FrameLayout>
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/tvHost3Name"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Deacon Mark"
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:fontFamily="serif"
-                                android:textColor="@color/text_espresso" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Scripture Reader"
-                                android:textSize="11sp"
-                                android:fontFamily="sans-serif"
-                                android:textColor="@color/text_caramel"
-                                android:layout_marginTop="1dp" />
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </LinearLayout>
-            </HorizontalScrollView>
+            <!-- Quick Summary (Dynamic) -->
+            <TextView
+                android:id="@+id/tvSummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quick Summary of this session..."
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:fontFamily="serif"
+                android:textColor="@color/text_espresso"
+                android:lineSpacingMultiplier="1.3"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="14dp"
+                android:visibility="gone" />
 
             <!-- Description -->
             <TextView
                 android:id="@+id/tvDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Journey through the five Luminous Mysteries as guided by Fr. Thomas, accompanied by sacred chant and reflective scripture readings. This contemplative session invites you into deeper union with the mystery of Christ&#8217;s earthly ministry &#8212; from the Baptism in the Jordan to the Institution of the Eucharist."
+                android:text="..."
                 android:textSize="14.5sp"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/text_caramel"
                 android:lineSpacingMultiplier="1.65"
                 android:paddingStart="20dp"
                 android:paddingEnd="20dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="24dp" />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/divider_warm"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Sessions Section -->
+            <TextView
+                android:id="@+id/tvSessionsHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SESSIONS"
+                android:textSize="11sp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_caramel"
+                android:letterSpacing="0.12"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:layout_marginBottom="12dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSessions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_session" />
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

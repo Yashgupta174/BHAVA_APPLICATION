@@ -1,64 +1,92 @@
 package com.example.bhava;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Home_Store_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.bhava.model.CartResponse;
+import com.example.bhava.network.ApiClient;
+import com.example.bhava.network.TokenManager;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Home_Store_Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private TextView tvCartCount;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Home_Store_Fragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Home_Store_Fragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Home_Store_Fragment newInstance(String param1, String param2) {
-        Home_Store_Fragment fragment = new Home_Store_Fragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    public Home_Store_Fragment() {}
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home__store_, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        tvCartCount = view.findViewById(R.id.tvCartCount);
+
+        // Cart button → open CartActivity
+        view.findViewById(R.id.btnCart).setOnClickListener(v -> {
+            startActivity(new Intent(getContext(), CartActivity.class));
+            if (getActivity() != null) {
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+        // Profile button → open ProfileActivity if logged in, else Login
+        view.findViewById(R.id.btnProfile).setOnClickListener(v -> {
+            if (TokenManager.getInstance(requireContext()).isLoggedIn()) {
+                startActivity(new Intent(getContext(), ProfileActivity.class));
+            } else {
+                startActivity(new Intent(getContext(), Login_Screen.class));
+            }
+            if (getActivity() != null) {
+                getActivity().overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+        // Load live cart count
+        loadCartCount();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadCartCount(); // refresh count after returning from CartActivity
+    }
+
+    private void loadCartCount() {
+        if (!TokenManager.getInstance(requireContext()).isLoggedIn()) {
+            if (tvCartCount != null) tvCartCount.setVisibility(View.GONE);
+            return;
+        }
+
+        ApiClient.getService(requireContext()).getCart()
+                .enqueue(new Callback<CartResponse>() {
+                    @Override
+                    public void onResponse(Call<CartResponse> call, Response<CartResponse> response) {
+                        if (response.isSuccessful() && response.body() != null && tvCartCount != null) {
+                            int count = response.body().itemCount;
+                            tvCartCount.setText(String.valueOf(count));
+                            tvCartCount.setVisibility(count > 0 ? View.VISIBLE : View.GONE);
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<CartResponse> call, Throwable t) {
+                        if (tvCartCount != null) tvCartCount.setVisibility(View.GONE);
+                    }
+                });
     }
 }

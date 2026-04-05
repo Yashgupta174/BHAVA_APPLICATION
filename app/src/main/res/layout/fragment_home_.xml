@@ -8,20 +8,26 @@
     android:layout_height="match_parent"
     android:background="@color/bhava_background">
 
-    <!-- Main ScrollView Content -->
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView"
+    <!-- Wrap ScrollView with SwipeRefreshLayout for Pull-to-Refresh -->
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:fillViewport="true"
-        android:scrollbars="none"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layoutAnimation="@anim/layout_fall_down">
 
             <!-- ========== HERO HEADER SECTION ========== -->
             <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -94,7 +100,7 @@
                             android:textColor="#FFFFFF"
                             android:textSize="36sp"
                             android:textStyle="bold"
-                            android:fontFamily="sans-serif-medium"
+                            android:fontFamily="@font/crimson_pro"
                             android:letterSpacing="0.02"
                             android:shadowColor="#B0000000"
                             android:shadowDx="0"
@@ -528,8 +534,8 @@
             <!-- ========== ACTIVE CHALLENGES SECTION ========== -->
             <include layout="@layout/section_active_challenges"/>
 
-            <!-- ========== RECENTLY PRAYED SECTION ========== -->
-            <include layout="@layout/section_recently_prayed"/>
+<!--            &lt;!&ndash; ========== RECENTLY PRAYED SECTION ========== &ndash;&gt;-->
+<!--            <include layout="@layout/section_recently_prayed"/>-->
 
             <!-- ========== MORNING ROUTINES SECTION ========== -->
             <include layout="@layout/section_morning_routines"/>
@@ -555,8 +561,8 @@
             <!-- ========== PREMIUM BANNER ========== -->
             <include layout="@layout/section_premium_banner"/>
 
-            <!-- ========== EXPLORE CATEGORIES SECTION ========== -->
-            <include layout="@layout/section_explore_categories"/>
+<!--            &lt;!&ndash; ========== EXPLORE CATEGORIES SECTION ========== &ndash;&gt;-->
+<!--            <include layout="@layout/section_explore_categories"/>-->
 
             <!-- ========== COMMUNITY CAMPAIGNS SECTION ========== -->
             <include layout="@layout/section_community_campaigns"/>
@@ -569,6 +575,19 @@
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <!-- Global Loading ProgressBar (Show when no cache is available) -->
+    <ProgressBar
+        android:id="@+id/homeProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:indeterminateTint="@color/action_button_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView

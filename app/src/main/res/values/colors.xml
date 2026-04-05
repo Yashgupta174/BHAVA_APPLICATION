@@ -2,6 +2,20 @@
 <resources>
 
     <!-- ════════════════════════════════════════════ -->
+    <!--     PREMIUM THEME COLORS (TRADITIONAL)      -->
+    <!-- ════════════════════════════════════════════ -->
+    <color name="premium_maroon">#5D1010</color>
+    <color name="premium_maroon_dark">#4A0C0C</color>
+    <color name="premium_maroon_light">#7B2020</color>
+    <color name="premium_ivory">#FDFCF8</color>
+    <color name="premium_ivory_dark">#F5F2E8</color>
+    <color name="premium_gold_accent">#B8860B</color>
+    <color name="premium_gold_light">#D4B87A</color>
+    <color name="premium_parchment_bg">#F6E7D6</color>
+    <color name="premium_text_espresso">#3B2507</color>
+    <color name="premium_text_tan">#8E8E8E</color>
+
+    <!-- ════════════════════════════════════════════ -->
     <!--     MUSIC PLAYER SPECIFIC COLORS            -->
     <!-- ════════════════════════════════════════════ -->
     <color name="player_bg">#1A0F08</color>
@@ -227,5 +241,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="success_color">#4CAF50</color>
+
+    <!-- Profile Redesign Colors -->
+    <color name="profile_maroon">#5D1010</color>
+    <color name="profile_maroon_light">#9C4141</color>
+    <color name="profile_gold_glow">#E6B94A</color>
+    <color name="profile_gold_glow_outer">#C08C3C</color>
+    <color name="profile_cream_bg">#FAF7F2</color>
+    <color name="profile_field_bg">#F2EDE9</color>
+    <color name="profile_text_hint">#8E8E8E</color>
+    <color name="profile_maroon_transparent">#205D1010</color>
 
 </resources>
