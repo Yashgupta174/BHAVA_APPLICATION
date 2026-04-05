@@ -51,8 +51,8 @@ public class Favourite_Fragment extends Fragment {
         tvFavEmpty = view.findViewById(R.id.tvFavEmpty);
         txtSessionCount = view.findViewById(R.id.txtSessionCount);
 
-        rvFavorites.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new ChallengeAdapter(challenge -> {
+        rvFavorites.setLayoutManager(new androidx.recyclerview.widget.GridLayoutManager(getContext(), 2));
+        adapter = new ChallengeAdapter(R.layout.item_challenge_grid, challenge -> {
             openDetailFragment(challenge);
         });
         adapter.setChallenges(favoriteList);

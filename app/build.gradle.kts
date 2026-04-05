@@ -1,6 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
-    // alias(libs.plugins.google.services) // Removed until google-services.json is provided
+    alias(libs.plugins.google.services)
 }
 
 android {
@@ -64,6 +64,8 @@ dependencies {
 
     // ── Google Sign-In ───────────────────────────────────────
     implementation(libs.google.auth)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.messaging)
 
     // ── UI Enhancements ──────────────────────────────────────
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")

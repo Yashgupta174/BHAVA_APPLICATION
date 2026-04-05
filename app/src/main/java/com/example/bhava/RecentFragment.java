@@ -58,8 +58,8 @@ public class RecentFragment extends Fragment {
     }
 
     private void setupRecyclerView() {
-        rvRecentChallenges.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new ChallengeAdapter(challenge -> {
+        rvRecentChallenges.setLayoutManager(new androidx.recyclerview.widget.GridLayoutManager(getContext(), 2));
+        adapter = new ChallengeAdapter(R.layout.item_challenge_grid, challenge -> {
             // Open GenericDetailFragment for the clicked challenge
             GenericDetailFragment detailFragment = new GenericDetailFragment();
             Bundle args = new Bundle();

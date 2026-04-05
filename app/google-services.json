@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "647466265889",
+    "project_id": "bhava-81c91",
+    "storage_bucket": "bhava-81c91.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647466265889:android:26728bac0647cfaa59a260",
+        "android_client_info": {
+          "package_name": "com.example.bhava"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdpn-lkkE0GnqPCwZkh5EYN4Aaez4zfEk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -112,6 +112,17 @@ public class HomeFragment extends Fragment {
         View recent = view.findViewById(R.id.recent);
         if (recent != null) recent.setOnClickListener(v -> openRecentFragment());
 
+        // 🔹 Notification History
+        View notificationIcon = view.findViewById(R.id.notificationIcon);
+        View notificationBadge = view.findViewById(R.id.notificationBadge);
+        if (notificationIcon != null) {
+            notificationIcon.setOnClickListener(v -> {
+                startActivity(new Intent(getContext(), NotificationsActivity.class));
+                if (notificationBadge != null) notificationBadge.setVisibility(View.GONE);
+            });
+        }
+        updateNotificationBadge(view);
+
         // 🔹 Social media handling
         setupSocialMedia(view);
 
@@ -127,6 +138,21 @@ public class HomeFragment extends Fragment {
         }
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateNotificationBadge(getView());
+    }
+
+    private void updateNotificationBadge(View root) {
+        if (root == null || getContext() == null) return;
+        View notificationBadge = root.findViewById(R.id.notificationBadge);
+        if (notificationBadge != null) {
+            com.example.bhava.network.NotificationHelper helper = new com.example.bhava.network.NotificationHelper(getContext());
+            notificationBadge.setVisibility(helper.hasUnread() ? View.VISIBLE : View.GONE);
+        }
     }
 
     private interface DynamicNavigation {
