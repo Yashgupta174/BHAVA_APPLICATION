@@ -51,8 +51,41 @@ public class Splash_Screen extends AppCompatActivity {
             });
         }
 
-        // 2000ms delay for splash, then check permissions
-        new Handler().postDelayed(this::askNotificationPermission, 2000);
+        initializeAnimations();
+
+        // 3500ms delay for splash (premium feel), then check permissions
+        new Handler().postDelayed(this::askNotificationPermission, 3500);
+    }
+
+    private void initializeAnimations() {
+        View logoCard = findViewById(R.id.logoCard);
+        View appName = findViewById(R.id.appName);
+        View tagline = findViewById(R.id.tagline);
+        View progressBar = findViewById(R.id.progressBar);
+
+        if (logoCard == null || appName == null || tagline == null || progressBar == null) return;
+
+        // 1. Initial states
+        appName.setAlpha(0f);
+        tagline.setAlpha(0f);
+        progressBar.setAlpha(0f);
+
+        // 2. Start logo heartbeat
+        android.view.animation.Animation heartbeat = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.logo_heartbeat);
+        logoCard.startAnimation(heartbeat);
+
+        // 3. Sequential Reveal
+        new Handler().postDelayed(() -> {
+            appName.animate().alpha(1f).setDuration(800).start();
+        }, 500);
+
+        new Handler().postDelayed(() -> {
+            tagline.animate().alpha(1f).setDuration(800).start();
+        }, 1200);
+
+        new Handler().postDelayed(() -> {
+            progressBar.animate().alpha(1f).setDuration(500).start();
+        }, 1800);
     }
 
     private void askNotificationPermission() {
@@ -76,8 +109,17 @@ public class Splash_Screen extends AppCompatActivity {
 
     private void proceedToNextScreen() {
         Intent intent = new Intent(Splash_Screen.this, Login_Screen.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
+        
+        View logoCard = findViewById(R.id.logoCard);
+        if (logoCard != null) {
+            androidx.core.app.ActivityOptionsCompat options = 
+                androidx.core.app.ActivityOptionsCompat.makeSceneTransitionAnimation(this, logoCard, "logo_shared");
+            startActivity(intent, options.toBundle());
+        } else {
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }
+        
+        new Handler().postDelayed(this::finish, 1000); // Delay finish to allow transition to complete
     }
 }

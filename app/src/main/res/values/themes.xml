@@ -1,9 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.Bhava" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
+        <!-- Default font for the whole app (Body) -->
         <item name="android:fontFamily">@font/inter</item>
         <item name="fontFamily">@font/inter</item>
+        
+        <!-- Standardizing Material components -->
+        <item name="textAppearanceHeadlineLarge">@style/Bhava_TitleText</item>
+        <item name="textAppearanceHeadlineMedium">@style/Bhava_SectionHeader</item>
+        <item name="textAppearanceBodyLarge">@style/Bhava_BodyText</item>
+        <item name="textAppearanceBodySmall">@style/Bhava_CaptionText</item>
         
         <!-- Premium Activity Transitions -->
         <item name="android:windowAnimationStyle">@style/Animation.Bhava.Activity</item>

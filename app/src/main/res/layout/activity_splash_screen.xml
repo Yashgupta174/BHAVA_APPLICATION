@@ -38,6 +38,7 @@
         android:id="@+id/logoCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:transitionName="logo_shared"
         app:cardCornerRadius="24dp"
         app:cardElevation="8dp"
         app:cardBackgroundColor="#FFFFFF"

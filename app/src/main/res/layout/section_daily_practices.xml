@@ -26,11 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Daily Practices"
-            android:fontFamily="@font/crimson_pro"
-            android:textColor="@color/text_primary"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:letterSpacing="0.02" />
+            style="@style/Bhava_SectionHeader" />
 
         <TextView
             android:id="@+id/tvViewAll"

@@ -95,6 +95,46 @@ public class Login_Screen extends AppCompatActivity {
 
         findViewById(R.id.appleLogin).setOnClickListener(v ->
                 Toast.makeText(this, "Apple Sign-In coming soon!", Toast.LENGTH_SHORT).show());
+
+        initializeAnimations();
+    }
+
+    private void initializeAnimations() {
+        View loginCard = findViewById(R.id.loginCard);
+        View logoContainer = findViewById(R.id.logoContainer);
+        View title = findViewById(R.id.title);
+        View subtitle = findViewById(R.id.subtitle);
+        View decorCircle1 = findViewById(R.id.decorCircle1);
+        View decorCircle2 = findViewById(R.id.decorCircle2);
+
+        // 1. Initial states
+        loginCard.setTranslationY(400f);
+        loginCard.setAlpha(0f);
+        logoContainer.setScaleX(0f);
+        logoContainer.setScaleY(0f);
+        title.setAlpha(0f);
+        subtitle.setAlpha(0f);
+
+        // 2. Start floating background animations
+        android.view.animation.Animation floatAnim = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.slow_float);
+        if (decorCircle1 != null) decorCircle1.startAnimation(floatAnim);
+        if (decorCircle2 != null) decorCircle2.startAnimation(floatAnim);
+
+        // 3. Start logo heartbeat
+        android.view.animation.Animation heartbeat = android.view.animation.AnimationUtils.loadAnimation(this, R.anim.logo_heartbeat);
+        logoContainer.startAnimation(heartbeat);
+
+        // 4. Sequential Entry
+        logoContainer.animate().scaleX(1f).scaleY(1f).setDuration(800).setInterpolator(new android.view.animation.OvershootInterpolator()).start();
+        
+        new android.os.Handler().postDelayed(() -> {
+            title.animate().alpha(1f).setDuration(600).start();
+            subtitle.animate().alpha(1f).setDuration(600).start();
+        }, 400);
+
+        new android.os.Handler().postDelayed(() -> {
+            loginCard.animate().translationY(0f).alpha(1f).setDuration(1000).setInterpolator(new android.view.animation.DecelerateInterpolator()).start();
+        }, 600);
     }
 
     @Override

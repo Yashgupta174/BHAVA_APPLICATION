@@ -2,9 +2,9 @@
 <resources>
     <!-- Challenge Card Style -->
     <style name="ChallengeCard">
-        <item name="cardCornerRadius">16dp</item>
-        <item name="cardElevation">8dp</item>
-        <item name="cardMaxElevation">12dp</item>
+        <item name="cardCornerRadius">24dp</item>
+        <item name="cardElevation">12dp</item>
+        <item name="cardMaxElevation">16dp</item>
         <item name="rippleColor">@color/ripple_color</item>
         <item name="strokeWidth">0dp</item>
     </style>
@@ -172,5 +172,55 @@
     <style name="CircleImage" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+    <!-- Professional Input Style -->
+    <style name="ProfessionalInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/bhava_primary</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxCornerRadiusTopStart">12dp</item>
+        <item name="boxCornerRadiusTopEnd">12dp</item>
+        <item name="boxCornerRadiusBottomStart">12dp</item>
+        <item name="boxCornerRadiusBottomEnd">12dp</item>
+        <item name="hintTextColor">@color/bhava_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+    </style>
+
+    <style name="ProfessionalInputText" parent="Widget.MaterialComponents.TextInputEditText.OutlinedBox">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+    <!-- Global Typography System -->
+    <style name="Bhava_TitleText">
+        <item name="android:fontFamily">@font/crimson_pro</item>
+        <item name="fontFamily">@font/crimson_pro</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_espresso</item>
+        <item name="android:textSize">28sp</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="Bhava_SectionHeader">
+        <item name="android:fontFamily">@font/crimson_pro</item>
+        <item name="fontFamily">@font/crimson_pro</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/text_espresso</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:letterSpacing">0.02</item>
+    </style>
+
+    <style name="Bhava_BodyText">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="Bhava_CaptionText">
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:textSize">12sp</item>
     </style>
 </resources>

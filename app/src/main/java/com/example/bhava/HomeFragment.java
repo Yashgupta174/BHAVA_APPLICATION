@@ -137,7 +137,43 @@ public class HomeFragment extends Fragment {
             });
         }
 
+        setupParallaxEffect(view);
+        setupQuickActionAnimations(view);
+
         return view;
+    }
+
+    private void setupParallaxEffect(View root) {
+        View scrollView = root.findViewById(R.id.scrollView);
+        View heroImage = root.findViewById(R.id.headerBackgroundImage);
+        if (scrollView instanceof androidx.core.widget.NestedScrollView && heroImage != null) {
+            ((androidx.core.widget.NestedScrollView) scrollView).setOnScrollChangeListener(
+                (androidx.core.widget.NestedScrollView.OnScrollChangeListener) (v, scrollX, scrollY, oldScrollX, oldScrollY) -> {
+                    heroImage.setTranslationY(scrollY * 0.5f);
+                }
+            );
+        }
+    }
+
+    private void setupQuickActionAnimations(View root) {
+        int[] ids = {R.id.favourite, R.id.ask_bhava, R.id.routine, R.id.recent};
+        for (int id : ids) {
+            View v = root.findViewById(id);
+            if (v != null) {
+                v.setOnTouchListener((view, event) -> {
+                    switch (event.getAction()) {
+                        case android.view.MotionEvent.ACTION_DOWN:
+                            view.animate().scaleX(0.92f).scaleY(0.92f).setDuration(150).start();
+                            break;
+                        case android.view.MotionEvent.ACTION_UP:
+                        case android.view.MotionEvent.ACTION_CANCEL:
+                            view.animate().scaleX(1f).scaleY(1f).setDuration(150).start();
+                            break;
+                    }
+                    return false;
+                });
+            }
+        }
     }
 
     @Override
