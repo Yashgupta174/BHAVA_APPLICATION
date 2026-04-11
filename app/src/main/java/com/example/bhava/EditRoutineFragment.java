@@ -135,7 +135,7 @@ public class EditRoutineFragment extends Fragment implements RoutinePickerAdapte
 
     private void fetchRoutines() {
         if (getContext() == null) return;
-        ApiClient.getService(getContext()).getRoutines().enqueue(new Callback<ChallengesResponse>() {
+        ApiClient.getService(getContext()).getRoutines(null).enqueue(new Callback<ChallengesResponse>() {
             @Override
             public void onResponse(Call<ChallengesResponse> call, Response<ChallengesResponse> response) {
                 if (!isAdded()) return;
@@ -166,23 +166,7 @@ public class EditRoutineFragment extends Fragment implements RoutinePickerAdapte
         if (getContext() == null || challenge == null) return;
 
         if (isAdding) {
-            ApiClient.getService(getContext()).addToRoutine(challenge.getId()).enqueue(new Callback<ApiResponse>() {
-                @Override
-                public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                    if (response.isSuccessful()) {
-                        routineIds.add(challenge.getId());
-                        adapter.setData(filteredList, routineIds);
-                        Toast.makeText(getContext(), "Added to routine", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(getContext(), "Failed up add", Toast.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void onFailure(Call<ApiResponse> call, Throwable t) {
-                    Toast.makeText(getContext(), "Network error", Toast.LENGTH_SHORT).show();
-                }
-            });
+            showDayPickerDialog(challenge);
         } else {
             ApiClient.getService(getContext()).removeFromRoutine(challenge.getId()).enqueue(new Callback<ApiResponse>() {
                 @Override
@@ -200,5 +184,56 @@ public class EditRoutineFragment extends Fragment implements RoutinePickerAdapte
                 }
             });
         }
+    }
+
+    private void showDayPickerDialog(ChallengeItem challenge) {
+        String[] days = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
+        boolean[] checkedDays = {true, true, true, true, true, true, true};
+        List<String> selectedDays = new ArrayList<>(java.util.Arrays.asList(days));
+
+        new androidx.appcompat.app.AlertDialog.Builder(getContext())
+                .setTitle("Select Days for " + challenge.getTitle())
+                .setMultiChoiceItems(days, checkedDays, (dialog, which, isChecked) -> {
+                    if (isChecked) {
+                        selectedDays.add(days[which]);
+                    } else {
+                        selectedDays.remove(days[which]);
+                    }
+                })
+                .setPositiveButton("Add", (dialog, which) -> {
+                    if (selectedDays.isEmpty()) {
+                        Toast.makeText(getContext(), "Please select at least one day", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    performAddRoutine(challenge, selectedDays);
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    private void performAddRoutine(ChallengeItem challenge, List<String> days) {
+        pbLoading.setVisibility(View.VISIBLE);
+        
+        com.example.bhava.model.RoutineRequest request = new com.example.bhava.model.RoutineRequest(days);
+        
+        ApiClient.getService(getContext()).addToRoutine(challenge.getId(), request).enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                pbLoading.setVisibility(View.GONE);
+                if (response.isSuccessful()) {
+                    routineIds.add(challenge.getId());
+                    adapter.setData(filteredList, routineIds);
+                    Toast.makeText(getContext(), "Added to routine", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Failed to add", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                pbLoading.setVisibility(View.GONE);
+                Toast.makeText(getContext(), "Network error", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

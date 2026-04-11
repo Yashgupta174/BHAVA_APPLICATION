@@ -99,15 +99,26 @@
                         android:gravity="center_vertical">
 
                         <ImageButton
-                            android:id="@+id/btnFriends"
+                            android:id="@+id/btnCommunity"
                             android:layout_width="42dp"
                             android:layout_height="42dp"
                             android:src="@drawable/ic_group"
                             android:background="@drawable/circle_btn_bg"
                             android:padding="10dp"
-                                app:tint="@color/text_espresso"
+                            app:tint="@color/text_espresso"
                             android:layout_marginEnd="10dp"
-                            android:contentDescription="Friends" />
+                            android:contentDescription="Community" />
+
+<!--                        <ImageButton-->
+<!--                            android:id="@+id/btnFriends"-->
+<!--                            android:layout_width="42dp"-->
+<!--                            android:layout_height="42dp"-->
+<!--                            android:src="@drawable/ic_heart_outline"-->
+<!--                            android:background="@drawable/circle_btn_bg"-->
+<!--                            android:padding="10dp"-->
+<!--                                app:tint="@color/text_espresso"-->
+<!--                            android:layout_marginEnd="10dp"-->
+<!--                            android:contentDescription="Friends" />-->
 
                         <ImageButton
                             android:id="@+id/btnSettings"
@@ -162,6 +173,7 @@
                         android:layout_marginEnd="8dp" />
 
                     <TextView
+                        android:id="@+id/tvStreakCount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="0"
@@ -172,6 +184,7 @@
                         android:layout_marginEnd="12dp" />
 
                     <TextView
+                        android:id="@+id/tvStreakHint"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"

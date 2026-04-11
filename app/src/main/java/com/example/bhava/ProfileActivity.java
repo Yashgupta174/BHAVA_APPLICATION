@@ -95,7 +95,7 @@ public class ProfileActivity extends AppCompatActivity {
                     // Sync local cache
                     TokenManager tm = TokenManager.getInstance(ProfileActivity.this);
                     int jCount = (user.joinedChallenges != null) ? user.joinedChallenges.size() : tm.getJoinedChallengesCount();
-                    tm.saveUserInfo(user.id, user.name, user.email, user.avatar, user.bio, user.phoneNumber, user.location, jCount);
+                    tm.saveUserInfo(user.id, user.name, user.email, user.avatar, user.bio, user.phoneNumber, user.location, jCount, user.streakCount);
                     if (tvSyncStatus != null) tvSyncStatus.setText("Profile synced from backend");
                 } else {
                     if (tvSyncStatus != null) tvSyncStatus.setText("Using saved profile data");
@@ -139,9 +139,9 @@ public class ProfileActivity extends AppCompatActivity {
                             if (user != null) {
                                 bindUserToViews(user);
                                 int jCount = (user.joinedChallenges != null) ? user.joinedChallenges.size() : tm.getJoinedChallengesCount();
-                                tm.saveUserInfo(user.id, user.name, user.email, user.avatar, user.bio, user.phoneNumber, user.location, jCount);
+                                tm.saveUserInfo(user.id, user.name, user.email, user.avatar, user.bio, user.phoneNumber, user.location, jCount, user.streakCount);
                             } else {
-                                tm.saveUserInfo(tm.getUserId(), name, tm.getUserEmail(), tm.getUserAvatar(), bio, phone, location, tm.getJoinedChallengesCount());
+                                tm.saveUserInfo(tm.getUserId(), name, tm.getUserEmail(), tm.getUserAvatar(), bio, phone, location, tm.getJoinedChallengesCount(), tm.getStreakCount());
                                 bindUserToViews(tm);
                             }
                             if (tvSyncStatus != null) tvSyncStatus.setText("Changes saved to your account");

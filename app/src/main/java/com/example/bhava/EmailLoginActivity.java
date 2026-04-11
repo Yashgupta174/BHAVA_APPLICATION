@@ -73,7 +73,8 @@ public class EmailLoginActivity extends AppCompatActivity {
                             tm.saveUserInfo(body.user.id, body.user.name,
                                     body.user.email, body.user.avatar,
                                     body.user.bio, body.user.phoneNumber, body.user.location,
-                                    body.user.joinedChallenges != null ? body.user.joinedChallenges.size() : 0);
+                                    (body.user.joinedChallenges != null ? body.user.joinedChallenges.size() : 0),
+                                    body.user.streakCount);
                             Toast.makeText(EmailLoginActivity.this,
                                     "Welcome back, " + body.user.name + "!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(EmailLoginActivity.this, Home_screen.class);

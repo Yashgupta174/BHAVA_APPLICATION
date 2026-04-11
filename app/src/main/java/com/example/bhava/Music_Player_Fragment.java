@@ -74,6 +74,7 @@ public class Music_Player_Fragment extends Fragment {
     private View queueItem2;
     private View queueItem3;
     private com.example.bhava.view.VisualizerView visualizer;
+    private View neonEdgeView;
 
     public Music_Player_Fragment() {}
 
@@ -113,6 +114,8 @@ public class Music_Player_Fragment extends Fragment {
         bindTrackInfo(view);
 
         visualizer = view.findViewById(R.id.visualizer);
+        neonEdgeView = view.findViewById(R.id.neonEdgeView);
+        startNeonAnimation();
 
         // ── SeekBar & time labels ────────────────────────────────────
         seekBar       = view.findViewById(R.id.seekBar);
@@ -540,6 +543,23 @@ public class Music_Player_Fragment extends Fragment {
     }
 
     // ────────────────────────────────────────────────────────────────
+    // Neon Animation
+    // ────────────────────────────────────────────────────────────────
+    private void startNeonAnimation() {
+        if (neonEdgeView != null && isAdded()) {
+            android.view.animation.Animation pulse = android.view.animation.AnimationUtils.loadAnimation(getContext(), R.anim.neon_pulse);
+            neonEdgeView.startAnimation(pulse);
+            neonEdgeView.setAlpha(1.0f);
+        }
+    }
+
+    private void stopNeonAnimation() {
+        if (neonEdgeView != null) {
+            neonEdgeView.clearAnimation();
+        }
+    }
+
+    // ────────────────────────────────────────────────────────────────
     // Lifecycle — release resources
     // ────────────────────────────────────────────────────────────────
     @Override
@@ -556,6 +576,7 @@ public class Music_Player_Fragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        stopNeonAnimation();
         releaseMediaPlayer(true);
     }
 

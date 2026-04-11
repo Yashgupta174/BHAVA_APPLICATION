@@ -52,72 +52,92 @@
             android:background="@color/divider_warm" />
     </LinearLayout>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_marginTop="80dp">
 
+        <!-- Weekly Day Selector -->
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRoutines"
+            android:id="@+id/rvDays"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:clipToPadding="false"
-            android:paddingBottom="80dp" />
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp" />
 
-        <!-- Empty State -->
-        <LinearLayout
-            android:id="@+id/llEmptyState"
+        <!-- Progress and Content Area Wrapper -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="40dp"
-            android:visibility="gone">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:src="@drawable/ic_hands_pray"
-                android:alpha="0.4"
-                app:tint="@color/text_caramel" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRoutines"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="80dp" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/llEmptyState"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Your routine is empty"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_espresso"
-                android:layout_marginTop="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add challenges to your daily routine to see them here."
-                android:textSize="14sp"
-                android:textColor="@color/text_caramel"
+                android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_marginTop="8dp" />
-            
-            <Button
-                android:id="@+id/btnAddRoutine"
+                android:orientation="vertical"
+                android:padding="40dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_hands_pray"
+                    android:alpha="0.4"
+                    app:tint="@color/text_caramel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your routine is empty"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_espresso"
+                    android:layout_marginTop="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add challenges to your daily routine to see them here."
+                    android:textSize="14sp"
+                    android:textColor="@color/text_caramel"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp" />
+                
+                <Button
+                    android:id="@+id/btnAddRoutine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Discover Practices"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="24dp"
+                    android:backgroundTint="@color/accent_color"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/pbLoading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Discover Practices"
-                android:textAllCaps="false"
-                android:layout_marginTop="24dp"
-                android:backgroundTint="@color/accent_color"
-                android:textColor="@color/white" />
-        </LinearLayout>
+                android:layout_gravity="center"
+                android:visibility="gone" />
+        </FrameLayout>
 
-        <ProgressBar
-            android:id="@+id/pbLoading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone" />
-
-    </FrameLayout>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

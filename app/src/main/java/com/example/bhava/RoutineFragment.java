@@ -31,11 +31,14 @@ import retrofit2.Response;
 
 public class RoutineFragment extends Fragment {
 
-    private RecyclerView rvRoutines;
+    private RecyclerView rvRoutines, rvDays;
     private ChallengeAdapter adapter;
+    private com.example.bhava.adapter.DayAdapter dayAdapter;
     private ProgressBar pbLoading;
     private LinearLayout llEmptyState;
     private List<ChallengeItem> routines = new ArrayList<>();
+    private String selectedDay = "Mon";
+    private final List<String> weekDays = java.util.Arrays.asList("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun");
 
     public RoutineFragment() {}
 
@@ -45,6 +48,7 @@ public class RoutineFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_routine, container, false);
 
         rvRoutines = view.findViewById(R.id.rvRoutines);
+        rvDays = view.findViewById(R.id.rvDays);
         pbLoading = view.findViewById(R.id.pbLoading);
         llEmptyState = view.findViewById(R.id.llEmptyState);
         ImageButton btnBack = view.findViewById(R.id.btnBack);
@@ -58,10 +62,34 @@ public class RoutineFragment extends Fragment {
             btnAdd.setOnClickListener(v -> openEditRoutine());
         }
 
+        setupDaySelector();
         setupRecyclerView();
+        
+        // Initialize with today's day
+        java.util.Calendar calendar = java.util.Calendar.getInstance();
+        int dayOfWeek = calendar.get(java.util.Calendar.DAY_OF_WEEK);
+        switch (dayOfWeek) {
+            case java.util.Calendar.MONDAY: selectedDay = "Mon"; break;
+            case java.util.Calendar.TUESDAY: selectedDay = "Tue"; break;
+            case java.util.Calendar.WEDNESDAY: selectedDay = "Wed"; break;
+            case java.util.Calendar.THURSDAY: selectedDay = "Thu"; break;
+            case java.util.Calendar.FRIDAY: selectedDay = "Fri"; break;
+            case java.util.Calendar.SATURDAY: selectedDay = "Sat"; break;
+            case java.util.Calendar.SUNDAY: selectedDay = "Sun"; break;
+        }
+        dayAdapter.setSelectedDay(selectedDay);
         fetchRoutines();
 
         return view;
+    }
+
+    private void setupDaySelector() {
+        rvDays.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        dayAdapter = new com.example.bhava.adapter.DayAdapter(weekDays, day -> {
+            selectedDay = day;
+            fetchRoutines();
+        });
+        rvDays.setAdapter(dayAdapter);
     }
 
     private void setupRecyclerView() {
@@ -76,7 +104,7 @@ public class RoutineFragment extends Fragment {
         pbLoading.setVisibility(View.VISIBLE);
         llEmptyState.setVisibility(View.GONE);
 
-        ApiClient.getService(getContext()).getRoutines().enqueue(new Callback<ChallengesResponse>() {
+        ApiClient.getService(getContext()).getRoutines(selectedDay).enqueue(new Callback<ChallengesResponse>() {
             @Override
             public void onResponse(Call<ChallengesResponse> call, Response<ChallengesResponse> response) {
                 if (!isAdded()) return;

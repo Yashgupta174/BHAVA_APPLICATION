@@ -24,6 +24,7 @@ public class TokenManager {
     private static final String KEY_PHONE   = "user_phone";
     private static final String KEY_LOCATION= "user_location";
     private static final String KEY_JOINED_COUNT = "joined_count";
+    private static final String KEY_STREAK_COUNT = "streak_count";
 
     private static TokenManager instance;
     private final SharedPreferences prefs;
@@ -67,7 +68,7 @@ public class TokenManager {
         return getToken() != null;
     }
 
-    public void saveUserInfo(String userId, String name, String email, String avatar, String bio, String phone, String location, int joinedCount) {
+    public void saveUserInfo(String userId, String name, String email, String avatar, String bio, String phone, String location, int joinedCount, int streakCount) {
         prefs.edit()
                 .putString(KEY_USER_ID, userId)
                 .putString(KEY_NAME, name)
@@ -77,6 +78,7 @@ public class TokenManager {
                 .putString(KEY_PHONE, phone != null ? phone : "")
                 .putString(KEY_LOCATION, location != null ? location : "")
                 .putInt(KEY_JOINED_COUNT, joinedCount)
+                .putInt(KEY_STREAK_COUNT, streakCount)
                 .apply();
     }
 
@@ -88,6 +90,7 @@ public class TokenManager {
     public String getUserPhone() { return prefs.getString(KEY_PHONE, ""); }
     public String getUserLocation(){ return prefs.getString(KEY_LOCATION, ""); }
     public int getJoinedChallengesCount() { return prefs.getInt(KEY_JOINED_COUNT, 0); }
+    public int getStreakCount() { return prefs.getInt(KEY_STREAK_COUNT, 0); }
 
     public void clearAll() {
         prefs.edit().clear().apply();

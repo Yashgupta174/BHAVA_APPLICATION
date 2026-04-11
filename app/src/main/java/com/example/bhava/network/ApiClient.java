@@ -15,7 +15,7 @@ public class ApiClient {
 
     // ── Local Development URL (Your Computer's IP) ──
     // IMPORTANT: Update this to your local Wi-Fi IP if testing on a physical device.
-    public static final String BASE_URL = "https://bhava-web-1.onrender.com/";
+    public static final String BASE_URL = "https://bhava-web-2.onrender.com/";
 
     // ── Production Backend URL (Vercel) ──
     // public static final String BASE_URL = "https://bhava-fkv3.vercel.app/";
@@ -41,7 +41,15 @@ public class ApiClient {
                         if (token != null) {
                             builder.header("Authorization", "Bearer " + token);
                         }
-                        return chain.proceed(builder.build());
+                        
+                        okhttp3.Response response = chain.proceed(builder.build());
+                        
+                        // Handle 401 Unauthorized globally
+                        if (response.code() == 401) {
+                            handleUnauthorized(context);
+                        }
+                        
+                        return response;
                     })
                     .addInterceptor(logging)
                     .build();
@@ -57,5 +65,16 @@ public class ApiClient {
 
     public static BhavaApiService getService(Context context) {
         return getInstance(context).create(BhavaApiService.class);
+    }
+
+    private static void handleUnauthorized(final Context context) {
+        // Run on main thread because we're showing UI
+        new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
+            TokenManager.getInstance(context).clearAll();
+            android.content.Intent intent = new android.content.Intent(context, com.example.bhava.Login_Screen.class);
+            intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK | android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            context.startActivity(intent);
+            android.widget.Toast.makeText(context, "Session expired. Please log in again.", android.widget.Toast.LENGTH_LONG).show();
+        });
     }
 }

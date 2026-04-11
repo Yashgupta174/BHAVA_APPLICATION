@@ -597,4 +597,13 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <!-- Neon Edge Lighting Overlay -->
+    <View
+        android:id="@+id/neonEdgeView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_neon_edge"
+        android:alpha="0"
+        android:visibility="visible" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

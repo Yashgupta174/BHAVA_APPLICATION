@@ -13,4 +13,5 @@ public class UserModel {
     @SerializedName("location")  public String location;
     @SerializedName("createdAt") public String createdAt;
     @SerializedName("joinedChallenges") public java.util.List<String> joinedChallenges;
+    @SerializedName("streakCount") public int streakCount;
 }

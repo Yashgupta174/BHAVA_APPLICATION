@@ -30,9 +30,11 @@ public class Navbar_Me_Fragment extends Fragment {
     private TextView tvUsername;
     private TextView tvProfileSubtitle;
     private TextView tvProfileStatus;
+    private TextView tvStreakCount;
+    private TextView tvStreakHint;
     private ImageView ivProfileAvatar;
     private android.widget.LinearLayout llProfileHeader;
-    private View cardOrders, cardCart, cardContact, cardLogout;
+    private View cardOrders, cardCart, cardContact, cardLogout, btnCommunity;
 
     public Navbar_Me_Fragment() {
         // Required empty public constructor
@@ -46,6 +48,10 @@ public class Navbar_Me_Fragment extends Fragment {
         tvUsername = view.findViewById(R.id.tvUsername);
         tvProfileSubtitle = view.findViewById(R.id.tvProfileSubtitle);
         tvProfileStatus = view.findViewById(R.id.tvProfileStatus);
+
+        tvStreakCount = view.findViewById(R.id.tvStreakCount);
+        tvStreakHint = view.findViewById(R.id.tvStreakHint);
+
         ivProfileAvatar = view.findViewById(R.id.ivProfileAvatar);
         llProfileHeader = view.findViewById(R.id.llProfileHeader);
 
@@ -65,6 +71,16 @@ public class Navbar_Me_Fragment extends Fragment {
         cardCart = view.findViewById(R.id.cardCart);
         cardContact = view.findViewById(R.id.cardContact);
         cardLogout = view.findViewById(R.id.cardLogout);
+        btnCommunity = view.findViewById(R.id.btnCommunity);
+
+        if (btnCommunity != null) {
+            btnCommunity.setOnClickListener(v -> {
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                        .replace(R.id.fragment_container, new CommunityListFragment())
+                        .addToBackStack(null).commit();
+            });
+        }
 
         if (cardOrders != null) {
             cardOrders.setOnClickListener(v -> {
@@ -255,6 +271,18 @@ public class Navbar_Me_Fragment extends Fragment {
             if (hint != null) hint.setVisibility(count > 0 ? View.GONE : View.VISIBLE);
         }
 
+        if (tvStreakCount != null) {
+            int streak = tm.getStreakCount();
+            tvStreakCount.setText(String.valueOf(streak));
+            if (tvStreakHint != null) {
+                if (streak > 0) {
+                    tvStreakHint.setText("You're on a " + streak + " day streak! Keep it up.");
+                } else {
+                    tvStreakHint.setText("Pray for 20 minutes today to start a streak!");
+                }
+            }
+        }
+
         if (ivProfileAvatar != null) {
             String resolvedAvatar = resolveAvatarUrl(avatar);
             if (resolvedAvatar != null && !resolvedAvatar.trim().isEmpty()) {
@@ -281,7 +309,7 @@ public class Navbar_Me_Fragment extends Fragment {
                     UserModel user = response.body().user;
                     int joinedCount = user.joinedChallenges != null ? user.joinedChallenges.size() : 0;
                     TokenManager.getInstance(requireContext())
-                            .saveUserInfo(user.id, user.name, user.email, user.avatar, user.bio, user.phoneNumber, user.location, joinedCount);
+                            .saveUserInfo(user.id, user.name, user.email, user.avatar, user.bio, user.phoneNumber, user.location, joinedCount, user.streakCount);
                     bindProfile(TokenManager.getInstance(requireContext()));
                     if (tvProfileStatus != null) tvProfileStatus.setText("Profile synced with your account");
                 } else {

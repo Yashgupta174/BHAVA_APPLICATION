@@ -113,7 +113,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                             TokenManager tm = TokenManager.getInstance(ForgotPasswordActivity.this);
                             tm.saveToken(body.token);
                             tm.saveUserInfo(body.user.id, body.user.name, body.user.email, body.user.avatar, body.user.bio, body.user.phoneNumber, body.user.location,
-                                    body.user.joinedChallenges != null ? body.user.joinedChallenges.size() : 0);
+                                    body.user.joinedChallenges != null ? body.user.joinedChallenges.size() : 0,
+                                    body.user.streakCount);
 
                             Toast.makeText(ForgotPasswordActivity.this, "Password reset successfully! Logged in.", Toast.LENGTH_SHORT).show();
                             

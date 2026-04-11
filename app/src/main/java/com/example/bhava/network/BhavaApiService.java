@@ -21,6 +21,8 @@ import com.example.bhava.model.UpdateProfileRequest;
 import com.example.bhava.model.UserResponse;
 import com.example.bhava.model.ChallengesResponse;
 import com.example.bhava.model.ChallengeItem;
+import com.example.bhava.model.CommunityListResponse;
+import com.example.bhava.model.CommunityDetailResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -143,16 +145,19 @@ public interface BhavaApiService {
     Call<ChallengesResponse> getMyJoinedChallenges();
 
     @GET("api/routines")
-    Call<ChallengesResponse> getRoutines();
+    Call<ChallengesResponse> getRoutines(@retrofit2.http.Query("day") String day);
 
     @POST("api/routines/{id}")
-    Call<ApiResponse> addToRoutine(@Path("id") String challengeId);
+    Call<ApiResponse> addToRoutine(@Path("id") String challengeId, @Body com.example.bhava.model.RoutineRequest body);
 
     @GET("api/routines/check/{id}")
     Call<com.example.bhava.model.RoutineStatusResponse> checkRoutine(@Path("id") String challengeId);
 
     @DELETE("api/routines/{id}")
     Call<ApiResponse> removeFromRoutine(@Path("id") String challengeId);
+
+    @PATCH("api/routines/{id}/days")
+    Call<ApiResponse> updateRoutineDays(@Path("id") String challengeId, @Body java.util.List<String> days);
 
     @GET("api/intentions")
     Call<com.example.bhava.model.IntentionsResponse> getIntentions();
@@ -165,4 +170,13 @@ public interface BhavaApiService {
 
     @DELETE("api/intentions/{id}")
     Call<ApiResponse> deleteIntention(@Path("id") String id);
+
+    @PATCH("api/auth/activity")
+    Call<com.example.bhava.model.ActivityResponse> updateActivity(@Body com.example.bhava.model.ActivityRequest body);
+
+    @GET("api/community")
+    Call<CommunityListResponse> getCommunities();
+
+    @GET("api/community/{id}")
+    Call<CommunityDetailResponse> getCommunityById(@Path("id") String id);
 }
