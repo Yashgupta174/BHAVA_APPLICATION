@@ -35,7 +35,7 @@ public class JoinedChallengesFragment extends Fragment {
     private ChallengeAdapter adapter;
     private SwipeRefreshLayout swipeRefreshJoined;
     private ProgressBar pbJoinedLoading;
-    private TextView tvJoinedEmpty;
+    private View tvJoinedEmpty;
     private TextView txtJoinedCount;
     private List<ChallengeItem> joinedList = new ArrayList<>();
 
@@ -60,6 +60,7 @@ public class JoinedChallengesFragment extends Fragment {
         setupRecyclerView();
 
         swipeRefreshJoined.setOnRefreshListener(this::fetchJoinedChallenges);
+        swipeRefreshJoined.setColorSchemeResources(R.color.bhava_primary);
 
         fetchJoinedChallenges();
 
@@ -68,7 +69,7 @@ public class JoinedChallengesFragment extends Fragment {
 
     private void setupRecyclerView() {
         rvJoinedChallenges.setLayoutManager(new LinearLayoutManager(getContext()));
-        adapter = new ChallengeAdapter(challenge -> {
+        adapter = new ChallengeAdapter(R.layout.item_challenge_list, challenge -> {
             // Open GenericDetailFragment for the clicked challenge
             GenericDetailFragment detailFragment = new GenericDetailFragment();
             Bundle args = new Bundle();

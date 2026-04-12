@@ -34,7 +34,7 @@ public class RecentFragment extends Fragment {
     private ChallengeAdapter adapter;
     private SwipeRefreshLayout swipeRefreshRecent;
     private ProgressBar pbRecentLoading;
-    private TextView tvRecentEmpty;
+    private View tvRecentEmpty;
     private List<ChallengeItem> recentList = new ArrayList<>();
 
     public RecentFragment() {}
@@ -51,6 +51,11 @@ public class RecentFragment extends Fragment {
         setupRecyclerView();
 
         swipeRefreshRecent.setOnRefreshListener(this::fetchRecentActivity);
+        swipeRefreshRecent.setColorSchemeResources(R.color.bhava_primary);
+
+        // Back button
+        View btnBack = view.findViewById(R.id.btnBack);
+        if (btnBack != null) btnBack.setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
 
         fetchRecentActivity();
 

@@ -1,100 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bhava_background">
+    android:background="@drawable/bg_page_gradient">
 
-    <!-- Header Section -->
-    <RelativeLayout
+    <!-- ══ PREMIUM FIXED HEADER ══ -->
+    <LinearLayout
         android:id="@+id/headerNotifications"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/bhava_background">
+        android:orientation="vertical"
+        android:background="#00000000"
+        android:elevation="6dp">
 
-        <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@drawable/logo_star"
-            app:tint="@color/bhava_primary"
-            android:layout_centerVertical="true"
-            android:contentDescription="Back"/>
-
-        <TextView
-            android:id="@+id/tvTitleNotifications"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notifications"
-            android:textColor="@color/bhava_primary"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/crimson_pro"
-            android:layout_centerInParent="true"/>
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp">
 
-        <ImageButton
-            android:id="@+id/btnClearAll"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_menu_delete"
-            app:tint="@color/bhava_primary"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:contentDescription="Clear All"/>
-    </RelativeLayout>
+            <!-- Back arrow -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="@color/text_espresso"
+                android:padding="9dp"
+                android:contentDescription="Back"
+                android:stateListAnimator="@null"/>
+
+            <!-- Title block -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="STAY INFORMED"
+                    android:fontFamily="@font/inter"
+                    android:textSize="9sp"
+                    android:textColor="@color/text_caramel"
+                    android:letterSpacing="0.15"
+                    android:layout_marginBottom="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notifications"
+                    android:fontFamily="@font/crimson_pro"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_espresso"
+                    android:letterSpacing="-0.01"
+                    android:includeFontPadding="false"/>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/btnClearAll"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="@drawable/bg_icon_btn"
+                android:src="@drawable/ic_delete_minimal"
+                app:tint="@color/text_espresso"
+                android:padding="8dp"
+                android:contentDescription="Clear All"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <!-- Empty State View -->
     <LinearLayout
         android:id="@+id/emptyState"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/headerNotifications"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:layout_gravity="center"
+        android:padding="32dp">
 
         <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/notificatio_bell"
-            android:alpha="0.2"
-            app:tint="@color/bhava_primary"/>
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_bell_minimal"
+            android:tint="@color/divider_warm"
+            android:alpha="0.8"
+            android:contentDescription="No notifications"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No notifications yet"
-            android:textColor="@color/text_secondary"
-            android:textSize="18sp"
+            android:textColor="@color/text_brown"
+            android:textSize="22sp"
             android:layout_marginTop="16dp"
-            android:fontFamily="sans-serif-medium"/>
+            android:fontFamily="@font/crimson_pro"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stay tuned for spiritual updates!"
-            android:textColor="@color/text_tertiary"
-            android:textSize="14sp"
-            android:layout_marginTop="8dp"/>
+            android:text="Stay tuned for spiritual updates\nand new challenges."
+            android:textColor="@color/text_caramel"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.5"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/inter"/>
     </LinearLayout>
 
     <!-- RecyclerView for Notifications -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNotifications"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
+        android:paddingTop="80dp"
         android:paddingBottom="24dp"
-        app:layout_constraintTop_toBottomOf="@id/headerNotifications"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:listitem="@layout/item_notification"/>
+        android:scrollbars="none"
+        tools:listitem="@layout/item_notification"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

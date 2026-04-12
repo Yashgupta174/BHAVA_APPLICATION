@@ -8,9 +8,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bhava.R;
+
+import com.google.android.material.card.MaterialCardView;
 
 import java.util.List;
 
@@ -54,11 +57,13 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayViewHolder> {
         holder.tvDay.setText(day);
 
         if (position == selectedPosition) {
-            holder.cardDay.setCardBackgroundColor(Color.parseColor("#E65100")); // Theme Deep Orange
+            holder.cardDay.setCardBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.bhava_primary));
+            holder.cardDay.setStrokeWidth(0);
             holder.tvDay.setTextColor(Color.WHITE);
         } else {
-            holder.cardDay.setCardBackgroundColor(Color.parseColor("#F5F5F5"));
-            holder.tvDay.setTextColor(Color.BLACK);
+            holder.cardDay.setCardBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.bhava_background));
+            holder.cardDay.setStrokeWidth(Math.round(1 * holder.itemView.getContext().getResources().getDisplayMetrics().density));
+            holder.tvDay.setTextColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.text_espresso));
         }
 
         holder.itemView.setOnClickListener(v -> {
@@ -77,7 +82,7 @@ public class DayAdapter extends RecyclerView.Adapter<DayAdapter.DayViewHolder> {
 
     static class DayViewHolder extends RecyclerView.ViewHolder {
         TextView tvDay;
-        CardView cardDay;
+        MaterialCardView cardDay;
 
         public DayViewHolder(@NonNull View itemView) {
             super(itemView);

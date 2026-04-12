@@ -90,50 +90,57 @@
                         android:gravity="center_vertical"
                         android:elevation="2dp">
 
-                        <!-- Home Title with better typography -->
+                        <!-- Welcome Label – aligned with notification icon -->
                         <TextView
                             android:id="@+id/homeTitle"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Home"
-                            android:fontFamily="@font/crimson_pro"
-                            style="@style/Bhava_TitleText"
-                            android:textColor="#FFFFFF"
-                            android:textSize="36sp"
-                            android:shadowColor="#B0000000"
+                            android:text="WELCOME BACK"
+                            android:fontFamily="@font/inter"
+                            android:textColor="#DDFFFFFF"
+                            android:textSize="12sp"
+                            android:letterSpacing="0.20"
+                            android:textStyle="normal"
+                            android:shadowColor="#60000000"
                             android:shadowDx="0"
-                            android:shadowDy="3"
-                            android:shadowRadius="8"
-                            android:includeFontPadding="false"/>
+                            android:shadowDy="1"
+                            android:shadowRadius="4"/>
 
-                        <!-- Enhanced Notification Button -->
+                        <!-- Notification Button - Compact Circular Frame -->
                         <FrameLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content">
 
-                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            <com.google.android.material.card.MaterialCardView
                                 android:id="@+id/notificationIcon"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/notificatio_bell"
-                                app:fabSize="mini"
-                                app:backgroundTint="#30FFFFFF"
-                                app:tint="#FFFFFF"
-                                app:elevation="4dp"
-                                app:pressedTranslationZ="8dp"
-                                app:borderWidth="0dp"
-                                android:contentDescription="Notifications"
-                                android:stateListAnimator="@null"/>
+                                android:layout_width="38dp"
+                                android:layout_height="38dp"
+                                app:cardCornerRadius="19dp"
+                                app:cardElevation="0dp"
+                                app:strokeWidth="0dp"
+                                app:cardBackgroundColor="#25FFFFFF"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:foreground="?attr/selectableItemBackgroundBorderless">
 
-                            <!-- Notification Badge (optional - hide if no notifications) -->
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/ic_notification_minimal"
+                                    android:tint="#FFFFFF"
+                                    android:contentDescription="Notifications"/>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <!-- Notification Badge -->
                             <View
                                 android:id="@+id/notificationBadge"
-                                android:layout_width="10dp"
-                                android:layout_height="10dp"
+                                android:layout_width="9dp"
+                                android:layout_height="9dp"
                                 android:layout_gravity="top|end"
-                                android:layout_marginTop="8dp"
-                                android:layout_marginEnd="8dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="2dp"
                                 android:background="@drawable/notification_badge"
                                 android:visibility="gone"/>
                         </FrameLayout>
@@ -355,7 +362,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="20dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"
                 android:background="@color/bhava_background">
 
                 <TextView
@@ -384,28 +394,31 @@
                         android:focusable="true">
 
                         <com.google.android.material.card.MaterialCardView
-                            android:layout_width="64dp"
+                            android:layout_width="52dp"
                             android:id="@+id/favourite"
-                            android:layout_height="64dp"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="4dp"
+                            android:layout_height="52dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp"
                             app:cardBackgroundColor="@color/action_button_bg">
 
                             <ImageView
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/logo_star"
+                                android:src="@drawable/ic_favorite_minimal"
+                                app:tint="@color/bhava_primary"
                                 android:contentDescription="Favorites"/>
                         </com.google.android.material.card.MaterialCardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="6dp"
                             android:text="Favorites"
                             style="@style/Bhava_BodyText"
-                            android:textStyle="bold"/>
+                            android:textSize="11sp"
+                            android:textColor="@color/text_secondary"/>
                     </LinearLayout>
 
                     <!-- Ask Bhava -->
@@ -421,28 +434,31 @@
                         android:focusable="true">
 
                         <com.google.android.material.card.MaterialCardView
-                            android:layout_width="64dp"
+                            android:layout_width="52dp"
                             android:id="@+id/ask_bhava"
-                            android:layout_height="64dp"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="4dp"
+                            android:layout_height="52dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp"
                             app:cardBackgroundColor="@color/action_button_bg">
 
                             <ImageView
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/logo_triangle"
+                                android:src="@drawable/ic_ask_bhava_ai"
+                                app:tint="@color/bhava_primary"
                                 android:contentDescription="Ask Bhava"/>
                         </com.google.android.material.card.MaterialCardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="6dp"
                             android:text="Ask Bhava"
                             style="@style/Bhava_BodyText"
-                            android:textStyle="bold"/>
+                            android:textSize="11sp"
+                            android:textColor="@color/text_secondary"/>
                     </LinearLayout>
 
                     <!-- Routine -->
@@ -458,28 +474,31 @@
                         android:focusable="true">
 
                         <com.google.android.material.card.MaterialCardView
-                            android:layout_width="64dp"
+                            android:layout_width="52dp"
                             android:id="@+id/routine"
-                            android:layout_height="64dp"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="4dp"
+                            android:layout_height="52dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp"
                             app:cardBackgroundColor="@color/action_button_bg">
 
                             <ImageView
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/logo_calendar"
+                                android:src="@drawable/ic_routine_minimal"
+                                app:tint="@color/bhava_primary"
                                 android:contentDescription="Routine"/>
                         </com.google.android.material.card.MaterialCardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="6dp"
                             android:text="Routine"
                             style="@style/Bhava_BodyText"
-                            android:textStyle="bold"/>
+                            android:textSize="11sp"
+                            android:textColor="@color/text_secondary"/>
                     </LinearLayout>
 
                     <!-- Recents -->
@@ -495,28 +514,31 @@
                         android:focusable="true">
 
                         <com.google.android.material.card.MaterialCardView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
+                            android:layout_width="52dp"
+                            android:layout_height="52dp"
                             android:id="@+id/recent"
-                            app:cardCornerRadius="20dp"
-                            app:cardElevation="4dp"
+                            app:cardCornerRadius="14dp"
+                            app:cardElevation="0dp"
+                            app:strokeWidth="0dp"
                             app:cardBackgroundColor="@color/action_button_bg">
 
                             <ImageView
-                                android:layout_width="32dp"
-                                android:layout_height="32dp"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
                                 android:layout_gravity="center"
-                                android:src="@drawable/logo_recent"
+                                android:src="@drawable/ic_recent_minimal"
+                                app:tint="@color/bhava_primary"
                                 android:contentDescription="Recents"/>
                         </com.google.android.material.card.MaterialCardView>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
+                            android:layout_marginTop="6dp"
                             android:text="Recents"
                             style="@style/Bhava_BodyText"
-                            android:textStyle="bold"/>
+                            android:textSize="11sp"
+                            android:textColor="@color/text_secondary"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

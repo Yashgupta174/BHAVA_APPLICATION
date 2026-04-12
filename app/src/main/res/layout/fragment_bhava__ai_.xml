@@ -4,21 +4,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_parchment">
+    android:background="@drawable/bg_bhava_ai_screen">
 
     <!-- ════════════════════════════════════════════ -->
-    <!--               TOP APP BAR                   -->
+    <!--               PREMIUM TOP APP BAR           -->
     <!-- ════════════════════════════════════════════ -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:paddingStart="16dp"
+        android:paddingStart="12dp"
         android:paddingEnd="16dp"
-        android:background="@color/bg_parchment"
-        android:elevation="4dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:background="@color/bhava_background"
+        android:elevation="6dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -31,42 +33,81 @@
             android:src="@drawable/ic_arrow_back"
             android:background="@drawable/bg_icon_btn"
             android:tint="@color/text_espresso"
-            android:padding="10dp"
+            android:padding="9dp"
             android:contentDescription="Back"
-            android:stateListAnimator="@null" />
+            android:stateListAnimator="@null"/>
 
-        <!-- Title block (center, weight=1) -->
+        <!-- AI Avatar + Title block -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginStart="8dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginStart="12dp"
             android:layout_marginEnd="8dp">
 
-            <TextView
-                android:id="@+id/tvTitle"
+            <!-- Glowing AI Avatar -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                app:cardCornerRadius="19dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="1.5dp"
+                app:strokeColor="#C89858"
+                app:cardBackgroundColor="#6b4423"
+                android:layout_marginEnd="10dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_ask_bhava_ai"
+                    android:tint="#FFFFFF"
+                    android:contentDescription="Bhava AI"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Name + label -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bhava_ai_title"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:textColor="@color/text_espresso"
-                android:layout_gravity="center" />
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Spiritual Guide"
-                android:textSize="10sp"
-                android:textColor="@color/text_caramel"
-                android:layout_gravity="center"
-                android:letterSpacing="0.05" />
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ask Bhava"
+                    android:fontFamily="@font/crimson_pro"
+                    android:textSize="19sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_espresso"
+                    android:letterSpacing="-0.01"/>
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="6dp"
+                        android:layout_height="6dp"
+                        android:background="@drawable/live_dot_bright"
+                        android:layout_marginEnd="4dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Spiritual Guide · Online"
+                        android:fontFamily="@font/inter"
+                        android:textSize="10sp"
+                        android:textColor="@color/text_brown"
+                        android:letterSpacing="0.03"/>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- More options button -->
+        <!-- More options -->
         <ImageButton
             android:id="@+id/btnMore"
             android:layout_width="36dp"
@@ -74,21 +115,22 @@
             android:src="@drawable/ic_more_vert"
             android:background="@drawable/bg_icon_btn"
             android:tint="@color/text_espresso"
-            android:padding="10dp"
+            android:padding="9dp"
             android:contentDescription="More options"
-            android:stateListAnimator="@null" />
+            android:stateListAnimator="@null"/>
 
     </LinearLayout>
 
-    <!-- Divider under top bar -->
+    <!-- Subtle divider -->
     <View
         android:id="@+id/dividerTop"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/divider_warm"
+        android:alpha="0.5"
         app:layout_constraintTop_toBottomOf="@id/topBar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- ════════════════════════════════════════════ -->
     <!--             CHAT RECYCLER VIEW              -->
@@ -98,15 +140,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
-        android:paddingTop="16dp"
-        android:paddingBottom="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp"
+        android:scrollbars="none"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/dividerTop"
         app:layout_constraintBottom_toTopOf="@id/disclaimerText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Disclaimer text sits above quick actions -->
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- ════════════════════════════════════════════ -->
     <!--              DISCLAIMER TEXT                -->
@@ -116,32 +157,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/bhava_disclaimer"
-        android:textSize="11.5sp"
-        android:textColor="@color/text_caramel_light"
-        android:lineSpacingMultiplier="1.45"
+        android:fontFamily="@font/inter"
+        android:textSize="10.5sp"
+        android:textColor="@color/text_caramel"
+        android:lineSpacingMultiplier="1.4"
         android:gravity="center"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:background="@color/bg_parchment"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp"
+        android:background="@color/bhava_background"
+        android:alpha="0.8"
         app:layout_constraintBottom_toTopOf="@id/quickActionsRow"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- ════════════════════════════════════════════ -->
-    <!--          QUICK ACTION PILLS ROW             -->
+    <!--          QUICK ACTION CHIPS ROW             -->
     <!-- ════════════════════════════════════════════ -->
     <HorizontalScrollView
         android:id="@+id/quickActionsRow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none"
-        android:paddingStart="14dp"
-        android:paddingEnd="14dp"
-        android:paddingBottom="6dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp"
+        android:paddingTop="4dp"
         android:clipToPadding="false"
-        android:background="@color/bg_parchment"
+        android:background="@color/bhava_background"
         app:layout_constraintBottom_toTopOf="@id/inputCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -150,71 +194,74 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:paddingTop="6dp">
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/pillMantras"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🕉 Mantras"
+                android:text="🕉  Mantras"
+                android:fontFamily="@font/inter"
                 android:textSize="12sp"
-                android:textColor="@color/text_caramel"
+                android:textColor="@color/bhava_primary"
                 android:background="@drawable/bg_quick_pill"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_marginEnd="6dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:layout_marginEnd="8dp"
                 android:clickable="true"
-                android:focusable="true" />
+                android:focusable="true"/>
 
             <TextView
                 android:id="@+id/pillFestivals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🪔 Festivals"
+                android:text="🪔  Festivals"
+                android:fontFamily="@font/inter"
                 android:textSize="12sp"
-                android:textColor="@color/text_caramel"
+                android:textColor="@color/bhava_primary"
                 android:background="@drawable/bg_quick_pill"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_marginEnd="6dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:layout_marginEnd="8dp"
                 android:clickable="true"
-                android:focusable="true" />
+                android:focusable="true"/>
 
             <TextView
                 android:id="@+id/pillScriptures"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="📖 Scriptures"
+                android:text="📖  Scriptures"
+                android:fontFamily="@font/inter"
                 android:textSize="12sp"
-                android:textColor="@color/text_caramel"
+                android:textColor="@color/bhava_primary"
                 android:background="@drawable/bg_quick_pill"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:layout_marginEnd="6dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
+                android:layout_marginEnd="8dp"
                 android:clickable="true"
-                android:focusable="true" />
+                android:focusable="true"/>
 
             <TextView
                 android:id="@+id/pillMeditation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🌸 Meditation"
+                android:text="🌸  Meditation"
+                android:fontFamily="@font/inter"
                 android:textSize="12sp"
-                android:textColor="@color/text_caramel"
+                android:textColor="@color/bhava_primary"
                 android:background="@drawable/bg_quick_pill"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:paddingTop="7dp"
+                android:paddingBottom="7dp"
                 android:clickable="true"
-                android:focusable="true" />
+                android:focusable="true"/>
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -222,16 +269,18 @@
     <!-- ════════════════════════════════════════════ -->
     <!--            BOTTOM INPUT CARD                -->
     <!-- ════════════════════════════════════════════ -->
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/inputCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="20dp"
-        app:cardCornerRadius="28dp"
-        app:cardElevation="6dp"
-        app:cardBackgroundColor="@color/bg_warm_cream"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="22dp"
+        app:cardCornerRadius="26dp"
+        app:cardElevation="8dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#EDD9C0"
+        app:cardBackgroundColor="#FFFBF7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -241,23 +290,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:minHeight="56dp">
-
-            <!-- Attach / mic icon button -->
-            <ImageButton
-                android:id="@+id/btnAttach"
-                android:layout_width="34dp"
-                android:layout_height="34dp"
-                android:src="@drawable/ic_attach"
-                android:background="@drawable/bg_input_action_btn"
-                android:tint="@color/text_caramel"
-                android:padding="8dp"
-                android:contentDescription="Attach"
-                android:stateListAnimator="@null" />
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:minHeight="54dp">
 
             <!-- Text input -->
             <EditText
@@ -266,31 +303,32 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="@string/bhava_input_hint"
-                android:textColorHint="@color/text_caramel_light"
+                android:fontFamily="@font/inter"
+                android:textColorHint="#C8A882"
                 android:textColor="@color/text_espresso"
-                android:textSize="14.5sp"
+                android:textSize="14sp"
                 android:background="@android:color/transparent"
-                android:paddingStart="10dp"
-                android:paddingEnd="8dp"
+                android:paddingStart="14dp"
+                android:paddingEnd="10dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:maxLines="4"
                 android:inputType="textMultiLine|textCapSentences"
-                android:imeOptions="actionSend" />
+                android:imeOptions="actionSend"/>
 
-            <!-- Send button — accent gradient pill -->
+            <!-- Send button -->
             <ImageButton
                 android:id="@+id/btnSend"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:src="@drawable/ic_send"
                 android:background="@drawable/bg_send_btn"
                 android:tint="@color/white"
-                android:padding="10dp"
+                android:padding="12dp"
                 android:contentDescription="Send"
-                android:stateListAnimator="@null" />
+                android:stateListAnimator="@null"/>
 
         </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

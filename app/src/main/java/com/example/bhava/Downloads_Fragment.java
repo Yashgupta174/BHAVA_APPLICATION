@@ -34,7 +34,7 @@ public class Downloads_Fragment extends Fragment {
     private ChallengeAdapter adapter;
     private SwipeRefreshLayout swipeRefreshDownloads;
     private ProgressBar pbDownloadsLoading;
-    private TextView tvDownloadsEmpty;
+    private View tvDownloadsEmpty;
     private TextView txtCollectionCount, txtSessionCount;
     private List<ChallengeItem> downloadList = new ArrayList<>();
 
@@ -54,6 +54,11 @@ public class Downloads_Fragment extends Fragment {
         setupRecyclerView();
 
         swipeRefreshDownloads.setOnRefreshListener(this::fetchDownloads);
+        swipeRefreshDownloads.setColorSchemeResources(R.color.bhava_primary);
+
+        // Back button
+        View btnBack = view.findViewById(R.id.btnBack);
+        if (btnBack != null) btnBack.setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
 
         fetchDownloads();
 

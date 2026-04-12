@@ -4,105 +4,142 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_parchment">
+    android:background="@drawable/bg_page_gradient">
 
-    <!-- ══ FIXED HEADER ══ -->
+    <!-- ══ PREMIUM FIXED HEADER ══ -->
     <LinearLayout
         android:id="@+id/headerBlock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@color/bg_parchment"
+        android:background="@color/bhava_background"
         android:elevation="6dp">
 
-        <!-- Page Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Recents"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:textColor="@color/text_espresso"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="18dp"
-            android:paddingBottom="4dp" />
-
-        <!-- Subtitle Row: "12 collections · 8 sessions" -->
+        <!-- Top action row: back + title + counts -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="14dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="10dp">
 
-            <TextView
-                android:id="@+id/txtCollectionCount"
+            <!-- Back arrow -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="@color/text_espresso"
+                android:padding="9dp"
+                android:contentDescription="Back"
+                android:stateListAnimator="@null"/>
+
+            <!-- Title block -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HISTORY"
+                    android:fontFamily="@font/inter"
+                    android:textSize="9sp"
+                    android:textColor="@color/text_caramel"
+                    android:letterSpacing="0.15"
+                    android:layout_marginBottom="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recents"
+                    android:fontFamily="@font/crimson_pro"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_espresso"
+                    android:letterSpacing="-0.01"
+                    android:includeFontPadding="false"/>
+            </LinearLayout>
+
+            <!-- Count info -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12 collections"
-                android:textSize="13sp"
-                android:textColor="@color/black" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-            <!-- Dot separator -->
-            <View
-                android:layout_width="4dp"
-                android:layout_height="4dp"
-                android:background="@drawable/shape_dot"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp" />
+                <TextView
+                    android:id="@+id/txtCollectionCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="— "
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"/>
 
-            <TextView
-                android:id="@+id/txtSessionCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8 sessions"
-                android:textSize="13sp"
-                android:textColor="@color/black" />
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:background="@drawable/shape_dot"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"/>
 
+                <TextView
+                    android:id="@+id/txtSessionCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"/>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Tab Layout -->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
-            android:background="@color/bg_parchment"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
+            android:layout_height="40dp"
+            android:background="@color/bhava_background"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
             app:tabGravity="start"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/text_espresso"
             app:tabTextColor="@color/text_caramel"
             app:tabTextAppearance="@style/FavTabTextAppearance"
-            app:tabIndicatorColor="@color/text_espresso"
-            app:tabIndicatorHeight="2.5dp"
+            app:tabIndicatorColor="@color/bhava_primary"
+            app:tabIndicatorHeight="2dp"
             app:tabIndicatorFullWidth="false"
             app:tabIndicatorGravity="bottom"
             app:tabRippleColor="@color/ripple_brown"
-            app:tabPaddingStart="10dp"
-            app:tabPaddingEnd="10dp">
+            app:tabPaddingStart="6dp"
+            app:tabPaddingEnd="6dp">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Collections" />
+                android:text="Collections"/>
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sessions" />
+                android:text="Sessions"/>
 
         </com.google.android.material.tabs.TabLayout>
 
-        <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/divider_warm" />
+            android:background="@color/divider_warm"
+            android:alpha="0.6"/>
 
     </LinearLayout>
 
@@ -111,32 +148,69 @@
         android:id="@+id/swipeRefreshRecent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="160dp">
+        android:layout_marginTop="148dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvRecentChallenges"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
+            android:paddingTop="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="80dp"
             android:clipToPadding="false"
-            android:scrollbars="vertical" />
+            android:scrollbars="none"/>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <!-- Loading -->
     <ProgressBar
         android:id="@+id/pbRecentLoading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="gone" />
+        android:indeterminateTint="@color/bhava_primary"
+        android:visibility="gone"/>
 
-    <TextView
+    <!-- Premium Empty State -->
+    <LinearLayout
         android:id="@+id/tvRecentEmpty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Your recent activity will appear here."
-        android:textColor="@color/text_caramel"
-        android:visibility="gone" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_recent_minimal"
+            android:tint="@color/divider_warm"
+            android:alpha="0.6"
+            android:contentDescription="No recent activity"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nothing recent yet"
+            android:fontFamily="@font/crimson_pro"
+            android:textSize="22sp"
+            android:textColor="@color/text_brown"
+            android:layout_marginTop="16dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sessions you listen to will\nappear here automatically."
+            android:fontFamily="@font/inter"
+            android:textSize="13sp"
+            android:textColor="@color/text_caramel"
+            android:lineSpacingMultiplier="1.5"
+            android:layout_marginTop="8dp"
+            android:gravity="center"/>
+    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

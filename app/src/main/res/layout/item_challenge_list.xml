@@ -27,8 +27,8 @@
 
         <!-- Thumbnail -->
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             app:cardCornerRadius="12dp"
             app:cardElevation="0dp"
             app:strokeWidth="0dp"
@@ -40,7 +40,7 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
                 android:src="@drawable/challenge_21days"
-                android:contentDescription="Routine Image"/>
+                android:contentDescription="Challenge Image"/>
         </com.google.android.material.card.MaterialCardView>
 
         <!-- Text content -->
@@ -50,15 +50,31 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <!-- Live Badge -->
+            <TextView
+                android:id="@+id/badge_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="● Live"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/badge_live"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="6dp"/>
+
             <!-- Title -->
             <TextView
                 android:id="@+id/challenge_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Morning Routine"
+                android:text="Challenge Title"
                 android:fontFamily="@font/crimson_pro"
                 android:textColor="@color/text_espresso"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:maxLines="2"
                 android:ellipsize="end"
@@ -69,12 +85,49 @@
                 android:id="@+id/challenge_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Spiritual practices for your morning."
+                android:text="Sacred journey details"
                 android:fontFamily="@font/inter"
                 android:textColor="@color/text_caramel"
-                android:textSize="12sp"
-                android:maxLines="2"
-                android:ellipsize="end"/>
+                android:textSize="11sp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Badges row -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/joined_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ 19M"
+                    android:textColor="@color/bhava_primary"
+                    android:background="@drawable/badge_outlined"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:layout_marginEnd="6dp"/>
+
+                <TextView
+                    android:id="@+id/duration_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="21 days"
+                    android:textColor="@color/bhava_primary"
+                    android:background="@drawable/badge_outlined"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:textSize="9sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
         </LinearLayout>
 
         <!-- Chevron -->
@@ -82,7 +135,7 @@
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:src="@drawable/ic_arrow_forward"
-            app:tint="@color/text_caramel"
+            android:tint="@color/text_caramel"
             android:alpha="0.5"
             android:layout_marginStart="8dp"
             android:contentDescription="Open"/>

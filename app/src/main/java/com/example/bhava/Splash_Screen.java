@@ -109,17 +109,8 @@ public class Splash_Screen extends AppCompatActivity {
 
     private void proceedToNextScreen() {
         Intent intent = new Intent(Splash_Screen.this, Login_Screen.class);
-        
-        View logoCard = findViewById(R.id.logoCard);
-        if (logoCard != null) {
-            androidx.core.app.ActivityOptionsCompat options = 
-                androidx.core.app.ActivityOptionsCompat.makeSceneTransitionAnimation(this, logoCard, "logo_shared");
-            startActivity(intent, options.toBundle());
-        } else {
-            startActivity(intent);
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        }
-        
-        new Handler().postDelayed(this::finish, 1000); // Delay finish to allow transition to complete
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        finish();
     }
 }

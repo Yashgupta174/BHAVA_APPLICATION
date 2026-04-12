@@ -4,31 +4,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/profile_cream_bg">
+    android:background="@drawable/bg_page_gradient">
 
-    <!-- Mandala Background -->
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_mandala_overlay"
-        android:scaleType="centerCrop"
-        android:alpha="0.2"
-        android:importantForAccessibility="no" />
-
-    <com.google.android.material.appbar.AppBarLayout
+    <!-- ══ PREMIUM FIXED HEADER ══ -->
+    <LinearLayout
+        android:id="@+id/headerBlock"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        app:elevation="0dp">
+        android:orientation="vertical"
+        android:background="#00000000"
+        android:elevation="0dp">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_arrow_back"
-            app:navigationIconTint="@color/profile_maroon"
-            app:title="" />
-    </com.google.android.material.appbar.AppBarLayout>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="36dp"
+            android:paddingBottom="14dp">
+
+            <!-- Back arrow managed by Toolbar but we'll use a custom button for consistency -->
+            <!-- Actually ProfileActivity uses Toolbar to handle back if we use it, but since we are redesigning, let's just make it a clean button and adjust the activity to find it, or use setSupportActionBar on a basic Toolbar -->
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:navigationIconTint="@color/text_espresso"
+                app:titleTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:titleTextColor="@color/text_espresso"
+                app:title="Edit Profile" />
+        </LinearLayout>
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -39,67 +48,75 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="24dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="42dp"
             android:gravity="center_horizontal">
 
+            <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Your Inner Profile"
+                android:text="Your Profile"
+                android:fontFamily="@font/crimson_pro"
                 android:textSize="32sp"
-                android:textColor="@color/profile_maroon"
-                android:fontFamily="serif"
-                android:textStyle="bold" />
+                android:textColor="@color/text_espresso"
+                android:textStyle="bold"
+                android:letterSpacing="-0.01" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reflect your true self"
-                android:textSize="16sp"
-                android:textColor="@color/profile_maroon"
-                android:alpha="0.7"
+                android:text="Update your details and avatar"
+                android:fontFamily="@font/inter"
+                android:textSize="14sp"
+                android:textColor="@color/text_caramel"
                 android:layout_marginTop="4dp" />
 
             <FrameLayout
-                android:layout_width="140dp"
-                android:layout_height="140dp"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
                 android:layout_marginTop="32dp">
 
-                <!-- Glowing Border -->
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/profile_avatar_glow" />
-
-                <!-- Avatar -->
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:id="@+id/ivAvatar"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                <!-- Avatar Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
                     android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/placeholder_avatar"
-                    app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.LargeComponent" />
+                    app:cardCornerRadius="55dp"
+                    app:cardElevation="2dp"
+                    app:strokeWidth="1.5dp"
+                    app:strokeColor="#C89858"
+                    app:cardBackgroundColor="@color/bhava_background">
+
+                    <ImageView
+                        android:id="@+id/ivAvatar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/placeholder_avatar" />
+                </com.google.android.material.card.MaterialCardView>
 
                 <!-- Edit Button -->
                 <FrameLayout
                     android:id="@+id/fabEditAvatar"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
                     android:layout_gravity="bottom|end"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/profile_edit_fab_bg"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:background="@drawable/bg_icon_btn"
                     android:elevation="4dp"
                     android:clickable="true"
                     android:focusable="true">
 
                     <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
                         android:layout_gravity="center"
                         android:src="@drawable/ic_edit"
-                        app:tint="@color/white" />
+                        app:tint="@color/text_espresso" />
                 </FrameLayout>
             </FrameLayout>
 
@@ -108,9 +125,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Syncing Profile..."
+                android:fontFamily="@font/inter"
                 android:textSize="12sp"
-                android:textColor="@color/profile_maroon"
-                android:layout_marginTop="8dp" />
+                android:textColor="@color/bhava_primary"
+                android:layout_marginTop="12dp" />
 
             <!-- Details Container -->
             <LinearLayout
@@ -119,104 +137,134 @@
                 android:orientation="vertical"
                 android:layout_marginTop="32dp">
 
-                <!-- Full Name -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:hintEnabled="false"
-                    android:layout_marginBottom="16dp">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etName"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:hint="Full Name"
-                        android:textColorHint="@color/profile_text_hint"
-                        android:background="@drawable/profile_field_bg"
-                        android:paddingHorizontal="24dp"
-                        android:textColor="@color/profile_maroon" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:text="Full Name"
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginStart="4dp"/>
 
-                <!-- Email (Icon + Text) -->
-                <com.google.android.material.textfield.TextInputLayout
+                <!-- Full Name field -->
+                <EditText
+                    android:id="@+id/etName"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:hintEnabled="false"
-                    android:layout_marginBottom="16dp">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:hint="Email Address"
-                        android:enabled="false"
-                        android:textColorHint="@color/profile_text_hint"
-                        android:background="@drawable/profile_field_bg"
-                        android:paddingHorizontal="24dp"
-                        android:textColor="@color/profile_maroon" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Phone -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:hintEnabled="false"
-                    android:layout_marginBottom="16dp">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etPhone"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:hint="Phone Number"
-                        android:textColorHint="@color/profile_text_hint"
-                        android:background="@drawable/profile_field_bg"
-                        android:paddingHorizontal="24dp"
-                        android:textColor="@color/profile_maroon" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Location -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:hintEnabled="false"
-                    android:layout_marginBottom="16dp">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etLocation"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:hint="Location"
-                        android:textColorHint="@color/profile_text_hint"
-                        android:background="@drawable/profile_field_bg"
-                        android:paddingHorizontal="24dp"
-                        android:textColor="@color/profile_maroon" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <!-- Bio -->
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:hintEnabled="false"
-                    android:layout_marginBottom="24dp">
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etBio"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:minHeight="100dp"
-                        android:hint="Tell us about yourself..."
-                        android:gravity="top"
-                        android:textColorHint="@color/profile_text_hint"
-                        android:background="@drawable/profile_field_bg"
-                        android:padding="24dp"
-                        android:textColor="@color/profile_maroon" />
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="54dp"
+                    android:hint="Your Name"
+                    android:textColorHint="#C8A882"
+                    android:textColor="@color/text_espresso"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14sp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:layout_marginBottom="16dp"/>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email Address"
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginStart="4dp"/>
+
+                <!-- Email field -->
+                <EditText
+                    android:id="@+id/etEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:hint="Email"
+                    android:enabled="false"
+                    android:textColorHint="#C8A882"
+                    android:textColor="@color/text_espresso"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14sp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:alpha="0.7"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number"
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginStart="4dp"/>
+
+                <!-- Phone field -->
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:hint="Phone"
+                    android:textColorHint="#C8A882"
+                    android:textColor="@color/text_espresso"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14sp"
+                    android:inputType="phone"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location"
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginStart="4dp"/>
+
+                <!-- Location field -->
+                <EditText
+                    android:id="@+id/etLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:hint="Location"
+                    android:textColorHint="#C8A882"
+                    android:textColor="@color/text_espresso"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14sp"
+                    android:background="@drawable/bg_input_field"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bio"
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginStart="4dp"/>
+
+                <!-- Bio field -->
+                <EditText
+                    android:id="@+id/etBio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="&quot;Be yourself, everyone else is already taken.&quot;"
-                    android:textAlignment="center"
-                    android:fontFamily="serif"
-                    android:textStyle="italic"
-                    android:textColor="@color/profile_maroon"
-                    android:alpha="0.6"
-                    android:layout_marginBottom="32dp" />
+                    android:minHeight="100dp"
+                    android:hint="Tell us a little about yourself..."
+                    android:gravity="top|start"
+                    android:textColorHint="#C8A882"
+                    android:textColor="@color/text_espresso"
+                    android:fontFamily="@font/inter"
+                    android:textSize="14sp"
+                    android:background="@drawable/bg_input_field"
+                    android:padding="16dp"
+                    android:layout_marginBottom="24dp"/>
 
                 <ProgressBar
                     android:id="@+id/progressBar"
@@ -225,33 +273,37 @@
                     android:layout_gravity="center"
                     android:layout_marginBottom="16dp"
                     android:visibility="gone"
-                    android:indeterminateTint="@color/profile_maroon" />
+                    android:indeterminateTint="@color/bhava_primary" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnUpdate"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="54dp"
                     android:text="Save Changes"
-                    android:background="@drawable/profile_save_btn_gradient"
                     android:textColor="@color/white"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:fontFamily="sans-serif-medium"
-                    app:backgroundTint="@null"
-                    android:layout_marginBottom="16dp" />
+                    android:fontFamily="@font/inter"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:cornerRadius="27dp"
+                    app:backgroundTint="@color/bhava_primary"
+                    app:elevation="2dp"
+                    android:layout_marginBottom="16dp"/>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnLogout"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="54dp"
                     android:text="Log Out"
-                    android:background="@drawable/profile_logout_btn_border"
-                    android:textColor="@color/profile_maroon"
-                    android:textAllCaps="false"
-                    android:textSize="18sp"
-                    android:fontFamily="sans-serif-medium"
-                    app:backgroundTint="@null"
-                    android:layout_marginBottom="48dp" />
+                    android:textColor="@color/text_caramel"
+                    android:fontFamily="@font/inter"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    app:cornerRadius="27dp"
+                    app:backgroundTint="@color/bhava_background"
+                    app:strokeColor="@color/text_caramel"
+                    app:strokeWidth="1dp"
+                    app:elevation="0dp"
+                    android:layout_marginBottom="32dp"/>
 
             </LinearLayout>
 

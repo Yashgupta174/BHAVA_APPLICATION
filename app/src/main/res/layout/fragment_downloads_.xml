@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bhava_background">
+    android:background="@drawable/bg_page_gradient">
 
-    <!-- ══ FIXED HEADER ══ -->
+    <!-- ══ PREMIUM FIXED HEADER ══ -->
     <LinearLayout
         android:id="@+id/headerBlock"
         android:layout_width="match_parent"
@@ -15,69 +15,108 @@
         android:background="@color/bhava_background"
         android:elevation="6dp">
 
-        <!-- Page Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Downloads"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            android:fontFamily="serif"
-            android:textColor="@color/text_espresso"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingTop="18dp"
-            android:paddingBottom="4dp" />
-
-        <!-- Subtitle Row: "5 collections · 3 sessions" -->
+        <!-- Top action row: back + title + counts -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingStart="20dp"
-            android:paddingEnd="20dp"
-            android:paddingBottom="14dp"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp">
 
-            <TextView
-                android:id="@+id/txtCollectionCount"
+            <!-- Back arrow -->
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@drawable/bg_icon_btn"
+                android:tint="@color/text_espresso"
+                android:padding="9dp"
+                android:contentDescription="Back"
+                android:stateListAnimator="@null"/>
+
+            <!-- Title block -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="OFFLINE"
+                    android:fontFamily="@font/inter"
+                    android:textSize="9sp"
+                    android:textColor="@color/text_caramel"
+                    android:letterSpacing="0.15"
+                    android:layout_marginBottom="1dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Downloads"
+                    android:fontFamily="@font/crimson_pro"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_espresso"
+                    android:letterSpacing="-0.01"
+                    android:includeFontPadding="false"/>
+            </LinearLayout>
+
+            <!-- Count info -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 collections"
-                android:textSize="13sp"
-                android:textColor="@color/black" />
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
-            <!-- Dot separator -->
-            <View
-                android:layout_width="4dp"
-                android:layout_height="4dp"
-                android:background="@drawable/shape_dot"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp" />
+                <TextView
+                    android:id="@+id/txtCollectionCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"/>
 
-            <TextView
-                android:id="@+id/txtSessionCount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0 sessions"
-                android:textSize="13sp"
-                android:textColor="@color/black" />
+                <View
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:background="@drawable/shape_dot"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"/>
 
+                <TextView
+                    android:id="@+id/txtSessionCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:fontFamily="@font/inter"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_caramel"/>
+            </LinearLayout>
         </LinearLayout>
 
-        <!-- Divider -->
+        <!-- Hair divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/divider_warm" />
+            android:background="@color/divider_warm"
+            android:alpha="0.6"/>
 
     </LinearLayout>
 
+    <!-- ══ SCROLLABLE CONTENT ══ -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefreshDownloads"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="100dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <FrameLayout
@@ -89,29 +128,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
+                android:paddingTop="8dp"
                 android:paddingBottom="80dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
+            <!-- Loading -->
             <ProgressBar
                 android:id="@+id/pbDownloadsLoading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:visibility="gone" />
+                android:indeterminateTint="@color/bhava_primary"
+                android:visibility="gone"/>
 
-            <TextView
+            <!-- Premium Empty State -->
+            <LinearLayout
                 android:id="@+id/tvDownloadsEmpty"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="sans-serif-medium"
-                android:text="No downloads yet"
-                android:textColor="@color/text_caramel"
-                android:textSize="16sp"
-                android:visibility="gone" />
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="32dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_download"
+                    android:tint="@color/divider_warm"
+                    android:alpha="0.6"
+                    android:contentDescription="No downloads"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No downloads yet"
+                    android:fontFamily="@font/crimson_pro"
+                    android:textSize="22sp"
+                    android:textColor="@color/text_brown"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Save sessions for offline listening\nand they will appear here."
+                    android:fontFamily="@font/inter"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_caramel"
+                    android:lineSpacingMultiplier="1.5"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"/>
+            </LinearLayout>
 
         </FrameLayout>
-
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -44,8 +44,9 @@
                         android:id="@+id/ivProfileAvatar"
                         android:layout_width="68dp"
                         android:layout_height="68dp"
-                        android:src="@drawable/placeholder_avatar"
-                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_person_minimal"
+                        app:tint="@color/text_espresso"
+                        android:padding="16dp"
                         android:background="@drawable/circle_btn_bg"
                         android:contentDescription="Profile avatar"
                         android:layout_marginEnd="14dp" />
@@ -100,7 +101,7 @@
                             android:id="@+id/btnCommunity"
                             android:layout_width="42dp"
                             android:layout_height="42dp"
-                            android:src="@drawable/ic_group"
+                            android:src="@drawable/ic_group_minimal"
                             android:background="@drawable/circle_btn_bg"
                             android:padding="10dp"
                             app:tint="@color/text_espresso"
@@ -122,7 +123,7 @@
                             android:id="@+id/btnSettings"
                             android:layout_width="42dp"
                             android:layout_height="42dp"
-                            android:src="@drawable/ic_settings"
+                            android:src="@drawable/ic_settings_minimal"
                             android:background="@drawable/circle_btn_bg"
                             android:padding="10dp"
                                 app:tint="@color/text_espresso"
@@ -461,7 +462,7 @@
                     <ImageView
                         android:layout_width="34dp"
                         android:layout_height="34dp"
-                        android:src="@drawable/ic_star_border"
+                        android:src="@drawable/ic_star_minimal"
                         app:tint="@color/text_caramel"
                         android:layout_gravity="center"
                         android:contentDescription="No favorites yet" />
@@ -501,7 +502,7 @@
                     <ImageView
                         android:layout_width="34dp"
                         android:layout_height="34dp"
-                        android:src="@drawable/ic_download"
+                        android:src="@drawable/ic_download_minimal"
                         app:tint="@color/text_caramel"
                         android:layout_gravity="center"
                         android:contentDescription="No downloads yet" />
@@ -532,7 +533,7 @@
                     android:id="@+id/btnAddIntention"
                     android:layout_width="34dp"
                     android:layout_height="34dp"
-                    android:src="@drawable/ic_add_circle"
+                    android:src="@drawable/ic_add_minimal"
                     android:background="@android:color/transparent"
                     app:tint="@color/text_espresso"
                     android:layout_alignParentEnd="true"
@@ -605,7 +606,7 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/ic_orders"
+                            android:src="@drawable/ic_receipt_minimal"
                             app:tint="@color/text_espresso"
                             android:layout_marginBottom="6dp" />
                         <TextView
@@ -639,7 +640,7 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/ic_cart"
+                            android:src="@drawable/ic_cart_minimal"
                             app:tint="@color/text_espresso"
                             android:layout_marginBottom="6dp" />
                         <TextView
@@ -682,7 +683,7 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/ic_send"
+                            android:src="@drawable/ic_mail_minimal"
                             app:tint="@color/text_espresso"
                             android:layout_marginBottom="6dp" />
                         <TextView
@@ -716,7 +717,7 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/ic_lock"
+                            android:src="@drawable/ic_logout_minimal"
                             app:tint="@color/text_espresso"
                             android:layout_marginBottom="6dp" />
                         <TextView

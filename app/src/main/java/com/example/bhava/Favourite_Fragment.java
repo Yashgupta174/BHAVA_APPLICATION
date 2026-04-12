@@ -35,7 +35,7 @@ public class Favourite_Fragment extends Fragment {
     private List<ChallengeItem> favoriteList = new ArrayList<>();
     private SwipeRefreshLayout swipeRefreshFav;
     private ProgressBar pbFavLoading;
-    private TextView tvFavEmpty;
+    private View tvFavEmpty;
     private TextView txtSessionCount;
 
     public Favourite_Fragment() {}
@@ -59,6 +59,11 @@ public class Favourite_Fragment extends Fragment {
         rvFavorites.setAdapter(adapter);
 
         swipeRefreshFav.setOnRefreshListener(this::fetchFavorites);
+        swipeRefreshFav.setColorSchemeResources(R.color.bhava_primary);
+
+        // Back button
+        View btnBack = view.findViewById(R.id.btnBack);
+        if (btnBack != null) btnBack.setOnClickListener(v -> requireActivity().getSupportFragmentManager().popBackStack());
 
         fetchFavorites();
 

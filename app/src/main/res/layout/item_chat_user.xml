@@ -4,25 +4,25 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:gravity="end"
-    android:paddingStart="60dp"
-    android:paddingEnd="16dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp">
+    android:paddingStart="64dp"
+    android:paddingEnd="14dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
 
+    <!-- User Message Bubble -->
     <TextView
         android:id="@+id/tvChatContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_chat_user_bubble"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
         android:text="User message here..."
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="2dp"
-        android:elevation="2dp" />
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/inter"
+        android:textSize="14sp"
+        android:lineSpacingMultiplier="1.5"/>
 
 </LinearLayout>
